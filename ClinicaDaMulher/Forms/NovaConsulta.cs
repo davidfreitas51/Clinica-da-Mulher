@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ClinicaDaMulher.Controls
+namespace ClinicaDaMulher.Forms
 {
-    public partial class VerClientes : UserControl
+    public partial class NovaConsulta : Form
     {
-        public VerClientes()
+        public NovaConsulta()
         {
             InitializeComponent();
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

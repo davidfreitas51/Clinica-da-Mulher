@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClinicaDaMulher.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,12 @@ namespace ClinicaDaMulher.Controls
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnNovaConsulta_Click(object sender, EventArgs e)
+        {
+            NovaConsulta novaConsulta = new NovaConsulta();
+            novaConsulta.ShowDialog();
         }
     }
 }

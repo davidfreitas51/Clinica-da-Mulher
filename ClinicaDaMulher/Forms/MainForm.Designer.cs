@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             label5 = new Label();
             label1 = new Label();
-            dataGridView1 = new DataGridView();
+            dgvPrincipal = new DataGridView();
             pnlClientes = new Panel();
             button13 = new Button();
             button15 = new Button();
@@ -40,8 +40,8 @@
             btnClientes = new Button();
             upperPanel = new Panel();
             pnlUpperControls = new Panel();
+            label2 = new Label();
             pnlLogo = new Panel();
-            panel1 = new Panel();
             timerVer = new System.Windows.Forms.Timer(components);
             flowLayoutPanel1 = new FlowLayoutPanel();
             pnlVer = new Panel();
@@ -57,9 +57,10 @@
             timerClientes = new System.Windows.Forms.Timer(components);
             timerRazoes = new System.Windows.Forms.Timer(components);
             timerView = new System.Windows.Forms.Timer(components);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPrincipal).BeginInit();
             pnlClientes.SuspendLayout();
             upperPanel.SuspendLayout();
+            pnlUpperControls.SuspendLayout();
             pnlLogo.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             pnlVer.SuspendLayout();
@@ -72,7 +73,7 @@
             label5.BackColor = Color.FromArgb(137, 31, 110);
             label5.Font = new Font("Vivaldi", 19.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ControlLightLight;
-            label5.Location = new Point(61, 33);
+            label5.Location = new Point(99, 33);
             label5.Name = "label5";
             label5.Size = new Size(120, 41);
             label5.TabIndex = 35;
@@ -90,15 +91,15 @@
             label1.TabIndex = 34;
             label1.Text = "Clínica da";
             // 
-            // dataGridView1
+            // dgvPrincipal
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 77);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1221, 866);
-            dataGridView1.TabIndex = 20;
+            dgvPrincipal.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPrincipal.Dock = DockStyle.Fill;
+            dgvPrincipal.Location = new Point(0, 77);
+            dgvPrincipal.Name = "dgvPrincipal";
+            dgvPrincipal.RowHeadersWidth = 51;
+            dgvPrincipal.Size = new Size(1221, 866);
+            dgvPrincipal.TabIndex = 20;
             // 
             // pnlClientes
             // 
@@ -107,11 +108,11 @@
             pnlClientes.Controls.Add(button15);
             pnlClientes.Controls.Add(button14);
             pnlClientes.Controls.Add(btnClientes);
-            pnlClientes.Location = new Point(3, 289);
-            pnlClientes.MaximumSize = new Size(195, 280);
-            pnlClientes.MinimumSize = new Size(195, 70);
+            pnlClientes.Location = new Point(3, 79);
+            pnlClientes.MaximumSize = new Size(240, 280);
+            pnlClientes.MinimumSize = new Size(240, 70);
             pnlClientes.Name = "pnlClientes";
-            pnlClientes.Size = new Size(195, 70);
+            pnlClientes.Size = new Size(240, 70);
             pnlClientes.TabIndex = 45;
             // 
             // button13
@@ -125,7 +126,7 @@
             button13.ImageAlign = ContentAlignment.MiddleLeft;
             button13.Location = new Point(0, 210);
             button13.Name = "button13";
-            button13.Size = new Size(198, 70);
+            button13.Size = new Size(240, 70);
             button13.TabIndex = 46;
             button13.Text = "              Excluir";
             button13.UseVisualStyleBackColor = false;
@@ -141,7 +142,7 @@
             button15.ImageAlign = ContentAlignment.MiddleLeft;
             button15.Location = new Point(-2, 70);
             button15.Name = "button15";
-            button15.Size = new Size(198, 70);
+            button15.Size = new Size(240, 70);
             button15.TabIndex = 46;
             button15.Text = "             Novo";
             button15.UseVisualStyleBackColor = false;
@@ -157,7 +158,7 @@
             button14.ImageAlign = ContentAlignment.MiddleLeft;
             button14.Location = new Point(0, 140);
             button14.Name = "button14";
-            button14.Size = new Size(198, 70);
+            button14.Size = new Size(240, 70);
             button14.TabIndex = 47;
             button14.Text = "             Editar";
             button14.UseVisualStyleBackColor = false;
@@ -173,7 +174,7 @@
             btnClientes.ImageAlign = ContentAlignment.MiddleLeft;
             btnClientes.Location = new Point(0, 0);
             btnClientes.Name = "btnClientes";
-            btnClientes.Size = new Size(195, 70);
+            btnClientes.Size = new Size(240, 70);
             btnClientes.TabIndex = 46;
             btnClientes.Text = "            Clientes";
             btnClientes.UseVisualStyleBackColor = false;
@@ -191,30 +192,32 @@
             // 
             // pnlUpperControls
             // 
-            pnlUpperControls.Dock = DockStyle.Fill;
-            pnlUpperControls.Location = new Point(200, 0);
+            pnlUpperControls.Controls.Add(label2);
+            pnlUpperControls.Dock = DockStyle.Top;
+            pnlUpperControls.Location = new Point(240, 0);
             pnlUpperControls.Name = "pnlUpperControls";
-            pnlUpperControls.Size = new Size(1021, 77);
+            pnlUpperControls.Size = new Size(981, 77);
             pnlUpperControls.TabIndex = 46;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(394, 30);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 20);
+            label2.TabIndex = 0;
+            label2.Text = "label2";
             // 
             // pnlLogo
             // 
             pnlLogo.BackColor = Color.FromArgb(137, 31, 110);
-            pnlLogo.Controls.Add(panel1);
             pnlLogo.Controls.Add(label1);
             pnlLogo.Controls.Add(label5);
             pnlLogo.Dock = DockStyle.Left;
             pnlLogo.Location = new Point(0, 0);
             pnlLogo.Name = "pnlLogo";
-            pnlLogo.Size = new Size(200, 77);
+            pnlLogo.Size = new Size(240, 77);
             pnlLogo.TabIndex = 46;
-            // 
-            // panel1
-            // 
-            panel1.Location = new Point(204, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(250, 71);
-            panel1.TabIndex = 46;
             // 
             // timerVer
             // 
@@ -229,7 +232,7 @@
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 77);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(198, 866);
+            flowLayoutPanel1.Size = new Size(240, 866);
             flowLayoutPanel1.TabIndex = 45;
             // 
             // pnlVer
@@ -240,10 +243,10 @@
             pnlVer.Controls.Add(btnVer);
             pnlVer.Controls.Add(btnVerClientes);
             pnlVer.Location = new Point(3, 3);
-            pnlVer.MaximumSize = new Size(195, 280);
-            pnlVer.MinimumSize = new Size(195, 70);
+            pnlVer.MaximumSize = new Size(240, 280);
+            pnlVer.MinimumSize = new Size(240, 70);
             pnlVer.Name = "pnlVer";
-            pnlVer.Size = new Size(195, 280);
+            pnlVer.Size = new Size(240, 70);
             pnlVer.TabIndex = 48;
             // 
             // btnVerRazões
@@ -257,7 +260,7 @@
             btnVerRazões.ImageAlign = ContentAlignment.MiddleLeft;
             btnVerRazões.Location = new Point(0, 210);
             btnVerRazões.Name = "btnVerRazões";
-            btnVerRazões.Size = new Size(195, 70);
+            btnVerRazões.Size = new Size(240, 70);
             btnVerRazões.TabIndex = 50;
             btnVerRazões.Text = "            Razões";
             btnVerRazões.UseVisualStyleBackColor = false;
@@ -274,7 +277,7 @@
             btnVerConsultas.ImageAlign = ContentAlignment.MiddleLeft;
             btnVerConsultas.Location = new Point(0, 70);
             btnVerConsultas.Name = "btnVerConsultas";
-            btnVerConsultas.Size = new Size(195, 70);
+            btnVerConsultas.Size = new Size(240, 70);
             btnVerConsultas.TabIndex = 48;
             btnVerConsultas.Text = "            Consultas";
             btnVerConsultas.UseVisualStyleBackColor = false;
@@ -291,7 +294,7 @@
             btnVer.ImageAlign = ContentAlignment.MiddleLeft;
             btnVer.Location = new Point(0, 0);
             btnVer.Name = "btnVer";
-            btnVer.Size = new Size(195, 70);
+            btnVer.Size = new Size(240, 70);
             btnVer.TabIndex = 47;
             btnVer.Text = "            Ver";
             btnVer.UseVisualStyleBackColor = false;
@@ -308,7 +311,7 @@
             btnVerClientes.ImageAlign = ContentAlignment.MiddleLeft;
             btnVerClientes.Location = new Point(0, 140);
             btnVerClientes.Name = "btnVerClientes";
-            btnVerClientes.Size = new Size(195, 70);
+            btnVerClientes.Size = new Size(240, 70);
             btnVerClientes.TabIndex = 49;
             btnVerClientes.Text = "            Clientes";
             btnVerClientes.UseVisualStyleBackColor = false;
@@ -321,11 +324,11 @@
             pnlRazoes.Controls.Add(button9);
             pnlRazoes.Controls.Add(button7);
             pnlRazoes.Controls.Add(btnRazoes);
-            pnlRazoes.Location = new Point(3, 365);
-            pnlRazoes.MaximumSize = new Size(195, 280);
-            pnlRazoes.MinimumSize = new Size(195, 70);
+            pnlRazoes.Location = new Point(3, 155);
+            pnlRazoes.MaximumSize = new Size(240, 280);
+            pnlRazoes.MinimumSize = new Size(240, 70);
             pnlRazoes.Name = "pnlRazoes";
-            pnlRazoes.Size = new Size(195, 70);
+            pnlRazoes.Size = new Size(240, 70);
             pnlRazoes.TabIndex = 47;
             // 
             // button8
@@ -339,7 +342,7 @@
             button8.ImageAlign = ContentAlignment.MiddleLeft;
             button8.Location = new Point(0, 210);
             button8.Name = "button8";
-            button8.Size = new Size(195, 70);
+            button8.Size = new Size(240, 70);
             button8.TabIndex = 49;
             button8.Text = "            Excluir";
             button8.UseVisualStyleBackColor = false;
@@ -355,7 +358,7 @@
             button9.ImageAlign = ContentAlignment.MiddleLeft;
             button9.Location = new Point(0, 140);
             button9.Name = "button9";
-            button9.Size = new Size(195, 70);
+            button9.Size = new Size(240, 70);
             button9.TabIndex = 48;
             button9.Text = "            Editar";
             button9.UseVisualStyleBackColor = false;
@@ -371,7 +374,7 @@
             button7.ImageAlign = ContentAlignment.MiddleLeft;
             button7.Location = new Point(0, 70);
             button7.Name = "button7";
-            button7.Size = new Size(195, 70);
+            button7.Size = new Size(240, 70);
             button7.TabIndex = 47;
             button7.Text = "            Nova";
             button7.UseVisualStyleBackColor = false;
@@ -387,7 +390,7 @@
             btnRazoes.ImageAlign = ContentAlignment.MiddleLeft;
             btnRazoes.Location = new Point(0, 0);
             btnRazoes.Name = "btnRazoes";
-            btnRazoes.Size = new Size(195, 70);
+            btnRazoes.Size = new Size(240, 70);
             btnRazoes.TabIndex = 46;
             btnRazoes.Text = "            Razões";
             btnRazoes.UseVisualStyleBackColor = false;
@@ -415,15 +418,17 @@
             BackColor = Color.FromArgb(167, 38, 135);
             ClientSize = new Size(1221, 943);
             Controls.Add(flowLayoutPanel1);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvPrincipal);
             Controls.Add(upperPanel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Clínica da Mulher";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPrincipal).EndInit();
             pnlClientes.ResumeLayout(false);
             upperPanel.ResumeLayout(false);
+            pnlUpperControls.ResumeLayout(false);
+            pnlUpperControls.PerformLayout();
             pnlLogo.ResumeLayout(false);
             pnlLogo.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
@@ -435,7 +440,7 @@
         #endregion
         private Label label5;
         private Label label1;
-        private DataGridView dataGridView1;
+        private DataGridView dgvPrincipal;
         private Panel upperPanel;
         private Panel pnlClientes;
         private Button btnClientes;
@@ -459,6 +464,6 @@
         private Button button7;
         private Panel pnlUpperControls;
         private Panel pnlLogo;
-        private Panel panel1;
+        private Label label2;
     }
 }

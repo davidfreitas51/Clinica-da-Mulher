@@ -1,3 +1,6 @@
+using ClinicaDaMulher.Data;
+using ClinicaDaMulher.Models;
+
 namespace ClinicaDaMulher
 {
     internal static class Program

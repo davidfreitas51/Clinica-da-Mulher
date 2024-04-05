@@ -1,5 +1,6 @@
 using ClinicaDaMulher.Controls;
-using System.Windows.Forms;
+using ClinicaDaMulher.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClinicaDaMulher
 {
@@ -8,9 +9,16 @@ namespace ClinicaDaMulher
         bool viewCollapsed = false;
         bool clientCollapsed = false;
         bool reasonsCollapsed = false;
+        public static IClinicaDaMulherContext _context;
         public MainForm()
         {
             InitializeComponent();
+            ClinicaDaMulherContext DbContext = new ClinicaDaMulherContext();
+            DbWorker(DbContext);
+        }
+        public void DbWorker(IClinicaDaMulherContext context)
+        {
+            _context = context;
         }
         public void CollapsePanel(Panel panel, ref bool collapsed)
         {

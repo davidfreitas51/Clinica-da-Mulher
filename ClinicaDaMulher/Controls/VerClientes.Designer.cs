@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             painelLegal = new Panel();
-            textBox1 = new TextBox();
-            label3 = new Label();
             textBox2 = new TextBox();
             label1 = new Label();
+            textBox1 = new TextBox();
+            label3 = new Label();
+            btnBuscar = new Button();
             painelLegal.SuspendLayout();
             SuspendLayout();
             // 
             // painelLegal
             // 
             painelLegal.BackColor = Color.FromArgb(167, 38, 135);
+            painelLegal.Controls.Add(btnBuscar);
             painelLegal.Controls.Add(textBox2);
             painelLegal.Controls.Add(label1);
             painelLegal.Controls.Add(textBox1);
@@ -48,25 +50,6 @@
             painelLegal.Name = "painelLegal";
             painelLegal.Size = new Size(847, 84);
             painelLegal.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(17, 41);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(160, 31);
-            textBox1.TabIndex = 47;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(17, 10);
-            label3.Name = "label3";
-            label3.Size = new Size(46, 28);
-            label3.TabIndex = 46;
-            label3.Text = "CPF";
             // 
             // textBox2
             // 
@@ -87,6 +70,35 @@
             label1.TabIndex = 48;
             label1.Text = "Nome";
             // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(17, 41);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(160, 31);
+            textBox1.TabIndex = 47;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.ControlLightLight;
+            label3.Location = new Point(17, 10);
+            label3.Name = "label3";
+            label3.Size = new Size(46, 28);
+            label3.TabIndex = 46;
+            label3.Text = "CPF";
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.Location = new Point(441, 44);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(94, 29);
+            btnBuscar.TabIndex = 50;
+            btnBuscar.Text = "buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
+            // 
             // VerClientes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -106,5 +118,6 @@
         private Label label3;
         private TextBox textBox2;
         private Label label1;
+        private Button btnBuscar;
     }
 }
