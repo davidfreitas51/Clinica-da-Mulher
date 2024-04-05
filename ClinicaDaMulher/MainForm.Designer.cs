@@ -43,23 +43,30 @@
             button1 = new Button();
             dataGridView1 = new DataGridView();
             textBox2 = new TextBox();
-            panel1 = new Panel();
             pnlClientes = new Panel();
-            button12 = new Button();
             button13 = new Button();
             button15 = new Button();
             button14 = new Button();
-            button11 = new Button();
-            button4 = new Button();
+            btnClientes = new Button();
             panel2 = new Panel();
             panel3 = new Panel();
+            timerVer = new System.Windows.Forms.Timer(components);
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            pnlVer = new Panel();
+            btnVer = new Button();
+            pnlRazoes = new Panel();
+            btnRazoes = new Button();
             timerClientes = new System.Windows.Forms.Timer(components);
+            timerRazoes = new System.Windows.Forms.Timer(components);
+            timerView = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            panel1.SuspendLayout();
             pnlClientes.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
+            pnlVer.SuspendLayout();
+            pnlRazoes.SuspendLayout();
             SuspendLayout();
             // 
             // label5
@@ -189,7 +196,7 @@
             dataGridView1.Location = new Point(0, 77);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1221, 521);
+            dataGridView1.Size = new Size(1221, 720);
             dataGridView1.TabIndex = 20;
             // 
             // textBox2
@@ -200,46 +207,19 @@
             textBox2.Size = new Size(160, 31);
             textBox2.TabIndex = 40;
             // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(50, 52, 77);
-            panel1.Controls.Add(pnlClientes);
-            panel1.Controls.Add(button11);
-            panel1.Controls.Add(button4);
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(0, 77);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(193, 521);
-            panel1.TabIndex = 43;
-            // 
             // pnlClientes
             // 
             pnlClientes.BackColor = Color.White;
-            pnlClientes.Controls.Add(button12);
             pnlClientes.Controls.Add(button13);
             pnlClientes.Controls.Add(button15);
             pnlClientes.Controls.Add(button14);
-            pnlClientes.Location = new Point(0, 74);
+            pnlClientes.Controls.Add(btnClientes);
+            pnlClientes.Location = new Point(3, 79);
+            pnlClientes.MaximumSize = new Size(195, 280);
+            pnlClientes.MinimumSize = new Size(195, 70);
             pnlClientes.Name = "pnlClientes";
-            pnlClientes.Size = new Size(195, 72);
+            pnlClientes.Size = new Size(195, 71);
             pnlClientes.TabIndex = 45;
-            // 
-            // button12
-            // 
-            button12.BackColor = Color.FromArgb(50, 52, 77);
-            button12.FlatAppearance.BorderSize = 0;
-            button12.FlatStyle = FlatStyle.Flat;
-            button12.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button12.ForeColor = SystemColors.ControlLightLight;
-            button12.Image = (Image)resources.GetObject("button12.Image");
-            button12.ImageAlign = ContentAlignment.MiddleLeft;
-            button12.Location = new Point(0, 0);
-            button12.Name = "button12";
-            button12.Size = new Size(195, 70);
-            button12.TabIndex = 46;
-            button12.Text = "            Clientes";
-            button12.UseVisualStyleBackColor = false;
-            button12.Click += button12_Click;
             // 
             // button13
             // 
@@ -289,37 +269,22 @@
             button14.Text = "             Editar";
             button14.UseVisualStyleBackColor = false;
             // 
-            // button11
+            // btnClientes
             // 
-            button11.BackColor = Color.FromArgb(50, 52, 77);
-            button11.FlatAppearance.BorderSize = 0;
-            button11.FlatStyle = FlatStyle.Flat;
-            button11.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button11.ForeColor = SystemColors.ControlLightLight;
-            button11.Image = (Image)resources.GetObject("button11.Image");
-            button11.ImageAlign = ContentAlignment.MiddleLeft;
-            button11.Location = new Point(0, 0);
-            button11.Name = "button11";
-            button11.Size = new Size(195, 68);
-            button11.TabIndex = 45;
-            button11.Text = "            Ver";
-            button11.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.FromArgb(50, 52, 77);
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = SystemColors.ControlLightLight;
-            button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(3, 146);
-            button4.Name = "button4";
-            button4.Size = new Size(195, 68);
-            button4.TabIndex = 46;
-            button4.Text = "            Razões";
-            button4.UseVisualStyleBackColor = false;
+            btnClientes.BackColor = Color.FromArgb(50, 52, 77);
+            btnClientes.FlatAppearance.BorderSize = 0;
+            btnClientes.FlatStyle = FlatStyle.Flat;
+            btnClientes.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClientes.ForeColor = SystemColors.ControlLightLight;
+            btnClientes.Image = (Image)resources.GetObject("btnClientes.Image");
+            btnClientes.ImageAlign = ContentAlignment.MiddleLeft;
+            btnClientes.Location = new Point(14, 0);
+            btnClientes.Name = "btnClientes";
+            btnClientes.Size = new Size(195, 70);
+            btnClientes.TabIndex = 46;
+            btnClientes.Text = "            Clientes";
+            btnClientes.UseVisualStyleBackColor = false;
+            btnClientes.Click += button12_Click;
             // 
             // panel2
             // 
@@ -345,18 +310,100 @@
             panel3.Size = new Size(162, 77);
             panel3.TabIndex = 0;
             // 
+            // timerVer
+            // 
+            timerVer.Interval = 1;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.BackColor = Color.FromArgb(50, 52, 77);
+            flowLayoutPanel1.Controls.Add(pnlVer);
+            flowLayoutPanel1.Controls.Add(pnlClientes);
+            flowLayoutPanel1.Controls.Add(pnlRazoes);
+            flowLayoutPanel1.Dock = DockStyle.Left;
+            flowLayoutPanel1.Location = new Point(0, 77);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(198, 720);
+            flowLayoutPanel1.TabIndex = 45;
+            // 
+            // pnlVer
+            // 
+            pnlVer.BackColor = Color.White;
+            pnlVer.Controls.Add(btnVer);
+            pnlVer.Location = new Point(3, 3);
+            pnlVer.MaximumSize = new Size(195, 280);
+            pnlVer.MinimumSize = new Size(195, 70);
+            pnlVer.Name = "pnlVer";
+            pnlVer.Size = new Size(195, 70);
+            pnlVer.TabIndex = 48;
+            // 
+            // btnVer
+            // 
+            btnVer.BackColor = Color.FromArgb(50, 52, 77);
+            btnVer.FlatAppearance.BorderSize = 0;
+            btnVer.FlatStyle = FlatStyle.Flat;
+            btnVer.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVer.ForeColor = SystemColors.ControlLightLight;
+            btnVer.Image = (Image)resources.GetObject("btnVer.Image");
+            btnVer.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVer.Location = new Point(16, 1);
+            btnVer.Name = "btnVer";
+            btnVer.Size = new Size(195, 68);
+            btnVer.TabIndex = 47;
+            btnVer.Text = "            Ver";
+            btnVer.UseVisualStyleBackColor = false;
+            btnVer.Click += button4_Click;
+            // 
+            // pnlRazoes
+            // 
+            pnlRazoes.BackColor = Color.White;
+            pnlRazoes.Controls.Add(btnRazoes);
+            pnlRazoes.Location = new Point(3, 156);
+            pnlRazoes.MaximumSize = new Size(195, 280);
+            pnlRazoes.MinimumSize = new Size(195, 70);
+            pnlRazoes.Name = "pnlRazoes";
+            pnlRazoes.Size = new Size(195, 70);
+            pnlRazoes.TabIndex = 47;
+            // 
+            // btnRazoes
+            // 
+            btnRazoes.BackColor = Color.FromArgb(50, 52, 77);
+            btnRazoes.FlatAppearance.BorderSize = 0;
+            btnRazoes.FlatStyle = FlatStyle.Flat;
+            btnRazoes.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRazoes.ForeColor = SystemColors.ControlLightLight;
+            btnRazoes.Image = (Image)resources.GetObject("btnRazoes.Image");
+            btnRazoes.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRazoes.Location = new Point(7, -1);
+            btnRazoes.Name = "btnRazoes";
+            btnRazoes.Size = new Size(195, 71);
+            btnRazoes.TabIndex = 46;
+            btnRazoes.Text = "            Razões";
+            btnRazoes.UseVisualStyleBackColor = false;
+            btnRazoes.Click += btnRazoes_Click;
+            // 
             // timerClientes
             // 
             timerClientes.Interval = 1;
             timerClientes.Tick += timerClientes_Tick;
+            // 
+            // timerRazoes
+            // 
+            timerRazoes.Interval = 1;
+            timerRazoes.Tick += timerRazoes_Tick;
+            // 
+            // timerView
+            // 
+            timerView.Interval = 1;
+            timerView.Tick += timerView_Tick;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(167, 38, 135);
-            ClientSize = new Size(1221, 598);
-            Controls.Add(panel1);
+            ClientSize = new Size(1221, 797);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(label5);
             Controls.Add(label1);
             Controls.Add(pictureBox2);
@@ -370,11 +417,13 @@
             Text = "Clínica da Mulher";
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            panel1.ResumeLayout(false);
             pnlClientes.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
+            pnlVer.ResumeLayout(false);
+            pnlRazoes.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -393,16 +442,21 @@
         private Button button1;
         private DataGridView dataGridView1;
         private TextBox textBox2;
-        private Panel panel1;
         private Panel panel2;
         private Panel panel3;
-        private Button button11;
         private Panel pnlClientes;
-        private Button button12;
+        private Button btnClientes;
         private Button button15;
         private Button button14;
-        private System.Windows.Forms.Timer timerClientes;
+        private System.Windows.Forms.Timer timerVer;
         private Button button13;
-        private Button button4;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Button btnRazoes;
+        private Panel pnlRazoes;
+        private System.Windows.Forms.Timer timerClientes;
+        private System.Windows.Forms.Timer timerRazoes;
+        private Panel pnlVer;
+        private Button btnVer;
+        private System.Windows.Forms.Timer timerView;
     }
 }
