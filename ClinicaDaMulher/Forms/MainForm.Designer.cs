@@ -32,38 +32,35 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             label5 = new Label();
             label1 = new Label();
-            pictureBox2 = new PictureBox();
-            label4 = new Label();
-            comboBox1 = new ComboBox();
-            textBox1 = new TextBox();
-            label3 = new Label();
-            label2 = new Label();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
             dataGridView1 = new DataGridView();
-            textBox2 = new TextBox();
             pnlClientes = new Panel();
             button13 = new Button();
             button15 = new Button();
             button14 = new Button();
             btnClientes = new Button();
-            panel2 = new Panel();
-            panel3 = new Panel();
+            upperPanel = new Panel();
+            pnlUpperControls = new Panel();
+            pnlLogo = new Panel();
+            panel1 = new Panel();
             timerVer = new System.Windows.Forms.Timer(components);
             flowLayoutPanel1 = new FlowLayoutPanel();
             pnlVer = new Panel();
+            btnVerRazões = new Button();
+            btnVerConsultas = new Button();
             btnVer = new Button();
+            btnVerClientes = new Button();
             pnlRazoes = new Panel();
+            button8 = new Button();
+            button9 = new Button();
+            button7 = new Button();
             btnRazoes = new Button();
             timerClientes = new System.Windows.Forms.Timer(components);
             timerRazoes = new System.Windows.Forms.Timer(components);
             timerView = new System.Windows.Forms.Timer(components);
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             pnlClientes.SuspendLayout();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
+            upperPanel.SuspendLayout();
+            pnlLogo.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             pnlVer.SuspendLayout();
             pnlRazoes.SuspendLayout();
@@ -75,7 +72,7 @@
             label5.BackColor = Color.FromArgb(137, 31, 110);
             label5.Font = new Font("Vivaldi", 19.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ControlLightLight;
-            label5.Location = new Point(68, 36);
+            label5.Location = new Point(61, 33);
             label5.Name = "label5";
             label5.Size = new Size(120, 41);
             label5.TabIndex = 35;
@@ -87,107 +84,11 @@
             label1.BackColor = Color.FromArgb(137, 31, 110);
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(7, 3);
+            label1.Location = new Point(1, 0);
             label1.Name = "label1";
             label1.Size = new Size(155, 41);
             label1.TabIndex = 34;
             label1.Text = "Clínica da";
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.FromArgb(137, 31, 110);
-            pictureBox2.Location = new Point(-2, -1);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(195, 78);
-            pictureBox2.TabIndex = 33;
-            pictureBox2.TabStop = false;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.ControlLightLight;
-            label4.Location = new Point(541, 7);
-            label4.Name = "label4";
-            label4.Size = new Size(69, 28);
-            label4.TabIndex = 30;
-            label4.Text = "Razão";
-            // 
-            // comboBox1
-            // 
-            comboBox1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(541, 39);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 30);
-            comboBox1.TabIndex = 29;
-            // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(195, 40);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(160, 31);
-            textBox1.TabIndex = 28;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(195, 9);
-            label3.Name = "label3";
-            label3.Size = new Size(132, 28);
-            label3.TabIndex = 26;
-            label3.Text = "Cliente (CPF)";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ControlLightLight;
-            label2.Location = new Point(364, 8);
-            label2.Name = "label2";
-            label2.Size = new Size(162, 28);
-            label2.TabIndex = 24;
-            label2.Text = "Dia selecionado";
-            // 
-            // button3
-            // 
-            button3.BackgroundImage = (Image)resources.GetObject("button3.BackgroundImage");
-            button3.BackgroundImageLayout = ImageLayout.Stretch;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.ForeColor = Color.FromArgb(167, 38, 135);
-            button3.Location = new Point(55, 31);
-            button3.Name = "button3";
-            button3.Size = new Size(46, 46);
-            button3.TabIndex = 23;
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
-            button2.BackgroundImageLayout = ImageLayout.Stretch;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.ForeColor = Color.FromArgb(167, 38, 135);
-            button2.Location = new Point(107, 31);
-            button2.Name = "button2";
-            button2.Size = new Size(46, 46);
-            button2.TabIndex = 22;
-            button2.TextImageRelation = TextImageRelation.ImageAboveText;
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
-            button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = Color.FromArgb(167, 38, 135);
-            button1.Location = new Point(3, 31);
-            button1.Name = "button1";
-            button1.Size = new Size(46, 46);
-            button1.TabIndex = 21;
-            button1.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -196,16 +97,8 @@
             dataGridView1.Location = new Point(0, 77);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1221, 720);
+            dataGridView1.Size = new Size(1221, 866);
             dataGridView1.TabIndex = 20;
-            // 
-            // textBox2
-            // 
-            textBox2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(366, 38);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(160, 31);
-            textBox2.TabIndex = 40;
             // 
             // pnlClientes
             // 
@@ -214,11 +107,11 @@
             pnlClientes.Controls.Add(button15);
             pnlClientes.Controls.Add(button14);
             pnlClientes.Controls.Add(btnClientes);
-            pnlClientes.Location = new Point(3, 79);
+            pnlClientes.Location = new Point(3, 289);
             pnlClientes.MaximumSize = new Size(195, 280);
             pnlClientes.MinimumSize = new Size(195, 70);
             pnlClientes.Name = "pnlClientes";
-            pnlClientes.Size = new Size(195, 71);
+            pnlClientes.Size = new Size(195, 70);
             pnlClientes.TabIndex = 45;
             // 
             // button13
@@ -278,37 +171,50 @@
             btnClientes.ForeColor = SystemColors.ControlLightLight;
             btnClientes.Image = (Image)resources.GetObject("btnClientes.Image");
             btnClientes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnClientes.Location = new Point(14, 0);
+            btnClientes.Location = new Point(0, 0);
             btnClientes.Name = "btnClientes";
             btnClientes.Size = new Size(195, 70);
             btnClientes.TabIndex = 46;
             btnClientes.Text = "            Clientes";
             btnClientes.UseVisualStyleBackColor = false;
-            btnClientes.Click += button12_Click;
+            btnClientes.Click += btnClientes_Click;
             // 
-            // panel2
+            // upperPanel
             // 
-            panel2.Controls.Add(panel3);
-            panel2.Controls.Add(comboBox1);
-            panel2.Controls.Add(textBox2);
-            panel2.Controls.Add(label4);
-            panel2.Controls.Add(label2);
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1221, 77);
-            panel2.TabIndex = 44;
+            upperPanel.Controls.Add(pnlUpperControls);
+            upperPanel.Controls.Add(pnlLogo);
+            upperPanel.Dock = DockStyle.Top;
+            upperPanel.Location = new Point(0, 0);
+            upperPanel.Name = "upperPanel";
+            upperPanel.Size = new Size(1221, 77);
+            upperPanel.TabIndex = 44;
             // 
-            // panel3
+            // pnlUpperControls
             // 
-            panel3.Controls.Add(button1);
-            panel3.Controls.Add(button3);
-            panel3.Controls.Add(button2);
-            panel3.Dock = DockStyle.Right;
-            panel3.Location = new Point(1059, 0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(162, 77);
-            panel3.TabIndex = 0;
+            pnlUpperControls.Dock = DockStyle.Fill;
+            pnlUpperControls.Location = new Point(200, 0);
+            pnlUpperControls.Name = "pnlUpperControls";
+            pnlUpperControls.Size = new Size(1021, 77);
+            pnlUpperControls.TabIndex = 46;
+            // 
+            // pnlLogo
+            // 
+            pnlLogo.BackColor = Color.FromArgb(137, 31, 110);
+            pnlLogo.Controls.Add(panel1);
+            pnlLogo.Controls.Add(label1);
+            pnlLogo.Controls.Add(label5);
+            pnlLogo.Dock = DockStyle.Left;
+            pnlLogo.Location = new Point(0, 0);
+            pnlLogo.Name = "pnlLogo";
+            pnlLogo.Size = new Size(200, 77);
+            pnlLogo.TabIndex = 46;
+            // 
+            // panel1
+            // 
+            panel1.Location = new Point(204, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(250, 71);
+            panel1.TabIndex = 46;
             // 
             // timerVer
             // 
@@ -323,19 +229,56 @@
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 77);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(198, 720);
+            flowLayoutPanel1.Size = new Size(198, 866);
             flowLayoutPanel1.TabIndex = 45;
             // 
             // pnlVer
             // 
             pnlVer.BackColor = Color.White;
+            pnlVer.Controls.Add(btnVerRazões);
+            pnlVer.Controls.Add(btnVerConsultas);
             pnlVer.Controls.Add(btnVer);
+            pnlVer.Controls.Add(btnVerClientes);
             pnlVer.Location = new Point(3, 3);
             pnlVer.MaximumSize = new Size(195, 280);
             pnlVer.MinimumSize = new Size(195, 70);
             pnlVer.Name = "pnlVer";
-            pnlVer.Size = new Size(195, 70);
+            pnlVer.Size = new Size(195, 280);
             pnlVer.TabIndex = 48;
+            // 
+            // btnVerRazões
+            // 
+            btnVerRazões.BackColor = Color.FromArgb(69, 71, 106);
+            btnVerRazões.FlatAppearance.BorderSize = 0;
+            btnVerRazões.FlatStyle = FlatStyle.Flat;
+            btnVerRazões.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVerRazões.ForeColor = SystemColors.ControlLightLight;
+            btnVerRazões.Image = (Image)resources.GetObject("btnVerRazões.Image");
+            btnVerRazões.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVerRazões.Location = new Point(0, 210);
+            btnVerRazões.Name = "btnVerRazões";
+            btnVerRazões.Size = new Size(195, 70);
+            btnVerRazões.TabIndex = 50;
+            btnVerRazões.Text = "            Razões";
+            btnVerRazões.UseVisualStyleBackColor = false;
+            btnVerRazões.Click += btnVerRazões_Click;
+            // 
+            // btnVerConsultas
+            // 
+            btnVerConsultas.BackColor = Color.FromArgb(69, 71, 106);
+            btnVerConsultas.FlatAppearance.BorderSize = 0;
+            btnVerConsultas.FlatStyle = FlatStyle.Flat;
+            btnVerConsultas.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVerConsultas.ForeColor = SystemColors.ControlLightLight;
+            btnVerConsultas.Image = (Image)resources.GetObject("btnVerConsultas.Image");
+            btnVerConsultas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVerConsultas.Location = new Point(0, 70);
+            btnVerConsultas.Name = "btnVerConsultas";
+            btnVerConsultas.Size = new Size(195, 70);
+            btnVerConsultas.TabIndex = 48;
+            btnVerConsultas.Text = "            Consultas";
+            btnVerConsultas.UseVisualStyleBackColor = false;
+            btnVerConsultas.Click += btnVerConsultas_Click;
             // 
             // btnVer
             // 
@@ -346,24 +289,92 @@
             btnVer.ForeColor = SystemColors.ControlLightLight;
             btnVer.Image = (Image)resources.GetObject("btnVer.Image");
             btnVer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVer.Location = new Point(16, 1);
+            btnVer.Location = new Point(0, 0);
             btnVer.Name = "btnVer";
-            btnVer.Size = new Size(195, 68);
+            btnVer.Size = new Size(195, 70);
             btnVer.TabIndex = 47;
             btnVer.Text = "            Ver";
             btnVer.UseVisualStyleBackColor = false;
-            btnVer.Click += button4_Click;
+            btnVer.Click += btnVer_Click;
+            // 
+            // btnVerClientes
+            // 
+            btnVerClientes.BackColor = Color.FromArgb(69, 71, 106);
+            btnVerClientes.FlatAppearance.BorderSize = 0;
+            btnVerClientes.FlatStyle = FlatStyle.Flat;
+            btnVerClientes.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVerClientes.ForeColor = SystemColors.ControlLightLight;
+            btnVerClientes.Image = (Image)resources.GetObject("btnVerClientes.Image");
+            btnVerClientes.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVerClientes.Location = new Point(0, 140);
+            btnVerClientes.Name = "btnVerClientes";
+            btnVerClientes.Size = new Size(195, 70);
+            btnVerClientes.TabIndex = 49;
+            btnVerClientes.Text = "            Clientes";
+            btnVerClientes.UseVisualStyleBackColor = false;
+            btnVerClientes.Click += btnVerClientes_Click;
             // 
             // pnlRazoes
             // 
             pnlRazoes.BackColor = Color.White;
+            pnlRazoes.Controls.Add(button8);
+            pnlRazoes.Controls.Add(button9);
+            pnlRazoes.Controls.Add(button7);
             pnlRazoes.Controls.Add(btnRazoes);
-            pnlRazoes.Location = new Point(3, 156);
+            pnlRazoes.Location = new Point(3, 365);
             pnlRazoes.MaximumSize = new Size(195, 280);
             pnlRazoes.MinimumSize = new Size(195, 70);
             pnlRazoes.Name = "pnlRazoes";
             pnlRazoes.Size = new Size(195, 70);
             pnlRazoes.TabIndex = 47;
+            // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(69, 71, 106);
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button8.ForeColor = SystemColors.ControlLightLight;
+            button8.Image = (Image)resources.GetObject("button8.Image");
+            button8.ImageAlign = ContentAlignment.MiddleLeft;
+            button8.Location = new Point(0, 210);
+            button8.Name = "button8";
+            button8.Size = new Size(195, 70);
+            button8.TabIndex = 49;
+            button8.Text = "            Excluir";
+            button8.UseVisualStyleBackColor = false;
+            // 
+            // button9
+            // 
+            button9.BackColor = Color.FromArgb(69, 71, 106);
+            button9.FlatAppearance.BorderSize = 0;
+            button9.FlatStyle = FlatStyle.Flat;
+            button9.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button9.ForeColor = SystemColors.ControlLightLight;
+            button9.Image = (Image)resources.GetObject("button9.Image");
+            button9.ImageAlign = ContentAlignment.MiddleLeft;
+            button9.Location = new Point(0, 140);
+            button9.Name = "button9";
+            button9.Size = new Size(195, 70);
+            button9.TabIndex = 48;
+            button9.Text = "            Editar";
+            button9.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            button7.BackColor = Color.FromArgb(69, 71, 106);
+            button7.FlatAppearance.BorderSize = 0;
+            button7.FlatStyle = FlatStyle.Flat;
+            button7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button7.ForeColor = SystemColors.ControlLightLight;
+            button7.Image = (Image)resources.GetObject("button7.Image");
+            button7.ImageAlign = ContentAlignment.MiddleLeft;
+            button7.Location = new Point(0, 70);
+            button7.Name = "button7";
+            button7.Size = new Size(195, 70);
+            button7.TabIndex = 47;
+            button7.Text = "            Nova";
+            button7.UseVisualStyleBackColor = false;
             // 
             // btnRazoes
             // 
@@ -374,9 +385,9 @@
             btnRazoes.ForeColor = SystemColors.ControlLightLight;
             btnRazoes.Image = (Image)resources.GetObject("btnRazoes.Image");
             btnRazoes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRazoes.Location = new Point(7, -1);
+            btnRazoes.Location = new Point(0, 0);
             btnRazoes.Name = "btnRazoes";
-            btnRazoes.Size = new Size(195, 71);
+            btnRazoes.Size = new Size(195, 70);
             btnRazoes.TabIndex = 46;
             btnRazoes.Text = "            Razões";
             btnRazoes.UseVisualStyleBackColor = false;
@@ -402,48 +413,30 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(167, 38, 135);
-            ClientSize = new Size(1221, 797);
+            ClientSize = new Size(1221, 943);
             Controls.Add(flowLayoutPanel1);
-            Controls.Add(label5);
-            Controls.Add(label1);
-            Controls.Add(pictureBox2);
-            Controls.Add(textBox1);
-            Controls.Add(label3);
             Controls.Add(dataGridView1);
-            Controls.Add(panel2);
+            Controls.Add(upperPanel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Clínica da Mulher";
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             pnlClientes.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            panel3.ResumeLayout(false);
+            upperPanel.ResumeLayout(false);
+            pnlLogo.ResumeLayout(false);
+            pnlLogo.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
             pnlVer.ResumeLayout(false);
             pnlRazoes.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
         private Label label5;
         private Label label1;
-        private PictureBox pictureBox2;
-        private Label label4;
-        private ComboBox comboBox1;
-        private TextBox textBox1;
-        private Label label3;
-        private Label label2;
-        private Button button3;
-        private Button button2;
-        private Button button1;
         private DataGridView dataGridView1;
-        private TextBox textBox2;
-        private Panel panel2;
-        private Panel panel3;
+        private Panel upperPanel;
         private Panel pnlClientes;
         private Button btnClientes;
         private Button button15;
@@ -458,5 +451,14 @@
         private Panel pnlVer;
         private Button btnVer;
         private System.Windows.Forms.Timer timerView;
+        private Button btnVerRazões;
+        private Button btnVerConsultas;
+        private Button btnVerClientes;
+        private Button button8;
+        private Button button9;
+        private Button button7;
+        private Panel pnlUpperControls;
+        private Panel pnlLogo;
+        private Panel panel1;
     }
 }
