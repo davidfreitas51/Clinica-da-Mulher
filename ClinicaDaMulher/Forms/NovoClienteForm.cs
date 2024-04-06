@@ -74,6 +74,15 @@ namespace ClinicaDaMulher.Forms
                     this.Close();
                 }
             }
+            else
+            {
+                this.Close();
+            }
+        }
+
+        private void cbxEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

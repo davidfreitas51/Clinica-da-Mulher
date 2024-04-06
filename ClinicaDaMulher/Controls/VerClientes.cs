@@ -1,4 +1,5 @@
 ﻿using ClinicaDaMulher.Data;
+using ClinicaDaMulher.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +40,12 @@ namespace ClinicaDaMulher.Controls
             {
                 mainForm.RefreshGridCliente(DbWorker.ListarTabelaClientes(txtNome.Text.Trim(), txtCpf.Text.Trim()));
             }
+        }
+
+        private void btnNovoCliente_Click(object sender, EventArgs e)
+        {
+            NovoClienteForm novoClienteForm = new NovoClienteForm(mainForm);
+            novoClienteForm.ShowDialog();
         }
     }
 }

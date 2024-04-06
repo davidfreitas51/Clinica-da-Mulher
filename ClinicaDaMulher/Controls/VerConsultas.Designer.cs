@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerConsultas));
             label4 = new Label();
             textBox2 = new TextBox();
-            comboBox1 = new ComboBox();
+            cbxMotivo = new ComboBox();
             label2 = new Label();
             label3 = new Label();
             textBox1 = new TextBox();
@@ -51,9 +51,9 @@
             label4.ForeColor = SystemColors.ControlLightLight;
             label4.Location = new Point(433, 4);
             label4.Name = "label4";
-            label4.Size = new Size(69, 28);
+            label4.Size = new Size(80, 28);
             label4.TabIndex = 44;
-            label4.Text = "Razão";
+            label4.Text = "Motivo";
             // 
             // textBox2
             // 
@@ -63,14 +63,15 @@
             textBox2.Size = new Size(162, 31);
             textBox2.TabIndex = 45;
             // 
-            // comboBox1
+            // cbxMotivo
             // 
-            comboBox1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(433, 35);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 30);
-            comboBox1.TabIndex = 43;
+            cbxMotivo.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbxMotivo.FormattingEnabled = true;
+            cbxMotivo.Location = new Point(433, 35);
+            cbxMotivo.Name = "cbxMotivo";
+            cbxMotivo.Size = new Size(151, 30);
+            cbxMotivo.TabIndex = 43;
+            cbxMotivo.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -110,7 +111,7 @@
             pnlControlesConsultas.Controls.Add(textBox2);
             pnlControlesConsultas.Controls.Add(label2);
             pnlControlesConsultas.Controls.Add(label4);
-            pnlControlesConsultas.Controls.Add(comboBox1);
+            pnlControlesConsultas.Controls.Add(cbxMotivo);
             pnlControlesConsultas.Dock = DockStyle.Top;
             pnlControlesConsultas.Location = new Point(0, 0);
             pnlControlesConsultas.Name = "pnlControlesConsultas";
@@ -184,7 +185,7 @@
 
         private Label label4;
         private TextBox textBox2;
-        private ComboBox comboBox1;
+        private ComboBox cbxMotivo;
         private Label label2;
         private Label label3;
         private TextBox textBox1;

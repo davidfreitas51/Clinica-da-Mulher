@@ -30,17 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerClientes));
             painelLegal = new Panel();
+            panel1 = new Panel();
+            btnNovoCliente = new Button();
+            btnDeletarCliente = new Button();
+            btnEditarCliente = new Button();
             btnBuscar = new Button();
             txtNome = new TextBox();
             label1 = new Label();
             txtCpf = new TextBox();
             label3 = new Label();
             painelLegal.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // painelLegal
             // 
             painelLegal.BackColor = Color.FromArgb(167, 38, 135);
+            painelLegal.Controls.Add(panel1);
             painelLegal.Controls.Add(btnBuscar);
             painelLegal.Controls.Add(txtNome);
             painelLegal.Controls.Add(label1);
@@ -51,6 +57,60 @@
             painelLegal.Name = "painelLegal";
             painelLegal.Size = new Size(847, 84);
             painelLegal.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(btnNovoCliente);
+            panel1.Controls.Add(btnDeletarCliente);
+            panel1.Controls.Add(btnEditarCliente);
+            panel1.Dock = DockStyle.Right;
+            panel1.Location = new Point(556, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(291, 84);
+            panel1.TabIndex = 53;
+            // 
+            // btnNovoCliente
+            // 
+            btnNovoCliente.BackColor = Color.FromArgb(69, 71, 106);
+            btnNovoCliente.BackgroundImage = (Image)resources.GetObject("btnNovoCliente.BackgroundImage");
+            btnNovoCliente.FlatAppearance.BorderSize = 0;
+            btnNovoCliente.FlatStyle = FlatStyle.Flat;
+            btnNovoCliente.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnNovoCliente.ForeColor = SystemColors.ControlLightLight;
+            btnNovoCliente.Location = new Point(28, 10);
+            btnNovoCliente.Name = "btnNovoCliente";
+            btnNovoCliente.Size = new Size(70, 69);
+            btnNovoCliente.TabIndex = 47;
+            btnNovoCliente.UseVisualStyleBackColor = false;
+            btnNovoCliente.Click += btnNovoCliente_Click;
+            // 
+            // btnDeletarCliente
+            // 
+            btnDeletarCliente.BackColor = Color.FromArgb(69, 71, 106);
+            btnDeletarCliente.BackgroundImage = (Image)resources.GetObject("btnDeletarCliente.BackgroundImage");
+            btnDeletarCliente.FlatAppearance.BorderSize = 0;
+            btnDeletarCliente.FlatStyle = FlatStyle.Flat;
+            btnDeletarCliente.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeletarCliente.ForeColor = SystemColors.ControlLightLight;
+            btnDeletarCliente.Location = new Point(218, 10);
+            btnDeletarCliente.Name = "btnDeletarCliente";
+            btnDeletarCliente.Size = new Size(70, 69);
+            btnDeletarCliente.TabIndex = 52;
+            btnDeletarCliente.UseVisualStyleBackColor = false;
+            // 
+            // btnEditarCliente
+            // 
+            btnEditarCliente.BackColor = Color.FromArgb(69, 71, 106);
+            btnEditarCliente.BackgroundImage = (Image)resources.GetObject("btnEditarCliente.BackgroundImage");
+            btnEditarCliente.FlatAppearance.BorderSize = 0;
+            btnEditarCliente.FlatStyle = FlatStyle.Flat;
+            btnEditarCliente.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEditarCliente.ForeColor = SystemColors.ControlLightLight;
+            btnEditarCliente.Location = new Point(118, 10);
+            btnEditarCliente.Name = "btnEditarCliente";
+            btnEditarCliente.Size = new Size(70, 69);
+            btnEditarCliente.TabIndex = 51;
+            btnEditarCliente.UseVisualStyleBackColor = false;
             // 
             // btnBuscar
             // 
@@ -114,6 +174,7 @@
             Size = new Size(847, 84);
             painelLegal.ResumeLayout(false);
             painelLegal.PerformLayout();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -125,5 +186,9 @@
         private TextBox txtNome;
         private Label label1;
         private Button btnBuscar;
+        private Button btnNovoCliente;
+        private Button btnDeletarCliente;
+        private Button btnEditarCliente;
+        private Panel panel1;
     }
 }

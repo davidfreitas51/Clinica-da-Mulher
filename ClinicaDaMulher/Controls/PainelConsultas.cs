@@ -12,10 +12,14 @@ namespace ClinicaDaMulher.Controls
             mainForm = frm;
             dgvConsultas.AutoGenerateColumns = false;
             dgvConsultas.DataSource = consultas;
-
         }
 
         private void dgvConsultas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvConsultas_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }

@@ -34,9 +34,10 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             dgvConsultas = new DataGridView();
-            clnNome = new DataGridViewTextBoxColumn();
-            clnCPF = new DataGridViewTextBoxColumn();
-            clmTelefone = new DataGridViewTextBoxColumn();
+            clnNomeDoCliente = new DataGridViewTextBoxColumn();
+            clnCPFdoCliente = new DataGridViewTextBoxColumn();
+            clmData = new DataGridViewTextBoxColumn();
+            clnHorario = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvConsultas).BeginInit();
             SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dgvConsultas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dgvConsultas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvConsultas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvConsultas.BackgroundColor = SystemColors.ControlDarkDark;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.ActiveCaptionText;
@@ -62,7 +63,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvConsultas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvConsultas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvConsultas.Columns.AddRange(new DataGridViewColumn[] { clnNome, clnCPF, clmTelefone });
+            dgvConsultas.Columns.AddRange(new DataGridViewColumn[] { clnNomeDoCliente, clnCPFdoCliente, clmData, clnHorario });
             dgvConsultas.Dock = DockStyle.Fill;
             dgvConsultas.EnableHeadersVisualStyles = false;
             dgvConsultas.GridColor = Color.Black;
@@ -73,44 +74,52 @@
             dgvConsultas.RowHeadersWidth = 51;
             dgvConsultas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvConsultas.Size = new Size(555, 574);
-            dgvConsultas.TabIndex = 3;
-            dgvConsultas.CellContentClick += dgvConsultas_CellContentClick;
+            dgvConsultas.TabIndex = 4;
+            dgvConsultas.CellContentClick += dgvConsultas_CellContentClick_1;
             // 
-            // clnNome
+            // clnNomeDoCliente
             // 
-            clnNome.DataPropertyName = "Nome";
+            clnNomeDoCliente.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            clnNomeDoCliente.DataPropertyName = "Cliente.Nome";
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            clnNome.DefaultCellStyle = dataGridViewCellStyle3;
-            clnNome.HeaderText = "Nome";
-            clnNome.MinimumWidth = 6;
-            clnNome.Name = "clnNome";
-            clnNome.ReadOnly = true;
-            clnNome.Width = 87;
+            clnNomeDoCliente.DefaultCellStyle = dataGridViewCellStyle3;
+            clnNomeDoCliente.HeaderText = "Cliente";
+            clnNomeDoCliente.MinimumWidth = 6;
+            clnNomeDoCliente.Name = "clnNomeDoCliente";
+            clnNomeDoCliente.ReadOnly = true;
             // 
-            // clnCPF
+            // clnCPFdoCliente
             // 
-            clnCPF.DataPropertyName = "CPF";
+            clnCPFdoCliente.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            clnCPFdoCliente.DataPropertyName = "Cliente.CPF";
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            clnCPF.DefaultCellStyle = dataGridViewCellStyle4;
-            clnCPF.HeaderText = "CPF";
-            clnCPF.MinimumWidth = 6;
-            clnCPF.Name = "clnCPF";
-            clnCPF.ReadOnly = true;
-            clnCPF.Width = 69;
+            clnCPFdoCliente.DefaultCellStyle = dataGridViewCellStyle4;
+            clnCPFdoCliente.HeaderText = "CPF";
+            clnCPFdoCliente.MinimumWidth = 6;
+            clnCPFdoCliente.Name = "clnCPFdoCliente";
+            clnCPFdoCliente.ReadOnly = true;
             // 
-            // clmTelefone
+            // clmData
             // 
-            clmTelefone.DataPropertyName = "Telefone";
+            clmData.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            clmData.DataPropertyName = "Data";
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            clmTelefone.DefaultCellStyle = dataGridViewCellStyle5;
-            clmTelefone.HeaderText = "Telefone";
-            clmTelefone.MinimumWidth = 6;
-            clmTelefone.Name = "clmTelefone";
-            clmTelefone.ReadOnly = true;
-            clmTelefone.Width = 106;
+            clmData.DefaultCellStyle = dataGridViewCellStyle5;
+            clmData.HeaderText = "Data";
+            clmData.MinimumWidth = 6;
+            clmData.Name = "clmData";
+            clmData.ReadOnly = true;
+            // 
+            // clnHorario
+            // 
+            clnHorario.DataPropertyName = "Hora";
+            clnHorario.HeaderText = "Horário";
+            clnHorario.MinimumWidth = 6;
+            clnHorario.Name = "clnHorario";
+            clnHorario.ReadOnly = true;
             // 
             // PainelConsultas
             // 
@@ -126,8 +135,9 @@
         #endregion
 
         public DataGridView dgvConsultas;
-        private DataGridViewTextBoxColumn clnNome;
-        private DataGridViewTextBoxColumn clnCPF;
-        private DataGridViewTextBoxColumn clmTelefone;
+        private DataGridViewTextBoxColumn clnNomeDoCliente;
+        private DataGridViewTextBoxColumn clnCPFdoCliente;
+        private DataGridViewTextBoxColumn clmData;
+        private DataGridViewTextBoxColumn clnHorario;
     }
 }

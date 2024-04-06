@@ -10,8 +10,8 @@ namespace ClinicaDaMulher.Controls
         {
             InitializeComponent();
             mainForm = frm;
-            dgvRazoes.AutoGenerateColumns = false;
-            dgvRazoes.DataSource = razoes;
+            dgvMotivos.AutoGenerateColumns = false;
+            dgvMotivos.DataSource = razoes;
         }
 
         private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)

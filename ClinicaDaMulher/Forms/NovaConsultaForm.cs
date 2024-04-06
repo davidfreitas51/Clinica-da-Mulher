@@ -12,9 +12,16 @@ namespace ClinicaDaMulher.Forms
 {
     public partial class NovaConsultaForm : Form
     {
-        public NovaConsultaForm()
+        public readonly MainForm mainForm;
+        public NovaConsultaForm(MainForm frm)
         {
+            mainForm = frm;
             InitializeComponent();
+        }
+
+        private void NovaConsultaForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -73,8 +73,7 @@
             dgvClientes.RowHeadersWidth = 51;
             dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvClientes.Size = new Size(551, 860);
-            dgvClientes.TabIndex = 2;
-            dgvClientes.CellContentClick += dgvClientes_CellContentClick_1;
+            dgvClientes.TabIndex = 3;
             // 
             // clnNome
             // 

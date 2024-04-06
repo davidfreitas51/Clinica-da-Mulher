@@ -305,6 +305,7 @@
             Name = "NovaConsultaForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Nova consulta";
+            Load += NovaConsultaForm_Load;
             flowLayoutPanel1.ResumeLayout(false);
             pnlVer.ResumeLayout(false);
             pnlClientes.ResumeLayout(false);

@@ -1,21 +1,16 @@
-﻿using ClinicaDaMulher.Forms;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using ClinicaDaMulher.Data;
+using ClinicaDaMulher.Forms;
 
 namespace ClinicaDaMulher.Controls
 {
     public partial class VerConsultas : UserControl
     {
-        public VerConsultas()
+        private readonly MainForm mainForm;
+        public VerConsultas(MainForm frm)
         {
             InitializeComponent();
+            mainForm = frm;
+            cbxMotivo.DataSource = DbWorker.ListarTabelaMotivos();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -25,8 +20,13 @@ namespace ClinicaDaMulher.Controls
 
         private void btnNovaConsulta_Click(object sender, EventArgs e)
         {
-            NovaConsultaForm novaConsulta = new NovaConsultaForm();
+            NovaConsultaForm novaConsulta = new NovaConsultaForm(mainForm);
             novaConsulta.ShowDialog();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

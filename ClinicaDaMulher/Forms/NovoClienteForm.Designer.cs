@@ -146,6 +146,7 @@
             cbxEstado.Name = "cbxEstado";
             cbxEstado.Size = new Size(76, 36);
             cbxEstado.TabIndex = 42;
+            cbxEstado.SelectedIndexChanged += cbxEstado_SelectedIndexChanged;
             // 
             // label5
             // 
