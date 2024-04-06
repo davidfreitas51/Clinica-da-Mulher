@@ -43,23 +43,26 @@ namespace ClinicaDaMulher.Data
         }
         public static SortableBindingList<Cliente> ListarTabelaClientes(string Nome = "", string Cpf = "")
         {
+            string cpfSemPontosETraços = Cpf.Replace(".", "").Replace("-", "");
+
             ClinicaDaMulherContext Contexto = new ClinicaDaMulherContext();
             var clientesRequisitados = from cliente in Contexto.Clientes
                                        where cliente.Nome.ToUpper().Contains(Nome.ToUpper()) &&
-                                             cliente.CPF.Contains(Cpf)
+                                             cliente.CPF.Replace(".", "").Replace("-", "").Contains(cpfSemPontosETraços)
                                        select cliente;
+
             List<Cliente> clientes = clientesRequisitados.ToList();
 
             SortableBindingList<Cliente> listaClientes = new SortableBindingList<Cliente>(clientes);
             return listaClientes;
         }
 
-        public static SortableBindingList<Razao> ListarTabelaRazoes()
+        public static SortableBindingList<Motivo> ListarTabelaMotivos()
         {
             ClinicaDaMulherContext Contexto = new ClinicaDaMulherContext();
-            List<Razao> razoes = Contexto.Razoes.ToList();
+            List<Motivo> razoes = Contexto.Motivos.ToList();
 
-            SortableBindingList<Razao> listaRazoes = new SortableBindingList<Razao>(razoes);
+            SortableBindingList<Motivo> listaRazoes = new SortableBindingList<Motivo>(razoes);
 
             return listaRazoes;
         }

@@ -252,7 +252,7 @@
             pnlClientes.MaximumSize = new Size(240, 280);
             pnlClientes.MinimumSize = new Size(240, 70);
             pnlClientes.Name = "pnlClientes";
-            pnlClientes.Size = new Size(240, 70);
+            pnlClientes.Size = new Size(240, 280);
             pnlClientes.TabIndex = 45;
             // 
             // btnExcluirCliente
@@ -328,11 +328,11 @@
             pnlRazoes.Controls.Add(btnEditarRazao);
             pnlRazoes.Controls.Add(btnNovaRazao);
             pnlRazoes.Controls.Add(btnRazoes);
-            pnlRazoes.Location = new Point(3, 365);
+            pnlRazoes.Location = new Point(3, 575);
             pnlRazoes.MaximumSize = new Size(240, 280);
             pnlRazoes.MinimumSize = new Size(240, 70);
             pnlRazoes.Name = "pnlRazoes";
-            pnlRazoes.Size = new Size(240, 70);
+            pnlRazoes.Size = new Size(240, 280);
             pnlRazoes.TabIndex = 47;
             // 
             // btnExcluirRazao
@@ -382,6 +382,7 @@
             btnNovaRazao.TabIndex = 47;
             btnNovaRazao.Text = "            Nova";
             btnNovaRazao.UseVisualStyleBackColor = false;
+            btnNovaRazao.Click += btnNovaRazao_Click;
             // 
             // btnRazoes
             // 

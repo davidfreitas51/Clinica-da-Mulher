@@ -7,7 +7,7 @@ namespace ClinicaDaMulher.Models
         [Key]
         public int Id { get; set; }
         public Cliente Cliente { get; set; }
-        public Razao Razao { get; set; }
+        public Motivo Razao { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime Data { get; set; }

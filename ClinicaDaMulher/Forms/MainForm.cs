@@ -100,7 +100,7 @@ namespace ClinicaDaMulher
         {
             VerClientes verClientes = new VerClientes(this);
             MudarPainelSuperior(verClientes);
-            RefreshGridRazoes(DbWorker.ListarTabelaRazoes());
+            RefreshGridMotivos(DbWorker.ListarTabelaMotivos());
         }
 
         private void btnNovoCliente_Click(object sender, EventArgs e)
@@ -112,19 +112,21 @@ namespace ClinicaDaMulher
         {
             this.painelDgv.Controls.Clear();
             PainelConsultas painelConsultas = new PainelConsultas(this, consultas);
+            painelConsultas.Dock = DockStyle.Fill;
             this.painelDgv.Controls.Add(painelConsultas);
         }
         public void RefreshGridCliente(SortableBindingList<Cliente> clientes)
         {
             this.painelDgv.Controls.Clear();
             PainelClientes painelClientes = new PainelClientes(this, clientes);
+            painelClientes.Dock = DockStyle.Fill;
             this.painelDgv.Controls.Add(painelClientes);
         }
-        public void RefreshGridRazoes(SortableBindingList<Razao> razoes)
+        public void RefreshGridMotivos(SortableBindingList<Motivo> motivos)
         {
             this.painelDgv.Controls.Clear();
-            PainelRazoes painelRazoes = new PainelRazoes(this, razoes);
-            this.painelDgv.Controls.Add(painelRazoes);
+            PainelRazoes painelMotivos = new PainelRazoes(this, motivos);
+            this.painelDgv.Controls.Add(painelMotivos);
         }
 
         private void dgvPrincipal_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -135,6 +137,12 @@ namespace ClinicaDaMulher
         private void dgvPrincipal_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnNovaRazao_Click(object sender, EventArgs e)
+        {
+            NovoMotivoForm novoMotivo = new NovoMotivoForm(this);
+            novoMotivo.ShowDialog();
         }
     }
 }

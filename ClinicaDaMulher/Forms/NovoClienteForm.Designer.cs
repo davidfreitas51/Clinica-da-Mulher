@@ -59,6 +59,7 @@
             btnCancelar.TabIndex = 1;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // label1
             // 
@@ -76,7 +77,7 @@
             // 
             mtxCpf.Font = new Font("Segoe UI", 12F);
             mtxCpf.Location = new Point(12, 179);
-            mtxCpf.Mask = "000.000.000-00";
+            mtxCpf.Mask = "000\\.000\\.000-00";
             mtxCpf.Name = "mtxCpf";
             mtxCpf.Size = new Size(149, 34);
             mtxCpf.TabIndex = 36;

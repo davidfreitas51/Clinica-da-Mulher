@@ -6,7 +6,7 @@ namespace ClinicaDaMulher.Controls
     public partial class PainelRazoes : UserControl
     {
         private readonly MainForm mainForm;
-        public PainelRazoes(MainForm frm, SortableBindingList<Razao> razoes)
+        public PainelRazoes(MainForm frm, SortableBindingList<Motivo> razoes)
         {
             InitializeComponent();
             mainForm = frm;

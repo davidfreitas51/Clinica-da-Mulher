@@ -2,7 +2,7 @@
 
 namespace ClinicaDaMulher.Models
 {
-    public class Razao
+    public class Motivo
     {
         [Key]
         public int Id { get; set; }

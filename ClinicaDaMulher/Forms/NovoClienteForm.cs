@@ -1,16 +1,5 @@
-﻿using ClinicaDaMulher.Controls;
-using ClinicaDaMulher.Data;
+﻿using ClinicaDaMulher.Data;
 using MessageUtils;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
 namespace ClinicaDaMulher.Forms
 {
     public partial class NovoClienteForm : Form
@@ -36,6 +25,20 @@ namespace ClinicaDaMulher.Forms
             }
             return true;
         }
+        private bool VerificarPreenchimentoDosCampos()
+        {
+
+            if (txtCpf != null && !string.IsNullOrEmpty(txtCpf.Text))
+            {
+                return true;
+            }
+
+            if (txtNome != null && !string.IsNullOrEmpty(txtNome.Text))
+            {
+                return true;
+            }
+            return false;
+        }
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             if (VerificarValidadeDosCampos())
@@ -55,11 +58,22 @@ namespace ClinicaDaMulher.Forms
         private void NovoClienteForm_Load(object sender, EventArgs e)
         {
             List<string> unidadesFederativas = new List<string> {
-                "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", 
-                "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"  
+                "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG",
+                "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"
             };
             cbxEstado.DataSource = unidadesFederativas;
             cbxEstado.Text = "";
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (VerificarPreenchimentoDosCampos())
+            {
+                if (SimpleMessage.Confirm("Há alterações não salvas. Deseja mesmo cancelar?"))
+                {
+                    this.Close();
+                }
+            }
         }
     }
 }

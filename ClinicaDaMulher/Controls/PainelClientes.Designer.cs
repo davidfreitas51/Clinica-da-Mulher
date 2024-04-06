@@ -51,7 +51,7 @@
             dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dgvClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvClientes.BackgroundColor = SystemColors.ControlDarkDark;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.ActiveCaptionText;
@@ -78,6 +78,7 @@
             // 
             // clnNome
             // 
+            clnNome.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             clnNome.DataPropertyName = "Nome";
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -86,10 +87,10 @@
             clnNome.MinimumWidth = 6;
             clnNome.Name = "clnNome";
             clnNome.ReadOnly = true;
-            clnNome.Width = 87;
             // 
             // clnCPF
             // 
+            clnCPF.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             clnCPF.DataPropertyName = "CPF";
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -98,10 +99,10 @@
             clnCPF.MinimumWidth = 6;
             clnCPF.Name = "clnCPF";
             clnCPF.ReadOnly = true;
-            clnCPF.Width = 69;
             // 
             // clmTelefone
             // 
+            clmTelefone.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             clmTelefone.DataPropertyName = "Telefone";
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -110,7 +111,6 @@
             clmTelefone.MinimumWidth = 6;
             clmTelefone.Name = "clmTelefone";
             clmTelefone.ReadOnly = true;
-            clmTelefone.Width = 106;
             // 
             // PainelClientes
             // 
