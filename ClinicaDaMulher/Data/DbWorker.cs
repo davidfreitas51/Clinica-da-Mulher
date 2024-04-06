@@ -15,11 +15,6 @@ namespace ClinicaDaMulher.Data
                 Nome = clienteInfo[0],
                 CPF = clienteInfo[1],
                 Telefone = clienteInfo[2],
-                Rua = clienteInfo[3],
-                Numero = clienteInfo[4],
-                Bairro = clienteInfo[5],
-                Cidade = clienteInfo[6],
-                Estado = clienteInfo[7]
             };
             Contexto.Clientes.Add(cliente);
             Contexto.SaveChanges();
@@ -41,11 +36,16 @@ namespace ClinicaDaMulher.Data
             ClinicaDaMulherContext Contexto = new ClinicaDaMulherContext();
             return Contexto.Consultas.ToList();
         }
-        public static List<Cliente> ListarTabelaClientes()
+        public static List<Cliente> ListarTabelaClientes(string Nome = "", string Cpf = "")
         {
             ClinicaDaMulherContext Contexto = new ClinicaDaMulherContext();
-            return Contexto.Clientes.ToList();
+            var clientesRequisitados = from cliente in Contexto.Clientes
+                                       where cliente.Nome.Contains(Nome) &&
+                                             cliente.CPF.Contains(Cpf)
+                                       select cliente;
+            return clientesRequisitados.ToList();
         }
+
         public static List<Razao> ListarTabelaRazoes()
         {
             ClinicaDaMulherContext Contexto = new ClinicaDaMulherContext();

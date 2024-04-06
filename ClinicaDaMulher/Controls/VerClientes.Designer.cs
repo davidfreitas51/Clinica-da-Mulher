@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerClientes));
             painelLegal = new Panel();
-            textBox2 = new TextBox();
+            txtNome = new TextBox();
             label1 = new Label();
-            textBox1 = new TextBox();
+            txtCpf = new TextBox();
             label3 = new Label();
             btnBuscar = new Button();
             painelLegal.SuspendLayout();
@@ -41,9 +42,9 @@
             // 
             painelLegal.BackColor = Color.FromArgb(167, 38, 135);
             painelLegal.Controls.Add(btnBuscar);
-            painelLegal.Controls.Add(textBox2);
+            painelLegal.Controls.Add(txtNome);
             painelLegal.Controls.Add(label1);
-            painelLegal.Controls.Add(textBox1);
+            painelLegal.Controls.Add(txtCpf);
             painelLegal.Controls.Add(label3);
             painelLegal.Dock = DockStyle.Fill;
             painelLegal.Location = new Point(0, 0);
@@ -51,39 +52,39 @@
             painelLegal.Size = new Size(847, 84);
             painelLegal.TabIndex = 1;
             // 
-            // textBox2
+            // txtNome
             // 
-            textBox2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(209, 41);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(160, 31);
-            textBox2.TabIndex = 49;
+            txtNome.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNome.Location = new Point(16, 41);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(160, 31);
+            txtNome.TabIndex = 49;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(209, 10);
+            label1.Location = new Point(16, 10);
             label1.Name = "label1";
             label1.Size = new Size(69, 28);
             label1.TabIndex = 48;
             label1.Text = "Nome";
             // 
-            // textBox1
+            // txtCpf
             // 
-            textBox1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(17, 41);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(160, 31);
-            textBox1.TabIndex = 47;
+            txtCpf.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtCpf.Location = new Point(196, 41);
+            txtCpf.Name = "txtCpf";
+            txtCpf.Size = new Size(160, 31);
+            txtCpf.TabIndex = 47;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(17, 10);
+            label3.Location = new Point(196, 10);
             label3.Name = "label3";
             label3.Size = new Size(46, 28);
             label3.TabIndex = 46;
@@ -91,13 +92,15 @@
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(441, 44);
+            btnBuscar.BackgroundImage = (Image)resources.GetObject("btnBuscar.BackgroundImage");
+            btnBuscar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.ForeColor = Color.FromArgb(167, 38, 135);
+            btnBuscar.Location = new Point(386, 26);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(94, 29);
+            btnBuscar.Size = new Size(46, 46);
             btnBuscar.TabIndex = 50;
-            btnBuscar.Text = "buscar";
             btnBuscar.UseVisualStyleBackColor = true;
-            btnBuscar.Click += btnBuscar_Click;
             // 
             // VerClientes
             // 
@@ -114,9 +117,9 @@
         #endregion
 
         private Panel painelLegal;
-        private TextBox textBox1;
+        private TextBox txtCpf;
         private Label label3;
-        private TextBox textBox2;
+        private TextBox txtNome;
         private Label label1;
         private Button btnBuscar;
     }

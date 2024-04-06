@@ -56,8 +56,7 @@
             btnEditarRazao = new Button();
             btnNovaRazao = new Button();
             btnRazoes = new Button();
-            panel1 = new Panel();
-            dgvPrincipal = new DataGridView();
+            painelDgv = new Panel();
             upperPanel.SuspendLayout();
             pnlLogo.SuspendLayout();
             panel2.SuspendLayout();
@@ -65,8 +64,6 @@
             pnlVer.SuspendLayout();
             pnlClientes.SuspendLayout();
             pnlRazoes.SuspendLayout();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvPrincipal).BeginInit();
             SuspendLayout();
             // 
             // label5
@@ -403,30 +400,14 @@
             btnRazoes.UseVisualStyleBackColor = false;
             btnRazoes.Click += btnRazoes_Click;
             // 
-            // panel1
+            // painelDgv
             // 
-            panel1.BackColor = Color.FromArgb(128, 255, 128);
-            panel1.Controls.Add(dgvPrincipal);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(239, 77);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1189, 866);
-            panel1.TabIndex = 48;
-            // 
-            // dgvPrincipal
-            // 
-            dgvPrincipal.AllowUserToAddRows = false;
-            dgvPrincipal.AllowUserToDeleteRows = false;
-            dgvPrincipal.BackgroundColor = SystemColors.ActiveCaptionText;
-            dgvPrincipal.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPrincipal.Dock = DockStyle.Fill;
-            dgvPrincipal.Location = new Point(0, 0);
-            dgvPrincipal.Name = "dgvPrincipal";
-            dgvPrincipal.ReadOnly = true;
-            dgvPrincipal.RowHeadersWidth = 51;
-            dgvPrincipal.Size = new Size(1189, 866);
-            dgvPrincipal.TabIndex = 0;
-            dgvPrincipal.CellContentClick += dgvPrincipal_CellContentClick_1;
+            painelDgv.BackColor = Color.FromArgb(128, 255, 128);
+            painelDgv.Dock = DockStyle.Fill;
+            painelDgv.Location = new Point(239, 77);
+            painelDgv.Name = "painelDgv";
+            painelDgv.Size = new Size(1189, 866);
+            painelDgv.TabIndex = 48;
             // 
             // MainForm
             // 
@@ -434,7 +415,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(167, 38, 135);
             ClientSize = new Size(1428, 943);
-            Controls.Add(panel1);
+            Controls.Add(painelDgv);
             Controls.Add(panel2);
             Controls.Add(upperPanel);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -449,8 +430,6 @@
             pnlVer.ResumeLayout(false);
             pnlClientes.ResumeLayout(false);
             pnlRazoes.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvPrincipal).EndInit();
             ResumeLayout(false);
         }
 
@@ -481,7 +460,6 @@
         private Button btnEditarRazao;
         private Button btnNovaRazao;
         private Button btnRazoes;
-        private Panel panel1;
-        private DataGridView dgvPrincipal;
+        private Panel painelDgv;
     }
 }

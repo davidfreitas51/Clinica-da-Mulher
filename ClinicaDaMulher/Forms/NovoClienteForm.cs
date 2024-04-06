@@ -1,4 +1,5 @@
-﻿using ClinicaDaMulher.Data;
+﻿using ClinicaDaMulher.Controls;
+using ClinicaDaMulher.Data;
 using MessageUtils;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,12 @@ namespace ClinicaDaMulher.Forms
 {
     public partial class NovoClienteForm : Form
     {
-        public NovoClienteForm()
+        private readonly MainForm mainForm;
+        public NovoClienteForm(MainForm frm)
         {
             InitializeComponent();
+
+            mainForm = frm;
         }
         private bool VerificarValidadeDosCampos()
         {
@@ -25,13 +29,9 @@ namespace ClinicaDaMulher.Forms
                 SimpleMessage.Error("Já existe um cliente com esse CPF");
                 return false;
             }
-            if (mtxCpf.Text.Length != 11)
+            else if (mtxCpf.Text.Length != 14)
             {
                 SimpleMessage.Error("Insira um CPF válido");
-            }
-            if (cbxEstado.Text.Length != 2)
-            {
-                SimpleMessage.Error("Insira um estado válido");
                 return false;
             }
             return true;
@@ -41,8 +41,13 @@ namespace ClinicaDaMulher.Forms
             if (VerificarValidadeDosCampos())
             {
                 List<string> novoCliente = new List<string>();
+                novoCliente.Add(txtNome.Text);
+                novoCliente.Add(mtxCpf.Text);
+                novoCliente.Add(mtxTelefone.Text);
                 DbWorker.CriarCliente(novoCliente);
+
                 SimpleMessage.Inform("Cliente cadastrado com sucesso!");
+                mainForm.RefreshGridCliente(DbWorker.ListarTabelaClientes());
                 this.Close();
             }
         }

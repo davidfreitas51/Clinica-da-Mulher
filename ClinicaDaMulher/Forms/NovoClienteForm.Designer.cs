@@ -35,7 +35,7 @@
             txtNome = new TextBox();
             label2 = new Label();
             label3 = new Label();
-            maskedTextBox1 = new MaskedTextBox();
+            mtxTelefone = new MaskedTextBox();
             label4 = new Label();
             cbxEstado = new ComboBox();
             label5 = new Label();
@@ -78,7 +78,7 @@
             mtxCpf.Location = new Point(12, 179);
             mtxCpf.Mask = "000.000.000-00";
             mtxCpf.Name = "mtxCpf";
-            mtxCpf.Size = new Size(103, 34);
+            mtxCpf.Size = new Size(149, 34);
             mtxCpf.TabIndex = 36;
             // 
             // txtNome
@@ -113,14 +113,14 @@
             label3.TabIndex = 39;
             label3.Text = "CPF";
             // 
-            // maskedTextBox1
+            // mtxTelefone
             // 
-            maskedTextBox1.Font = new Font("Segoe UI", 12F);
-            maskedTextBox1.Location = new Point(12, 265);
-            maskedTextBox1.Mask = "(99) 00000-0000";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(125, 34);
-            maskedTextBox1.TabIndex = 40;
+            mtxTelefone.Font = new Font("Segoe UI", 12F);
+            mtxTelefone.Location = new Point(12, 265);
+            mtxTelefone.Mask = "(99) 00000-0000";
+            mtxTelefone.Name = "mtxTelefone";
+            mtxTelefone.Size = new Size(149, 34);
+            mtxTelefone.TabIndex = 40;
             // 
             // label4
             // 
@@ -167,7 +167,7 @@
             Controls.Add(label5);
             Controls.Add(cbxEstado);
             Controls.Add(label4);
-            Controls.Add(maskedTextBox1);
+            Controls.Add(mtxTelefone);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(txtNome);
@@ -193,7 +193,7 @@
         private TextBox txtNome;
         private Label label2;
         private Label label3;
-        private MaskedTextBox maskedTextBox1;
+        private MaskedTextBox mtxTelefone;
         private Label label4;
         private ComboBox cbxEstado;
         private Label label5;

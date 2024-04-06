@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClinicaDaMulher.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,16 @@ namespace ClinicaDaMulher.Controls
 {
     public partial class VerClientes : UserControl
     {
-        public VerClientes()
+        private readonly MainForm mainForm;
+        public VerClientes(MainForm frm)
         {
             InitializeComponent();
+            mainForm = frm;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            mainForm.RefreshGridCliente(DbWorker.ListarTabelaClientes(txtNome.Text, txtCpf.Text));
         }
     }
 }

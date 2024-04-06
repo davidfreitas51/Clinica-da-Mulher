@@ -1,6 +1,7 @@
 using ClinicaDaMulher.Controls;
 using ClinicaDaMulher.Data;
 using ClinicaDaMulher.Forms;
+using ClinicaDaMulher.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClinicaDaMulher
@@ -88,9 +89,9 @@ namespace ClinicaDaMulher
 
         private void btnVerClientes_Click(object sender, EventArgs e)
         {
-            VerClientes verClientes = new VerClientes();
+            VerClientes verClientes = new VerClientes(this);
             MudarPainelSuperior(verClientes);
-            dgvPrincipal.DataSource = DbWorker.ListarTabelaClientes();
+            RefreshGridCliente(DbWorker.ListarTabelaClientes());
         }
 
         private void btnVerRazões_Click(object sender, EventArgs e)
@@ -100,8 +101,14 @@ namespace ClinicaDaMulher
 
         private void btnNovoCliente_Click(object sender, EventArgs e)
         {
-            NovoClienteForm novoClienteForm = new NovoClienteForm();
+            NovoClienteForm novoClienteForm = new NovoClienteForm(this);
             novoClienteForm.ShowDialog();
+        }
+        public void RefreshGridCliente(List<Cliente> clientes)
+        {
+            this.painelDgv.Controls.Clear();
+            PainelClientes painelClientes = new PainelClientes(this, clientes);
+            this.painelDgv.Controls.Add(painelClientes);
         }
 
         private void dgvPrincipal_CellContentClick(object sender, DataGridViewCellEventArgs e)
