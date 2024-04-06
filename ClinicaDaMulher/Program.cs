@@ -1,5 +1,6 @@
 using ClinicaDaMulher.Data;
 using ClinicaDaMulher.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClinicaDaMulher
 {

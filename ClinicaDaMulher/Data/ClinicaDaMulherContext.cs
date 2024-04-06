@@ -3,7 +3,7 @@ using ClinicaDaMulher.Models;
 
 namespace ClinicaDaMulher.Data
 {
-    public class ClinicaDaMulherContext : DbContext, IClinicaDaMulherContext
+    public class ClinicaDaMulherContext : DbContext
     {
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Razao> Razoes { get; set; }
@@ -11,11 +11,7 @@ namespace ClinicaDaMulher.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=nomeDoArquivo.db");
-        }
-        public void CriarCliente(Cliente cliente)
-        {
-
+            optionsBuilder.UseSqlite("Data Source=clinicaDaMulher.db");
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ClinicaDaMulher.Forms
 {
-    public partial class NovaConsulta : Form
+    public partial class NovaConsultaForm : Form
     {
-        public NovaConsulta()
+        public NovaConsultaForm()
         {
             InitializeComponent();
         }

@@ -1,5 +1,6 @@
 using ClinicaDaMulher.Controls;
 using ClinicaDaMulher.Data;
+using ClinicaDaMulher.Forms;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClinicaDaMulher
@@ -9,17 +10,11 @@ namespace ClinicaDaMulher
         bool viewCollapsed = false;
         bool clientCollapsed = false;
         bool reasonsCollapsed = false;
-        public static IClinicaDaMulherContext _context;
         public MainForm()
         {
             InitializeComponent();
-            ClinicaDaMulherContext DbContext = new ClinicaDaMulherContext();
-            DbWorker(DbContext);
         }
-        public void DbWorker(IClinicaDaMulherContext context)
-        {
-            _context = context;
-        }
+
         public void CollapsePanel(Panel panel, ref bool collapsed)
         {
             if (collapsed)
@@ -95,9 +90,26 @@ namespace ClinicaDaMulher
         {
             VerClientes verClientes = new VerClientes();
             MudarPainelSuperior(verClientes);
+            dgvPrincipal.DataSource = DbWorker.ListarTabelaClientes();
         }
 
         private void btnVerRazões_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNovoCliente_Click(object sender, EventArgs e)
+        {
+            NovoClienteForm novoClienteForm = new NovoClienteForm();
+            novoClienteForm.ShowDialog();
+        }
+
+        private void dgvPrincipal_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvPrincipal_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }

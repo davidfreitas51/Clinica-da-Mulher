@@ -25,7 +25,7 @@ namespace ClinicaDaMulher.Controls
 
         private void btnNovaConsulta_Click(object sender, EventArgs e)
         {
-            NovaConsulta novaConsulta = new NovaConsulta();
+            NovaConsultaForm novaConsulta = new NovaConsultaForm();
             novaConsulta.ShowDialog();
         }
     }

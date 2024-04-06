@@ -4,6 +4,8 @@ namespace ClinicaDaMulher.Models
 {
     public class Consulta
     {
+        [Key]
+        public int Id { get; set; }
         public Cliente Cliente { get; set; }
         public Razao Razao { get; set; }
 
