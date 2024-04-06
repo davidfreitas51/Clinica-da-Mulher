@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClinicaDaMulher.Migrations
 {
     [DbContext(typeof(ClinicaDaMulherContext))]
-    [Migration("20240405211142_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240406024232_BugFix")]
+    partial class BugFix
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,6 +31,10 @@ namespace ClinicaDaMulher.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CPF")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Cidade")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

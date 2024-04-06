@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ClinicaDaMulher.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class BugFix : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,6 +23,7 @@ namespace ClinicaDaMulher.Migrations
                     Rua = table.Column<string>(type: "TEXT", nullable: false),
                     Numero = table.Column<string>(type: "TEXT", nullable: false),
                     Bairro = table.Column<string>(type: "TEXT", nullable: false),
+                    Cidade = table.Column<string>(type: "TEXT", nullable: false),
                     Estado = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
