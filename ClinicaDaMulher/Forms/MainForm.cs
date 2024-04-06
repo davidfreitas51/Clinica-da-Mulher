@@ -86,6 +86,7 @@ namespace ClinicaDaMulher
         {
             VerConsultas verConsultas = new VerConsultas();
             MudarPainelSuperior(verConsultas);
+            RefreshGridConsultas(DbWorker.ListarTabelaConsultas());
         }
 
         private void btnVerClientes_Click(object sender, EventArgs e)
@@ -97,7 +98,9 @@ namespace ClinicaDaMulher
 
         private void btnVerRazões_Click(object sender, EventArgs e)
         {
-
+            VerClientes verClientes = new VerClientes(this);
+            MudarPainelSuperior(verClientes);
+            RefreshGridRazoes(DbWorker.ListarTabelaRazoes());
         }
 
         private void btnNovoCliente_Click(object sender, EventArgs e)
@@ -105,11 +108,23 @@ namespace ClinicaDaMulher
             NovoClienteForm novoClienteForm = new NovoClienteForm(this);
             novoClienteForm.ShowDialog();
         }
+        public void RefreshGridConsultas(SortableBindingList<Consulta> consultas)
+        {
+            this.painelDgv.Controls.Clear();
+            PainelConsultas painelConsultas = new PainelConsultas(this, consultas);
+            this.painelDgv.Controls.Add(painelConsultas);
+        }
         public void RefreshGridCliente(SortableBindingList<Cliente> clientes)
         {
             this.painelDgv.Controls.Clear();
             PainelClientes painelClientes = new PainelClientes(this, clientes);
             this.painelDgv.Controls.Add(painelClientes);
+        }
+        public void RefreshGridRazoes(SortableBindingList<Razao> razoes)
+        {
+            this.painelDgv.Controls.Clear();
+            PainelRazoes painelRazoes = new PainelRazoes(this, razoes);
+            this.painelDgv.Controls.Add(painelRazoes);
         }
 
         private void dgvPrincipal_CellContentClick(object sender, DataGridViewCellEventArgs e)

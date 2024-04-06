@@ -170,7 +170,7 @@
             pnlVer.MaximumSize = new Size(240, 280);
             pnlVer.MinimumSize = new Size(240, 70);
             pnlVer.Name = "pnlVer";
-            pnlVer.Size = new Size(240, 70);
+            pnlVer.Size = new Size(240, 280);
             pnlVer.TabIndex = 48;
             // 
             // btnVerRazões
@@ -248,7 +248,7 @@
             pnlClientes.Controls.Add(btnNovoCliente);
             pnlClientes.Controls.Add(btnEditarCliente);
             pnlClientes.Controls.Add(btnClientes);
-            pnlClientes.Location = new Point(3, 79);
+            pnlClientes.Location = new Point(3, 289);
             pnlClientes.MaximumSize = new Size(240, 280);
             pnlClientes.MinimumSize = new Size(240, 70);
             pnlClientes.Name = "pnlClientes";
@@ -328,7 +328,7 @@
             pnlRazoes.Controls.Add(btnEditarRazao);
             pnlRazoes.Controls.Add(btnNovaRazao);
             pnlRazoes.Controls.Add(btnRazoes);
-            pnlRazoes.Location = new Point(3, 155);
+            pnlRazoes.Location = new Point(3, 365);
             pnlRazoes.MaximumSize = new Size(240, 280);
             pnlRazoes.MinimumSize = new Size(240, 70);
             pnlRazoes.Name = "pnlRazoes";
