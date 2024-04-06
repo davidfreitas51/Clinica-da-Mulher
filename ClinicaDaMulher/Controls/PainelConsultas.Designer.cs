@@ -33,11 +33,14 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             dgvConsultas = new DataGridView();
             clnNomeDoCliente = new DataGridViewTextBoxColumn();
             clnCPFdoCliente = new DataGridViewTextBoxColumn();
             clmData = new DataGridViewTextBoxColumn();
             clnHorario = new DataGridViewTextBoxColumn();
+            clnMotivo = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvConsultas).BeginInit();
             SuspendLayout();
             // 
@@ -63,7 +66,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvConsultas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvConsultas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvConsultas.Columns.AddRange(new DataGridViewColumn[] { clnNomeDoCliente, clnCPFdoCliente, clmData, clnHorario });
+            dgvConsultas.Columns.AddRange(new DataGridViewColumn[] { clnNomeDoCliente, clnCPFdoCliente, clmData, clnHorario, clnMotivo });
             dgvConsultas.Dock = DockStyle.Fill;
             dgvConsultas.EnableHeadersVisualStyles = false;
             dgvConsultas.GridColor = Color.Black;
@@ -115,11 +118,25 @@
             // 
             // clnHorario
             // 
+            clnHorario.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             clnHorario.DataPropertyName = "Hora";
+            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 10.2F);
+            clnHorario.DefaultCellStyle = dataGridViewCellStyle6;
             clnHorario.HeaderText = "Horário";
             clnHorario.MinimumWidth = 6;
             clnHorario.Name = "clnHorario";
             clnHorario.ReadOnly = true;
+            // 
+            // clnMotivo
+            // 
+            clnMotivo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            clnMotivo.DataPropertyName = "Motivo";
+            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 10.2F);
+            clnMotivo.DefaultCellStyle = dataGridViewCellStyle7;
+            clnMotivo.HeaderText = "Motivo";
+            clnMotivo.MinimumWidth = 6;
+            clnMotivo.Name = "clnMotivo";
+            clnMotivo.ReadOnly = true;
             // 
             // PainelConsultas
             // 
@@ -139,5 +156,6 @@
         private DataGridViewTextBoxColumn clnCPFdoCliente;
         private DataGridViewTextBoxColumn clmData;
         private DataGridViewTextBoxColumn clnHorario;
+        private DataGridViewTextBoxColumn clnMotivo;
     }
 }

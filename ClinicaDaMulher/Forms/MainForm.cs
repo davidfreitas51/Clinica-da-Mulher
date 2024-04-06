@@ -2,6 +2,7 @@ using ClinicaDaMulher.Controls;
 using ClinicaDaMulher.Data;
 using ClinicaDaMulher.Models;
 using Maroquio;
+using MessageUtils;
 
 namespace ClinicaDaMulher
 {
@@ -21,7 +22,14 @@ namespace ClinicaDaMulher
         {
             VerConsultas verConsultas = new VerConsultas(this);
             MudarPainelSuperior(verConsultas);
-            RefreshGridConsultas(DbWorker.ListarTabelaConsultas());
+            try
+            {
+                RefreshGridConsultas(DbWorker.ListarTabelaConsultas());
+            }
+            catch (Exception ex)
+            {
+                SimpleMessage.Inform(ex.ToString());
+            }
         }
         public void RefreshGridConsultas(SortableBindingList<Consulta> consultas)
         {

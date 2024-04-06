@@ -55,21 +55,21 @@
             label2.ForeColor = SystemColors.ControlLightLight;
             label2.Location = new Point(12, 58);
             label2.Name = "label2";
-            label2.Size = new Size(196, 31);
+            label2.Size = new Size(79, 31);
             label2.TabIndex = 40;
-            label2.Text = "Nome do motivo";
+            label2.Text = "Nome";
             // 
             // txtNomeDoMotivo
             // 
             txtNomeDoMotivo.Font = new Font("Segoe UI", 12F);
             txtNomeDoMotivo.Location = new Point(12, 92);
             txtNomeDoMotivo.Name = "txtNomeDoMotivo";
-            txtNomeDoMotivo.Size = new Size(288, 34);
+            txtNomeDoMotivo.Size = new Size(251, 34);
             txtNomeDoMotivo.TabIndex = 39;
             // 
             // button1
             // 
-            button1.Location = new Point(236, 151);
+            button1.Location = new Point(192, 151);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 41;
@@ -78,7 +78,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(114, 151);
+            button2.Location = new Point(70, 151);
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 42;
@@ -91,7 +91,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(50, 52, 77);
-            ClientSize = new Size(342, 192);
+            ClientSize = new Size(300, 192);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label2);
