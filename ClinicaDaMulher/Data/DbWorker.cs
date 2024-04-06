@@ -1,4 +1,5 @@
 ﻿using ClinicaDaMulher.Models;
+using Maroquio;
 using MessageUtils;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -31,25 +32,36 @@ namespace ClinicaDaMulher.Data
             }
             return true;
         }
-        public static List<Consulta> ListarTabelaConsultas()
+        public static SortableBindingList<Consulta> ListarTabelaConsultas()
         {
             ClinicaDaMulherContext Contexto = new ClinicaDaMulherContext();
-            return Contexto.Consultas.ToList();
+            List<Consulta> consultas = Contexto.Consultas.ToList();
+
+            SortableBindingList<Consulta> listaConsultas = new SortableBindingList<Consulta>(consultas);
+
+            return listaConsultas;
         }
-        public static List<Cliente> ListarTabelaClientes(string Nome = "", string Cpf = "")
+        public static SortableBindingList<Cliente> ListarTabelaClientes(string Nome = "", string Cpf = "")
         {
             ClinicaDaMulherContext Contexto = new ClinicaDaMulherContext();
             var clientesRequisitados = from cliente in Contexto.Clientes
-                                       where cliente.Nome.Contains(Nome) &&
+                                       where cliente.Nome.ToUpper().Contains(Nome.ToUpper()) &&
                                              cliente.CPF.Contains(Cpf)
                                        select cliente;
-            return clientesRequisitados.ToList();
+            List<Cliente> clientes = clientesRequisitados.ToList();
+
+            SortableBindingList<Cliente> listaClientes = new SortableBindingList<Cliente>(clientes);
+            return listaClientes;
         }
 
-        public static List<Razao> ListarTabelaRazoes()
+        public static SortableBindingList<Razao> ListarTabelaRazoes()
         {
             ClinicaDaMulherContext Contexto = new ClinicaDaMulherContext();
-            return Contexto.Razoes.ToList();
+            List<Razao> razoes = Contexto.Razoes.ToList();
+
+            SortableBindingList<Razao> listaRazoes = new SortableBindingList<Razao>(razoes);
+
+            return listaRazoes;
         }
     }
 }

@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerClientes));
             painelLegal = new Panel();
+            btnBuscar = new Button();
             txtNome = new TextBox();
             label1 = new Label();
             txtCpf = new TextBox();
             label3 = new Label();
-            btnBuscar = new Button();
             painelLegal.SuspendLayout();
             SuspendLayout();
             // 
@@ -52,6 +52,19 @@
             painelLegal.Size = new Size(847, 84);
             painelLegal.TabIndex = 1;
             // 
+            // btnBuscar
+            // 
+            btnBuscar.BackgroundImage = (Image)resources.GetObject("btnBuscar.BackgroundImage");
+            btnBuscar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.ForeColor = Color.FromArgb(167, 38, 135);
+            btnBuscar.Location = new Point(386, 26);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(46, 46);
+            btnBuscar.TabIndex = 50;
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click_1;
+            // 
             // txtNome
             // 
             txtNome.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -59,6 +72,7 @@
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(160, 31);
             txtNome.TabIndex = 49;
+            txtNome.KeyPress += txtNome_KeyPress;
             // 
             // label1
             // 
@@ -78,6 +92,7 @@
             txtCpf.Name = "txtCpf";
             txtCpf.Size = new Size(160, 31);
             txtCpf.TabIndex = 47;
+            txtCpf.KeyPress += txtCpf_KeyPress;
             // 
             // label3
             // 
@@ -89,18 +104,6 @@
             label3.Size = new Size(46, 28);
             label3.TabIndex = 46;
             label3.Text = "CPF";
-            // 
-            // btnBuscar
-            // 
-            btnBuscar.BackgroundImage = (Image)resources.GetObject("btnBuscar.BackgroundImage");
-            btnBuscar.BackgroundImageLayout = ImageLayout.Stretch;
-            btnBuscar.FlatStyle = FlatStyle.Flat;
-            btnBuscar.ForeColor = Color.FromArgb(167, 38, 135);
-            btnBuscar.Location = new Point(386, 26);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(46, 46);
-            btnBuscar.TabIndex = 50;
-            btnBuscar.UseVisualStyleBackColor = true;
             // 
             // VerClientes
             // 

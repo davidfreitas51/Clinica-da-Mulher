@@ -2,6 +2,7 @@ using ClinicaDaMulher.Controls;
 using ClinicaDaMulher.Data;
 using ClinicaDaMulher.Forms;
 using ClinicaDaMulher.Models;
+using Maroquio;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClinicaDaMulher
@@ -104,7 +105,7 @@ namespace ClinicaDaMulher
             NovoClienteForm novoClienteForm = new NovoClienteForm(this);
             novoClienteForm.ShowDialog();
         }
-        public void RefreshGridCliente(List<Cliente> clientes)
+        public void RefreshGridCliente(SortableBindingList<Cliente> clientes)
         {
             this.painelDgv.Controls.Clear();
             PainelClientes painelClientes = new PainelClientes(this, clientes);
