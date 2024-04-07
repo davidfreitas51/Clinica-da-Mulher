@@ -75,6 +75,7 @@
             button1.TabIndex = 41;
             button1.Text = "Registrar";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 

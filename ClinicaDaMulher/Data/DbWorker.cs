@@ -66,5 +66,23 @@ namespace ClinicaDaMulher.Data
 
             return listaRazoes;
         }
+        public static bool ValidarNomeDoMotivo(string motivo)
+        {
+            ClinicaDaMulherContext Contexto = new ClinicaDaMulherContext();
+            var motivosIguais = from Motivos in Contexto.Motivos
+                                      where Motivos.Nome.ToLower() == motivo.ToLower()
+                                      select Motivos;
+            if (motivosIguais.Any())
+            {
+                return false;
+            }
+            return true;
+        }
+        public static void CriarMotivo(Motivo novoMotivo)
+        {
+            ClinicaDaMulherContext Contexto = new ClinicaDaMulherContext();
+            Contexto.Motivos.Add(novoMotivo);
+            Contexto.SaveChanges();
+        }
     }
 }

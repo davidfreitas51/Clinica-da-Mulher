@@ -1,4 +1,7 @@
-﻿using MessageUtils;
+﻿using ClinicaDaMulher.Data;
+using ClinicaDaMulher.Models;
+using MessageUtils;
+using System.Globalization;
 
 namespace ClinicaDaMulher.Forms
 {
@@ -29,6 +32,34 @@ namespace ClinicaDaMulher.Forms
             {
                 this.Close();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (ValidarNome())
+            {
+                Motivo novoMotivo = new Motivo();
+                novoMotivo.Nome = txtNomeDoMotivo.Text;
+                DbWorker.CriarMotivo(novoMotivo);
+                SimpleMessage.Inform("Motivo criado com sucesso!");
+                mainForm.RefreshGridMotivos(DbWorker.ListarTabelaMotivos());
+                this.Close();
+            }
+            else
+            {
+                SimpleMessage.Inform("Um motivo com o mesmo nome já existe");
+            }
+        }
+        private bool ValidarNome()
+        {
+            if (txtNomeDoMotivo != null && !string.IsNullOrEmpty(txtNomeDoMotivo.Text))
+            {
+                if (DbWorker.ValidarNomeDoMotivo(txtNomeDoMotivo.Text))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
