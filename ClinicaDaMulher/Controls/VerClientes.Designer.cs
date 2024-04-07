@@ -71,13 +71,13 @@
             // 
             // btnNovoCliente
             // 
-            btnNovoCliente.BackColor = Color.FromArgb(69, 71, 106);
+            btnNovoCliente.BackColor = Color.Transparent;
             btnNovoCliente.BackgroundImage = (Image)resources.GetObject("btnNovoCliente.BackgroundImage");
             btnNovoCliente.FlatAppearance.BorderSize = 0;
             btnNovoCliente.FlatStyle = FlatStyle.Flat;
             btnNovoCliente.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNovoCliente.ForeColor = SystemColors.ControlLightLight;
-            btnNovoCliente.Location = new Point(28, 10);
+            btnNovoCliente.Location = new Point(38, 10);
             btnNovoCliente.Name = "btnNovoCliente";
             btnNovoCliente.Size = new Size(70, 69);
             btnNovoCliente.TabIndex = 47;
@@ -86,31 +86,33 @@
             // 
             // btnDeletarCliente
             // 
-            btnDeletarCliente.BackColor = Color.FromArgb(69, 71, 106);
+            btnDeletarCliente.BackColor = Color.Transparent;
             btnDeletarCliente.BackgroundImage = (Image)resources.GetObject("btnDeletarCliente.BackgroundImage");
             btnDeletarCliente.FlatAppearance.BorderSize = 0;
             btnDeletarCliente.FlatStyle = FlatStyle.Flat;
             btnDeletarCliente.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDeletarCliente.ForeColor = SystemColors.ControlLightLight;
-            btnDeletarCliente.Location = new Point(218, 10);
+            btnDeletarCliente.Location = new Point(206, 10);
             btnDeletarCliente.Name = "btnDeletarCliente";
             btnDeletarCliente.Size = new Size(70, 69);
             btnDeletarCliente.TabIndex = 52;
             btnDeletarCliente.UseVisualStyleBackColor = false;
+            btnDeletarCliente.Click += btnDeletarCliente_Click;
             // 
             // btnEditarCliente
             // 
-            btnEditarCliente.BackColor = Color.FromArgb(69, 71, 106);
+            btnEditarCliente.BackColor = Color.Transparent;
             btnEditarCliente.BackgroundImage = (Image)resources.GetObject("btnEditarCliente.BackgroundImage");
             btnEditarCliente.FlatAppearance.BorderSize = 0;
             btnEditarCliente.FlatStyle = FlatStyle.Flat;
             btnEditarCliente.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditarCliente.ForeColor = SystemColors.ControlLightLight;
-            btnEditarCliente.Location = new Point(118, 10);
+            btnEditarCliente.Location = new Point(122, 10);
             btnEditarCliente.Name = "btnEditarCliente";
             btnEditarCliente.Size = new Size(70, 69);
             btnEditarCliente.TabIndex = 51;
             btnEditarCliente.UseVisualStyleBackColor = false;
+            btnEditarCliente.Click += btnEditarCliente_Click;
             // 
             // btnBuscar
             // 
@@ -118,7 +120,7 @@
             btnBuscar.BackgroundImageLayout = ImageLayout.Stretch;
             btnBuscar.FlatStyle = FlatStyle.Flat;
             btnBuscar.ForeColor = Color.FromArgb(167, 38, 135);
-            btnBuscar.Location = new Point(386, 26);
+            btnBuscar.Location = new Point(504, 24);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(46, 46);
             btnBuscar.TabIndex = 50;
@@ -128,9 +130,9 @@
             // txtNome
             // 
             txtNome.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNome.Location = new Point(16, 41);
+            txtNome.Location = new Point(17, 39);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(160, 31);
+            txtNome.Size = new Size(185, 31);
             txtNome.TabIndex = 49;
             txtNome.KeyPress += txtNome_KeyPress;
             // 
@@ -139,7 +141,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(16, 10);
+            label1.Location = new Point(17, 10);
             label1.Name = "label1";
             label1.Size = new Size(69, 28);
             label1.TabIndex = 48;
@@ -148,7 +150,7 @@
             // txtCpf
             // 
             txtCpf.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCpf.Location = new Point(196, 41);
+            txtCpf.Location = new Point(226, 39);
             txtCpf.Name = "txtCpf";
             txtCpf.Size = new Size(160, 31);
             txtCpf.TabIndex = 47;
@@ -159,7 +161,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(196, 10);
+            label3.Location = new Point(226, 10);
             label3.Name = "label3";
             label3.Size = new Size(46, 28);
             label3.TabIndex = 46;

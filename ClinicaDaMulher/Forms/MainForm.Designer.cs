@@ -99,7 +99,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(50, 52, 77);
+            panel2.BackColor = Color.FromArgb(55, 40, 83);
             panel2.Controls.Add(btnMotivos);
             panel2.Controls.Add(btnVerConsultas);
             panel2.Controls.Add(btnClientes);
@@ -111,7 +111,7 @@
             // 
             // btnMotivos
             // 
-            btnMotivos.BackColor = Color.FromArgb(50, 52, 77);
+            btnMotivos.BackColor = Color.Transparent;
             btnMotivos.FlatAppearance.BorderSize = 0;
             btnMotivos.FlatStyle = FlatStyle.Flat;
             btnMotivos.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -128,7 +128,7 @@
             // 
             // btnVerConsultas
             // 
-            btnVerConsultas.BackColor = Color.FromArgb(50, 52, 77);
+            btnVerConsultas.BackColor = Color.Transparent;
             btnVerConsultas.FlatAppearance.BorderSize = 0;
             btnVerConsultas.FlatStyle = FlatStyle.Flat;
             btnVerConsultas.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -145,7 +145,7 @@
             // 
             // btnClientes
             // 
-            btnClientes.BackColor = Color.FromArgb(50, 52, 77);
+            btnClientes.BackColor = Color.Transparent;
             btnClientes.FlatAppearance.BorderSize = 0;
             btnClientes.FlatStyle = FlatStyle.Flat;
             btnClientes.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -162,7 +162,7 @@
             // 
             // painelDgv
             // 
-            painelDgv.BackColor = Color.FromArgb(128, 255, 128);
+            painelDgv.BackColor = Color.FromArgb(55, 40, 83);
             painelDgv.Dock = DockStyle.Fill;
             painelDgv.Location = new Point(239, 77);
             painelDgv.Name = "painelDgv";
