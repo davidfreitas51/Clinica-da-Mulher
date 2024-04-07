@@ -1,4 +1,5 @@
-﻿using ClinicaDaMulher.Models;
+﻿using ClinicaDaMulher.Migrations;
+using ClinicaDaMulher.Models;
 using Maroquio;
 using MessageUtils;
 using Microsoft.EntityFrameworkCore;
@@ -69,6 +70,14 @@ namespace ClinicaDaMulher.Data
             SortableBindingList<Motivo> listaRazoes = new SortableBindingList<Motivo>(razoes);
 
             return listaRazoes;
+        }
+        public static List<string> ListarMotivos()
+        {
+            ClinicaDaMulherContext Contexto = new ClinicaDaMulherContext();
+            var motivosRequisitados = from motivo in Contexto.Motivos
+                                      select motivo.Nome;
+            List<string> motivos = motivosRequisitados.ToList();
+            return motivos;
         }
         public static bool ValidarNomeDoMotivo(string motivo)
         {

@@ -52,9 +52,9 @@
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dgvClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvClientes.BackgroundColor = SystemColors.ControlDarkDark;
+            dgvClientes.BackgroundColor = Color.FromArgb(36, 26, 55);
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(137, 31, 110);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = SystemColors.Info;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
@@ -65,7 +65,7 @@
             dgvClientes.Columns.AddRange(new DataGridViewColumn[] { clnNome, clnCPF, clmTelefone });
             dgvClientes.Dock = DockStyle.Fill;
             dgvClientes.EnableHeadersVisualStyles = false;
-            dgvClientes.GridColor = Color.Black;
+            dgvClientes.GridColor = Color.FromArgb(109, 25, 88);
             dgvClientes.Location = new Point(0, 0);
             dgvClientes.Name = "dgvClientes";
             dgvClientes.ReadOnly = true;

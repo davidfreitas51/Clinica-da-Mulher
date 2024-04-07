@@ -10,7 +10,8 @@ namespace ClinicaDaMulher.Controls
         {
             InitializeComponent();
             mainForm = frm;
-            cbxMotivo.DataSource = DbWorker.ListarTabelaMotivos();
+            cbxMotivo.DataSource = DbWorker.ListarMotivos();
+            cbxMotivo.Text = "ThiagoAmigoDosAnimais";
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -25,6 +26,11 @@ namespace ClinicaDaMulher.Controls
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlControlesConsultas_Paint(object sender, PaintEventArgs e)
         {
 
         }

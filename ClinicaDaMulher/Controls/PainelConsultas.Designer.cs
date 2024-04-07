@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
@@ -56,9 +57,9 @@
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dgvConsultas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvConsultas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvConsultas.BackgroundColor = SystemColors.ControlDarkDark;
+            dgvConsultas.BackgroundColor = Color.FromArgb(36, 26, 55);
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(137, 31, 110);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = SystemColors.Info;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
@@ -67,9 +68,17 @@
             dgvConsultas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvConsultas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvConsultas.Columns.AddRange(new DataGridViewColumn[] { clnNomeDoCliente, clnCPFdoCliente, clmData, clnHorario, clnMotivo });
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgvConsultas.DefaultCellStyle = dataGridViewCellStyle8;
             dgvConsultas.Dock = DockStyle.Fill;
             dgvConsultas.EnableHeadersVisualStyles = false;
-            dgvConsultas.GridColor = Color.Black;
+            dgvConsultas.GridColor = Color.FromArgb(109, 25, 88);
             dgvConsultas.Location = new Point(0, 0);
             dgvConsultas.Name = "dgvConsultas";
             dgvConsultas.ReadOnly = true;

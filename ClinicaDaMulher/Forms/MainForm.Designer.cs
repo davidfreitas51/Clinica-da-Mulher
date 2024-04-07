@@ -96,6 +96,7 @@
             pnlLogo.Name = "pnlLogo";
             pnlLogo.Size = new Size(240, 77);
             pnlLogo.TabIndex = 46;
+            pnlLogo.Paint += pnlLogo_Paint;
             // 
             // panel2
             // 
@@ -162,7 +163,7 @@
             // 
             // painelDgv
             // 
-            painelDgv.BackColor = Color.FromArgb(55, 40, 83);
+            painelDgv.BackColor = Color.FromArgb(36, 26, 55);
             painelDgv.Dock = DockStyle.Fill;
             painelDgv.Location = new Point(239, 77);
             painelDgv.Name = "painelDgv";

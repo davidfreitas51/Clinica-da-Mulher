@@ -65,5 +65,10 @@ namespace ClinicaDaMulher
             painelMotivos.Dock = DockStyle.Fill;
             this.painelDgv.Controls.Add(painelMotivos);
         }
+
+        private void pnlLogo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

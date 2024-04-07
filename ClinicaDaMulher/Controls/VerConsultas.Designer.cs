@@ -36,6 +36,7 @@
             label3 = new Label();
             textBox1 = new TextBox();
             pnlControlesConsultas = new Panel();
+            btnBuscar = new Button();
             painelLegal = new Panel();
             btnExcluirConsulta = new Button();
             btnNovaConsulta = new Button();
@@ -49,7 +50,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ControlLightLight;
-            label4.Location = new Point(433, 4);
+            label4.Location = new Point(391, 5);
             label4.Name = "label4";
             label4.Size = new Size(80, 28);
             label4.TabIndex = 44;
@@ -65,9 +66,11 @@
             // 
             // cbxMotivo
             // 
+            cbxMotivo.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cbxMotivo.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbxMotivo.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxMotivo.FormattingEnabled = true;
-            cbxMotivo.Location = new Point(433, 35);
+            cbxMotivo.Location = new Point(391, 36);
             cbxMotivo.Name = "cbxMotivo";
             cbxMotivo.Size = new Size(151, 30);
             cbxMotivo.TabIndex = 43;
@@ -105,6 +108,7 @@
             // 
             // pnlControlesConsultas
             // 
+            pnlControlesConsultas.Controls.Add(btnBuscar);
             pnlControlesConsultas.Controls.Add(painelLegal);
             pnlControlesConsultas.Controls.Add(textBox1);
             pnlControlesConsultas.Controls.Add(label3);
@@ -117,6 +121,19 @@
             pnlControlesConsultas.Name = "pnlControlesConsultas";
             pnlControlesConsultas.Size = new Size(847, 84);
             pnlControlesConsultas.TabIndex = 48;
+            pnlControlesConsultas.Paint += pnlControlesConsultas_Paint;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.BackgroundImage = (Image)resources.GetObject("btnBuscar.BackgroundImage");
+            btnBuscar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.ForeColor = Color.FromArgb(167, 38, 135);
+            btnBuscar.Location = new Point(589, 21);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(46, 46);
+            btnBuscar.TabIndex = 52;
+            btnBuscar.UseVisualStyleBackColor = true;
             // 
             // painelLegal
             // 
@@ -194,5 +211,6 @@
         private Button btnEditarConsulta;
         private Button btnExcluirConsulta;
         private Panel painelLegal;
+        private Button btnBuscar;
     }
 }

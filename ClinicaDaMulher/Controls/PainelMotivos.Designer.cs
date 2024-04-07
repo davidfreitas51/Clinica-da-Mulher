@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             dgvMotivos = new DataGridView();
@@ -50,9 +51,9 @@
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dgvMotivos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvMotivos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvMotivos.BackgroundColor = SystemColors.ControlDarkDark;
+            dgvMotivos.BackgroundColor = Color.FromArgb(36, 26, 55);
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(137, 31, 110);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = SystemColors.Info;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
@@ -61,9 +62,17 @@
             dgvMotivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvMotivos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvMotivos.Columns.AddRange(new DataGridViewColumn[] { clnId, clnMotivo });
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvMotivos.DefaultCellStyle = dataGridViewCellStyle5;
             dgvMotivos.Dock = DockStyle.Fill;
             dgvMotivos.EnableHeadersVisualStyles = false;
-            dgvMotivos.GridColor = Color.Black;
+            dgvMotivos.GridColor = Color.FromArgb(109, 25, 88);
             dgvMotivos.Location = new Point(0, 0);
             dgvMotivos.Name = "dgvMotivos";
             dgvMotivos.ReadOnly = true;
@@ -76,7 +85,7 @@
             // 
             // clnId
             // 
-            clnId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            clnId.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             clnId.DataPropertyName = "Id";
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -85,6 +94,7 @@
             clnId.MinimumWidth = 6;
             clnId.Name = "clnId";
             clnId.ReadOnly = true;
+            clnId.Width = 125;
             // 
             // clnMotivo
             // 
