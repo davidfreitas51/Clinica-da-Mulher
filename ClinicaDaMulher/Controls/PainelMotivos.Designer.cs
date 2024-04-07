@@ -1,6 +1,6 @@
 ﻿namespace ClinicaDaMulher.Controls
 {
-    partial class PainelRazoes
+    partial class PainelMotivos
     {
         /// <summary> 
         /// Required designer variable.
@@ -72,6 +72,7 @@
             dgvMotivos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMotivos.Size = new Size(447, 583);
             dgvMotivos.TabIndex = 3;
+            dgvMotivos.CellContentClick += dgvMotivos_CellContentClick;
             // 
             // clnId
             // 
@@ -97,12 +98,12 @@
             clnMotivo.Name = "clnMotivo";
             clnMotivo.ReadOnly = true;
             // 
-            // PainelRazoes
+            // PainelMotivos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(dgvMotivos);
-            Name = "PainelRazoes";
+            Name = "PainelMotivos";
             Size = new Size(447, 583);
             ((System.ComponentModel.ISupportInitialize)dgvMotivos).EndInit();
             ResumeLayout(false);

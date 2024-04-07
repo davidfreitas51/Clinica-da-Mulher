@@ -57,10 +57,14 @@ namespace ClinicaDaMulher.Data
             return listaClientes;
         }
 
-        public static SortableBindingList<Motivo> ListarTabelaMotivos()
+        public static SortableBindingList<Motivo> ListarTabelaMotivos(string nomeDoMotivo = "")
         {
             ClinicaDaMulherContext Contexto = new ClinicaDaMulherContext();
-            List<Motivo> razoes = Contexto.Motivos.ToList();
+            var razoesRequisitadas = from motivo in Contexto.Motivos
+                                     where motivo.Nome.ToUpper().Contains(nomeDoMotivo.ToUpper())
+                                     select motivo;
+
+            List < Motivo > razoes = razoesRequisitadas.ToList();
 
             SortableBindingList<Motivo> listaRazoes = new SortableBindingList<Motivo>(razoes);
 

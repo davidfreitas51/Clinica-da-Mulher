@@ -41,6 +41,7 @@ namespace ClinicaDaMulher.Forms
                 Motivo novoMotivo = new Motivo();
                 novoMotivo.Nome = txtNomeDoMotivo.Text;
                 DbWorker.CriarMotivo(novoMotivo);
+
                 SimpleMessage.Inform("Motivo criado com sucesso!");
                 mainForm.RefreshGridMotivos(DbWorker.ListarTabelaMotivos());
                 this.Close();

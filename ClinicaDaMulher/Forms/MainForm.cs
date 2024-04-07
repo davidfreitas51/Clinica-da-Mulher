@@ -31,19 +31,25 @@ namespace ClinicaDaMulher
                 SimpleMessage.Inform(ex.ToString());
             }
         }
-        public void RefreshGridConsultas(SortableBindingList<Consulta> consultas)
-        {
-            this.painelDgv.Controls.Clear();
-            PainelConsultas painelConsultas = new PainelConsultas(this, consultas);
-            painelConsultas.Dock = DockStyle.Fill;
-            this.painelDgv.Controls.Add(painelConsultas);
-        }
 
         private void btnVerClientes_Click(object sender, EventArgs e)
         {
             VerClientes verClientes = new VerClientes(this);
             MudarPainelSuperior(verClientes);
             RefreshGridCliente(DbWorker.ListarTabelaClientes());
+        }
+        private void btnVerRazões_Click(object sender, EventArgs e)
+        {
+            VerMotivos verMotivos = new VerMotivos(this);
+            MudarPainelSuperior(verMotivos);
+            RefreshGridMotivos(DbWorker.ListarTabelaMotivos());
+        }
+        public void RefreshGridConsultas(SortableBindingList<Consulta> consultas)
+        {
+            this.painelDgv.Controls.Clear();
+            PainelConsultas painelConsultas = new PainelConsultas(this, consultas);
+            painelConsultas.Dock = DockStyle.Fill;
+            this.painelDgv.Controls.Add(painelConsultas);
         }
         public void RefreshGridCliente(SortableBindingList<Cliente> clientes)
         {
@@ -52,16 +58,10 @@ namespace ClinicaDaMulher
             painelClientes.Dock = DockStyle.Fill;
             this.painelDgv.Controls.Add(painelClientes);
         }
-        private void btnVerRazões_Click(object sender, EventArgs e)
-        {
-            VerMotivos verMotivos = new VerMotivos(this);
-            MudarPainelSuperior(verMotivos);
-            RefreshGridMotivos(DbWorker.ListarTabelaMotivos());
-        }
         public void RefreshGridMotivos(SortableBindingList<Motivo> motivos)
         {
             this.painelDgv.Controls.Clear();
-            PainelRazoes painelMotivos = new PainelRazoes(this, motivos);
+            PainelMotivos painelMotivos = new PainelMotivos(this, motivos);
             painelMotivos.Dock = DockStyle.Fill;
             this.painelDgv.Controls.Add(painelMotivos);
         }

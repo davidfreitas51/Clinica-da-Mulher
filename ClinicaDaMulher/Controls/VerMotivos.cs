@@ -1,4 +1,5 @@
-﻿using ClinicaDaMulher.Forms;
+﻿using ClinicaDaMulher.Data;
+using ClinicaDaMulher.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,11 @@ namespace ClinicaDaMulher.Controls
         {
             NovoMotivoForm novoMotivo = new NovoMotivoForm(mainForm);
             novoMotivo.ShowDialog();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            mainForm.RefreshGridMotivos(DbWorker.ListarTabelaMotivos(txtMotivo.Text.Trim()));
         }
     }
 }

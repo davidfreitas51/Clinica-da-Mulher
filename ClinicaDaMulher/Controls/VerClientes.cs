@@ -21,7 +21,7 @@ namespace ClinicaDaMulher.Controls
             mainForm = frm;
         }
 
-        private void btnBuscar_Click_1(object sender, EventArgs e)
+        public void btnBuscar_Click_1(object sender, EventArgs e)
         {
             mainForm.RefreshGridCliente(DbWorker.ListarTabelaClientes(txtNome.Text.Trim(), txtCpf.Text.Trim()));
         }

@@ -36,6 +36,7 @@
             btnNovoMotivo = new Button();
             txtMotivo = new TextBox();
             label3 = new Label();
+            btnBuscar = new Button();
             painelLegal.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -43,6 +44,7 @@
             // painelLegal
             // 
             painelLegal.BackColor = Color.FromArgb(167, 38, 135);
+            painelLegal.Controls.Add(btnBuscar);
             painelLegal.Controls.Add(panel1);
             painelLegal.Controls.Add(txtMotivo);
             painelLegal.Controls.Add(label3);
@@ -128,6 +130,19 @@
             label3.TabIndex = 52;
             label3.Text = "Motivo";
             // 
+            // btnBuscar
+            // 
+            btnBuscar.BackgroundImage = (Image)resources.GetObject("btnBuscar.BackgroundImage");
+            btnBuscar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.ForeColor = Color.FromArgb(167, 38, 135);
+            btnBuscar.Location = new Point(203, 24);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(46, 46);
+            btnBuscar.TabIndex = 51;
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
+            // 
             // VerMotivos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -150,5 +165,6 @@
         private Button button2;
         private Button button1;
         private Button btnNovoMotivo;
+        private Button btnBuscar;
     }
 }

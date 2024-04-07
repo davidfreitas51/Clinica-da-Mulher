@@ -3,10 +3,10 @@ using Maroquio;
 
 namespace ClinicaDaMulher.Controls
 {
-    public partial class PainelRazoes : UserControl
+    public partial class PainelMotivos : UserControl
     {
         private readonly MainForm mainForm;
-        public PainelRazoes(MainForm frm, SortableBindingList<Motivo> razoes)
+        public PainelMotivos(MainForm frm, SortableBindingList<Motivo> razoes)
         {
             InitializeComponent();
             mainForm = frm;
@@ -15,6 +15,11 @@ namespace ClinicaDaMulher.Controls
         }
 
         private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvMotivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

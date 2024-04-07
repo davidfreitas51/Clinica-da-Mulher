@@ -22,5 +22,10 @@ namespace ClinicaDaMulher.Controls
         {
 
         }
+
+        private void dgvClientes_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

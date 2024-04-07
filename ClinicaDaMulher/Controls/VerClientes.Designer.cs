@@ -120,7 +120,7 @@
             btnBuscar.BackgroundImageLayout = ImageLayout.Stretch;
             btnBuscar.FlatStyle = FlatStyle.Flat;
             btnBuscar.ForeColor = Color.FromArgb(167, 38, 135);
-            btnBuscar.Location = new Point(504, 24);
+            btnBuscar.Location = new Point(421, 24);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(46, 46);
             btnBuscar.TabIndex = 50;
