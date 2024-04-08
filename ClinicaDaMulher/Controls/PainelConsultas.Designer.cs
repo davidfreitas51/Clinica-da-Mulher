@@ -30,13 +30,15 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             dgvConsultas = new DataGridView();
+            clnId = new DataGridViewTextBoxColumn();
             clnNomeDoCliente = new DataGridViewTextBoxColumn();
             clnCPFdoCliente = new DataGridViewTextBoxColumn();
             clmData = new DataGridViewTextBoxColumn();
@@ -67,15 +69,15 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvConsultas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvConsultas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvConsultas.Columns.AddRange(new DataGridViewColumn[] { clnNomeDoCliente, clnCPFdoCliente, clmData, clnHorario, clnMotivo });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = SystemColors.Window;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgvConsultas.DefaultCellStyle = dataGridViewCellStyle8;
+            dgvConsultas.Columns.AddRange(new DataGridViewColumn[] { clnId, clnNomeDoCliente, clnCPFdoCliente, clmData, clnHorario, clnMotivo });
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = SystemColors.Window;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
+            dataGridViewCellStyle9.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.False;
+            dgvConsultas.DefaultCellStyle = dataGridViewCellStyle9;
             dgvConsultas.Dock = DockStyle.Fill;
             dgvConsultas.EnableHeadersVisualStyles = false;
             dgvConsultas.GridColor = Color.FromArgb(109, 25, 88);
@@ -89,13 +91,26 @@
             dgvConsultas.TabIndex = 4;
             dgvConsultas.CellContentClick += dgvConsultas_CellContentClick_1;
             // 
+            // clnId
+            // 
+            clnId.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            clnId.DataPropertyName = "Id";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            clnId.DefaultCellStyle = dataGridViewCellStyle3;
+            clnId.HeaderText = "ID";
+            clnId.MinimumWidth = 6;
+            clnId.Name = "clnId";
+            clnId.ReadOnly = true;
+            clnId.Width = 125;
+            // 
             // clnNomeDoCliente
             // 
             clnNomeDoCliente.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            clnNomeDoCliente.DataPropertyName = "Cliente.Nome";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            clnNomeDoCliente.DefaultCellStyle = dataGridViewCellStyle3;
+            clnNomeDoCliente.DataPropertyName = "Cliente";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            clnNomeDoCliente.DefaultCellStyle = dataGridViewCellStyle4;
             clnNomeDoCliente.HeaderText = "Cliente";
             clnNomeDoCliente.MinimumWidth = 6;
             clnNomeDoCliente.Name = "clnNomeDoCliente";
@@ -104,10 +119,10 @@
             // clnCPFdoCliente
             // 
             clnCPFdoCliente.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            clnCPFdoCliente.DataPropertyName = "Cliente.CPF";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            clnCPFdoCliente.DefaultCellStyle = dataGridViewCellStyle4;
+            clnCPFdoCliente.DataPropertyName = "CPF";
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            clnCPFdoCliente.DefaultCellStyle = dataGridViewCellStyle5;
             clnCPFdoCliente.HeaderText = "CPF";
             clnCPFdoCliente.MinimumWidth = 6;
             clnCPFdoCliente.Name = "clnCPFdoCliente";
@@ -117,9 +132,9 @@
             // 
             clmData.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             clmData.DataPropertyName = "Data";
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            clmData.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            clmData.DefaultCellStyle = dataGridViewCellStyle6;
             clmData.HeaderText = "Data";
             clmData.MinimumWidth = 6;
             clmData.Name = "clmData";
@@ -129,8 +144,9 @@
             // 
             clnHorario.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             clnHorario.DataPropertyName = "Hora";
-            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 10.2F);
-            clnHorario.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 10.2F);
+            clnHorario.DefaultCellStyle = dataGridViewCellStyle7;
             clnHorario.HeaderText = "Horário";
             clnHorario.MinimumWidth = 6;
             clnHorario.Name = "clnHorario";
@@ -140,8 +156,9 @@
             // 
             clnMotivo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             clnMotivo.DataPropertyName = "Motivo";
-            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 10.2F);
-            clnMotivo.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 10.2F);
+            clnMotivo.DefaultCellStyle = dataGridViewCellStyle8;
             clnMotivo.HeaderText = "Motivo";
             clnMotivo.MinimumWidth = 6;
             clnMotivo.Name = "clnMotivo";
@@ -161,6 +178,7 @@
         #endregion
 
         public DataGridView dgvConsultas;
+        private DataGridViewTextBoxColumn clnId;
         private DataGridViewTextBoxColumn clnNomeDoCliente;
         private DataGridViewTextBoxColumn clnCPFdoCliente;
         private DataGridViewTextBoxColumn clmData;

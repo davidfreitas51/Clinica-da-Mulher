@@ -1,5 +1,4 @@
-﻿using ClinicaDaMulher.Migrations;
-using ClinicaDaMulher.Models;
+﻿using ClinicaDaMulher.Models;
 using Maroquio;
 using MessageUtils;
 using Microsoft.EntityFrameworkCore;
@@ -33,11 +32,19 @@ namespace ClinicaDaMulher.Data
             }
             return true;
         }
-        public static SortableBindingList<Consulta> ListarTabelaConsultas()
+        public static SortableBindingList<Consulta> ListarTabelaConsultas(string nome = "", string cpf = "", string data = "", string motivo = "")
         {
+            string cpfSemPontosETraços = cpf.Replace(".", "").Replace("-", "");
             ClinicaDaMulherContext Contexto = new ClinicaDaMulherContext();
-            List<Consulta> consultas = Contexto.Consultas.ToList();
+            var consultasRequisitadas = from consultaAnalisada in Contexto.Consultas
+                                        where consultaAnalisada.Cliente.ToUpper().Contains(nome.ToUpper()) &&
+                                              consultaAnalisada.CPF.Replace(".", "").Replace("-", "").Contains(cpfSemPontosETraços) &&
+                                              consultaAnalisada.Motivo.ToUpper().Contains(motivo.ToUpper()) &&
+                                              (string.IsNullOrEmpty(data) || consultaAnalisada.Data.Replace("/", "")
+                                              .Replace(" ", "").Contains(data.Replace("/", "").Replace(" ", "")))
+                                       select consultaAnalisada;
 
+            List<Consulta> consultas = consultasRequisitadas.ToList();
             SortableBindingList<Consulta> listaConsultas = new SortableBindingList<Consulta>(consultas);
 
             return listaConsultas;
@@ -91,11 +98,38 @@ namespace ClinicaDaMulher.Data
             }
             return true;
         }
+        public static void CriarConsulta(Consulta consulta)
+        {
+            ClinicaDaMulherContext Contexto = new ClinicaDaMulherContext();
+            Contexto.Consultas.Add(consulta);
+            Contexto.SaveChanges();
+        }
         public static void CriarMotivo(Motivo novoMotivo)
         {
             ClinicaDaMulherContext Contexto = new ClinicaDaMulherContext();
             Contexto.Motivos.Add(novoMotivo);
             Contexto.SaveChanges();
+        }
+        public static bool VerificarExistenciaDeMotivo(string motivo)
+        {
+            ClinicaDaMulherContext Contexto = new ClinicaDaMulherContext();
+            var motivosExistentes = from Motivos in Contexto.Motivos
+                                    where Motivos.Nome == motivo
+                                    select Motivos;
+            if (motivosExistentes.Any())
+            {
+                return true;
+            }
+            return false;
+        }
+        public static string NomePeloCPF(string cpf)
+        {
+            ClinicaDaMulherContext Contexto = new ClinicaDaMulherContext();
+            var clienteEspecificada = from Clientes in Contexto.Clientes
+                                      where Clientes.CPF == cpf
+                                      select Clientes;
+            List<Cliente> clientes = clienteEspecificada.ToList();
+            return clientes[0].Nome;
         }
     }
 }

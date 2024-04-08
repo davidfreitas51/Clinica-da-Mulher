@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClinicaDaMulher.Migrations
 {
     [DbContext(typeof(ClinicaDaMulherContext))]
-    [Migration("20240406132226_NovoCliente")]
-    partial class NovoCliente
+    [Migration("20240408172305_MudancasNoHorario")]
+    partial class MudancasNoHorario
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,28 +49,30 @@ namespace ClinicaDaMulher.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ClienteId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("CPF")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Cliente")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("Data")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("Hora")
+                    b.Property<TimeSpan>("Hora")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("RazaoId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Motivo")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ClienteId");
-
-                    b.HasIndex("RazaoId");
 
                     b.ToTable("Consultas");
                 });
 
-            modelBuilder.Entity("ClinicaDaMulher.Models.Razao", b =>
+            modelBuilder.Entity("ClinicaDaMulher.Models.Motivo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -82,26 +84,7 @@ namespace ClinicaDaMulher.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Razoes");
-                });
-
-            modelBuilder.Entity("ClinicaDaMulher.Models.Consulta", b =>
-                {
-                    b.HasOne("ClinicaDaMulher.Models.Cliente", "Cliente")
-                        .WithMany()
-                        .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ClinicaDaMulher.Models.Razao", "Razao")
-                        .WithMany()
-                        .HasForeignKey("RazaoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cliente");
-
-                    b.Navigation("Razao");
+                    b.ToTable("Motivos");
                 });
 #pragma warning restore 612, 618
         }

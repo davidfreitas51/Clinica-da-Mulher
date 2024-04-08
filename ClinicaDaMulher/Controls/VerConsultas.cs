@@ -11,23 +11,18 @@ namespace ClinicaDaMulher.Controls
             InitializeComponent();
             mainForm = frm;
             cbxMotivo.DataSource = DbWorker.ListarMotivos();
-            cbxMotivo.Text = "ThiagoAmigoDosAnimais";
+            cbxMotivo.Text = "";
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnNovaConsulta_Click(object sender, EventArgs e)
         {
             NovaConsultaForm novaConsulta = new NovaConsultaForm(mainForm);
             novaConsulta.ShowDialog();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            mainForm.RefreshGridConsultas(DbWorker.ListarTabelaConsultas(txtNome.Text,
+                txtCpf.Text, mtxDia.Text, cbxMotivo.Text));
         }
 
         private void pnlControlesConsultas_Paint(object sender, PaintEventArgs e)

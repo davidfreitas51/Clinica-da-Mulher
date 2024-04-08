@@ -22,14 +22,7 @@ namespace ClinicaDaMulher
         {
             VerConsultas verConsultas = new VerConsultas(this);
             MudarPainelSuperior(verConsultas);
-            try
-            {
-                RefreshGridConsultas(DbWorker.ListarTabelaConsultas());
-            }
-            catch (Exception ex)
-            {
-                SimpleMessage.Inform(ex.ToString());
-            }
+            RefreshGridConsultas(DbWorker.ListarTabelaConsultas());
         }
 
         private void btnVerClientes_Click(object sender, EventArgs e)
@@ -38,7 +31,7 @@ namespace ClinicaDaMulher
             MudarPainelSuperior(verClientes);
             RefreshGridCliente(DbWorker.ListarTabelaClientes());
         }
-        private void btnVerRazões_Click(object sender, EventArgs e)
+        private void btnMotivos_Click(object sender, EventArgs e)
         {
             VerMotivos verMotivos = new VerMotivos(this);
             MudarPainelSuperior(verMotivos);
@@ -64,11 +57,6 @@ namespace ClinicaDaMulher
             PainelMotivos painelMotivos = new PainelMotivos(this, motivos);
             painelMotivos.Dock = DockStyle.Fill;
             this.painelDgv.Controls.Add(painelMotivos);
-        }
-
-        private void pnlLogo_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

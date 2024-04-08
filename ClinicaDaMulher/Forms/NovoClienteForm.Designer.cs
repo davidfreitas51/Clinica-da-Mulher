@@ -146,7 +146,6 @@
             cbxEstado.Name = "cbxEstado";
             cbxEstado.Size = new Size(76, 36);
             cbxEstado.TabIndex = 42;
-            cbxEstado.SelectedIndexChanged += cbxEstado_SelectedIndexChanged;
             // 
             // label5
             // 
@@ -164,7 +163,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(50, 52, 77);
+            BackColor = Color.FromArgb(55, 40, 83);
             ClientSize = new Size(489, 450);
             Controls.Add(label5);
             Controls.Add(cbxEstado);

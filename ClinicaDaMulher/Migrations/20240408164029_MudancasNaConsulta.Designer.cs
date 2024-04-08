@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClinicaDaMulher.Migrations
 {
     [DbContext(typeof(ClinicaDaMulherContext))]
-    [Migration("20240406183857_Motivos")]
-    partial class Motivos
+    [Migration("20240408164029_MudancasNaConsulta")]
+    partial class MudancasNaConsulta
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,8 +49,9 @@ namespace ClinicaDaMulher.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ClienteId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Cliente")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("Data")
                         .HasColumnType("TEXT");
@@ -58,14 +59,11 @@ namespace ClinicaDaMulher.Migrations
                     b.Property<DateTime>("Hora")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("RazaoId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Motivo")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ClienteId");
-
-                    b.HasIndex("RazaoId");
 
                     b.ToTable("Consultas");
                 });
@@ -83,25 +81,6 @@ namespace ClinicaDaMulher.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Motivos");
-                });
-
-            modelBuilder.Entity("ClinicaDaMulher.Models.Consulta", b =>
-                {
-                    b.HasOne("ClinicaDaMulher.Models.Cliente", "Cliente")
-                        .WithMany()
-                        .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ClinicaDaMulher.Models.Motivo", "Razao")
-                        .WithMany()
-                        .HasForeignKey("RazaoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cliente");
-
-                    b.Navigation("Razao");
                 });
 #pragma warning restore 612, 618
         }

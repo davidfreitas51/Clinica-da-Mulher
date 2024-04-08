@@ -97,7 +97,6 @@
             btnDeletarCliente.Size = new Size(70, 69);
             btnDeletarCliente.TabIndex = 52;
             btnDeletarCliente.UseVisualStyleBackColor = false;
-            btnDeletarCliente.Click += btnDeletarCliente_Click;
             // 
             // btnEditarCliente
             // 
@@ -112,7 +111,6 @@
             btnEditarCliente.Size = new Size(70, 69);
             btnEditarCliente.TabIndex = 51;
             btnEditarCliente.UseVisualStyleBackColor = false;
-            btnEditarCliente.Click += btnEditarCliente_Click;
             // 
             // btnBuscar
             // 

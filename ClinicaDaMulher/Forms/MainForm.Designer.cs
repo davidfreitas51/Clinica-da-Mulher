@@ -96,7 +96,6 @@
             pnlLogo.Name = "pnlLogo";
             pnlLogo.Size = new Size(240, 77);
             pnlLogo.TabIndex = 46;
-            pnlLogo.Paint += pnlLogo_Paint;
             // 
             // panel2
             // 
@@ -125,7 +124,7 @@
             btnMotivos.TabIndex = 50;
             btnMotivos.Text = "            Motivos";
             btnMotivos.UseVisualStyleBackColor = false;
-            btnMotivos.Click += btnVerRazões_Click;
+            btnMotivos.Click += btnMotivos_Click;
             // 
             // btnVerConsultas
             // 

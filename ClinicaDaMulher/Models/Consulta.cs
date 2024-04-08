@@ -6,13 +6,10 @@ namespace ClinicaDaMulher.Models
     {
         [Key]
         public int Id { get; set; }
-        public Cliente Cliente { get; set; }
-        public Motivo Motivo { get; set; }
-
-        [DataType(DataType.Date)]
-        public DateTime Data { get; set; }
-
-        [DataType(DataType.Time)]
-        public DateTime Hora { get; set; }
+        public string Cliente { get; set; }
+        public string CPF {  get; set; }
+        public string Motivo { get; set; }
+        public string Data { get; set; }
+        public string Hora { get; set; }
     }
 }

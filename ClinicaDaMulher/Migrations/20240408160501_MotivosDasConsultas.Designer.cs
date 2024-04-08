@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClinicaDaMulher.Migrations
 {
     [DbContext(typeof(ClinicaDaMulherContext))]
-    [Migration("20240406235128_Fix")]
-    partial class Fix
+    [Migration("20240408160501_MotivosDasConsultas")]
+    partial class MotivosDasConsultas
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,14 +58,13 @@ namespace ClinicaDaMulher.Migrations
                     b.Property<DateTime>("Hora")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("MotivoId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Motivo")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ClienteId");
-
-                    b.HasIndex("MotivoId");
 
                     b.ToTable("Consultas");
                 });
@@ -93,15 +92,7 @@ namespace ClinicaDaMulher.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ClinicaDaMulher.Models.Motivo", "Motivo")
-                        .WithMany()
-                        .HasForeignKey("MotivoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Cliente");
-
-                    b.Navigation("Motivo");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,5 +1,6 @@
 ﻿using ClinicaDaMulher.Controls;
 using ClinicaDaMulher.Data;
+using ClinicaDaMulher.Models;
 using MessageUtils;
 namespace ClinicaDaMulher.Forms
 {
@@ -14,14 +15,23 @@ namespace ClinicaDaMulher.Forms
         }
         private bool VerificarValidadeDosCampos()
         {
+            string cpfNumerico = new string(mtxCpf.Text.Where(char.IsDigit).ToArray());
+            string mensagemDeErro = "";
             if (!DbWorker.VerificarCpfValido(mtxCpf.Text))
             {
-                SimpleMessage.Error("Já existe um cliente com esse CPF");
-                return false;
+                mensagemDeErro = "Já existe um cliente com esse CPF";
             }
-            else if (mtxCpf.Text.Length != 14)
+            if (cpfNumerico.Length != 11)
             {
-                SimpleMessage.Error("Insira um CPF válido");
+                mensagemDeErro = "Insira um CPF válido";
+            }
+            if (txtNome.Text.Length <= 2)
+            {
+                mensagemDeErro = "Insira um nome válido";
+            }
+            if (!string.IsNullOrEmpty(mensagemDeErro))
+            {
+                SimpleMessage.Error(mensagemDeErro);
                 return false;
             }
             return true;
@@ -79,11 +89,6 @@ namespace ClinicaDaMulher.Forms
             {
                 this.Close();
             }
-        }
-
-        private void cbxEstado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

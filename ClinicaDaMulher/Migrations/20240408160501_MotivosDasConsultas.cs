@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ClinicaDaMulher.Migrations
 {
     /// <inheritdoc />
-    public partial class BugFix : Migration
+    public partial class MotivosDasConsultas : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,12 +19,7 @@ namespace ClinicaDaMulher.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(type: "TEXT", nullable: false),
                     CPF = table.Column<string>(type: "TEXT", nullable: false),
-                    Telefone = table.Column<string>(type: "TEXT", nullable: false),
-                    Rua = table.Column<string>(type: "TEXT", nullable: false),
-                    Numero = table.Column<string>(type: "TEXT", nullable: false),
-                    Bairro = table.Column<string>(type: "TEXT", nullable: false),
-                    Cidade = table.Column<string>(type: "TEXT", nullable: false),
-                    Estado = table.Column<string>(type: "TEXT", nullable: false)
+                    Telefone = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -32,7 +27,7 @@ namespace ClinicaDaMulher.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Razoes",
+                name: "Motivos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -41,7 +36,7 @@ namespace ClinicaDaMulher.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Razoes", x => x.Id);
+                    table.PrimaryKey("PK_Motivos", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -51,7 +46,7 @@ namespace ClinicaDaMulher.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     ClienteId = table.Column<int>(type: "INTEGER", nullable: false),
-                    RazaoId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Motivo = table.Column<string>(type: "TEXT", nullable: false),
                     Data = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Hora = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
@@ -64,23 +59,12 @@ namespace ClinicaDaMulher.Migrations
                         principalTable: "Clientes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Consultas_Razoes_RazaoId",
-                        column: x => x.RazaoId,
-                        principalTable: "Razoes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Consultas_ClienteId",
                 table: "Consultas",
                 column: "ClienteId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Consultas_RazaoId",
-                table: "Consultas",
-                column: "RazaoId");
         }
 
         /// <inheritdoc />
@@ -90,10 +74,10 @@ namespace ClinicaDaMulher.Migrations
                 name: "Consultas");
 
             migrationBuilder.DropTable(
-                name: "Clientes");
+                name: "Motivos");
 
             migrationBuilder.DropTable(
-                name: "Razoes");
+                name: "Clientes");
         }
     }
 }
