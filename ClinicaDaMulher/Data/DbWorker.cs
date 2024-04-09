@@ -1,6 +1,7 @@
 ﻿using ClinicaDaMulher.Models;
 using Maroquio;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Globalization;
+using System.Text;
 
 namespace ClinicaDaMulher.Data
 {
@@ -35,46 +36,49 @@ namespace ClinicaDaMulher.Data
         }
         public static SortableBindingList<Consulta> ListarTabelaConsultas(IClinicaDaMulherContext contexto, string nome = "", string cpf = "", string data = "", string motivo = "")
         {
+            string cleanStringNome = RemoveDiacritics(nome).ToUpper();
+            string cleanStringMotivo = RemoveDiacritics(motivo).ToUpper();
             string cpfSemPontosETraços = cpf.Replace(".", "").Replace("-", "");
-            var consultasRequisitadas = from consultaAnalisada in contexto.Consultas
-                                        where consultaAnalisada.Cliente.ToUpper().Contains(nome.ToUpper()) &&
-                                              consultaAnalisada.CPF.Replace(".", "").Replace("-", "").Contains(cpfSemPontosETraços) &&
-                                              consultaAnalisada.Motivo.ToUpper().Contains(motivo.ToUpper()) &&
+
+            var consultasRequisitadas = (from consultaAnalisada in contexto.Consultas
+                                        where consultaAnalisada.CPF.Replace(".", "").Replace("-", "").Contains(cpfSemPontosETraços) &&
                                               (string.IsNullOrEmpty(data) || consultaAnalisada.Data.Replace("/", "")
                                               .Replace(" ", "").Contains(data.Replace("/", "").Replace(" ", "")))
-                                       select consultaAnalisada;
+                                       select consultaAnalisada).ToList();
 
-            List<Consulta> consultas = consultasRequisitadas.ToList();
-            SortableBindingList<Consulta> listaConsultas = new SortableBindingList<Consulta>(consultas);
+            consultasRequisitadas = consultasRequisitadas.Where(consulta => RemoveDiacritics(consulta.Cliente)
+            .ToUpper().Contains(cleanStringNome)).ToList();
+            consultasRequisitadas = consultasRequisitadas.Where(consulta => RemoveDiacritics(consulta.Motivo)
+            .ToUpper().Contains(cleanStringMotivo)).ToList();
+
+            SortableBindingList<Consulta> listaConsultas = new SortableBindingList<Consulta>(consultasRequisitadas);
 
             return listaConsultas;
         }
         public static SortableBindingList<Cliente> ListarTabelaClientes(IClinicaDaMulherContext contexto, string Nome = "", string Cpf = "")
         {
+            string cleanStringNome = RemoveDiacritics(Nome).ToUpper();
             string cpfSemPontosETraços = Cpf.Replace(".", "").Replace("-", "");
 
-            // Filtra os clientes com base no nome e CPF
-            var clientesRequisitados = contexto.Clientes
-                .Where(cliente => cliente.Nome.ToUpper().Contains(Nome.ToUpper()) &&
-                                   cliente.CPF.Replace(".", "").Replace("-", "").Contains(cpfSemPontosETraços));
+            var clientesRequisitados = (from cliente in contexto.Clientes
+                                        where cliente.CPF.Replace(".", "").Replace("-", "").Contains(cpfSemPontosETraços)
+                                        select cliente).ToList();
+            clientesRequisitados = clientesRequisitados.Where(motivo => RemoveDiacritics(motivo.Nome)
+            .ToUpper().Contains(cleanStringNome)).ToList();
 
-            // Converte o resultado em uma lista
-            List<Cliente> clientes = clientesRequisitados.ToList();
-
-            // Cria uma lista classificável de clientes
-            SortableBindingList<Cliente> listaClientes = new SortableBindingList<Cliente>(clientes);
+            SortableBindingList<Cliente> listaClientes = new SortableBindingList<Cliente>(clientesRequisitados);
             return listaClientes;
         }
 
         public static SortableBindingList<Motivo> ListarTabelaMotivos(IClinicaDaMulherContext contexto, string nomeDoMotivo = "")
         {
-            var razoesRequisitadas = from motivo in contexto.Motivos
-                                     where motivo.Nome.ToUpper().Contains(nomeDoMotivo.ToUpper())
-                                     select motivo;
+            string cleanString = RemoveDiacritics(nomeDoMotivo).ToUpper();
+            var razoesRequisitadas = (from motivo in contexto.Motivos
+                                      select motivo).ToList();
+            razoesRequisitadas = razoesRequisitadas.Where(motivo => RemoveDiacritics(motivo.Nome)
+            .ToUpper().Contains(cleanString)).ToList();
 
-            List < Motivo > razoes = razoesRequisitadas.ToList();
-
-            SortableBindingList<Motivo> listaRazoes = new SortableBindingList<Motivo>(razoes);
+            SortableBindingList < Motivo > listaRazoes = new SortableBindingList<Motivo>(razoesRequisitadas);
 
             return listaRazoes;
         }
@@ -114,6 +118,25 @@ namespace ClinicaDaMulher.Data
                                       select Clientes;
             List<Cliente> clientes = clienteEspecificada.ToList();
             return clientes[0].Nome;
+        }
+        static string RemoveDiacritics(string text)
+        {
+            var normalizedString = text.Normalize(NormalizationForm.FormD);
+            var stringBuilder = new StringBuilder(capacity: normalizedString.Length);
+
+            for (int i = 0; i < normalizedString.Length; i++)
+            {
+                char c = normalizedString[i];
+                var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+                {
+                    stringBuilder.Append(c);
+                }
+            }
+
+            return stringBuilder
+                .ToString()
+                .Normalize(NormalizationForm.FormC);
         }
     }
 }

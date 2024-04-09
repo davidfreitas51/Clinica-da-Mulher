@@ -97,7 +97,7 @@ namespace ClinicaDaMulher.Forms
         {
             mainForm.RefreshGrid(DbWorker.ListarTabelaClientes(context));
         }
-        public static string RemoverLiterais(string input)
+        private static string RemoverLiterais(string input)
         {
             return Regex.Replace(input, @"[^\d]", "");
         }

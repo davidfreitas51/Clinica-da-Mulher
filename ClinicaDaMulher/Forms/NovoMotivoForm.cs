@@ -1,6 +1,7 @@
 ﻿using ClinicaDaMulher.Data;
 using ClinicaDaMulher.Models;
 using MessageUtils;
+using System.Text.RegularExpressions;
 
 namespace ClinicaDaMulher.Forms
 {
@@ -34,7 +35,7 @@ namespace ClinicaDaMulher.Forms
         }
         private bool VerificarAlteracoesNaoSalvas()
         {
-            if (VerificarPreenchimentoDosCampos() &&
+            if (!VerificarPreenchimentoDosCampos() &&
                 !SimpleMessage.Confirm("Há alterações não salvas. Deseja mesmo cancelar?"))
             {
                 return false;
@@ -44,23 +45,26 @@ namespace ClinicaDaMulher.Forms
 
         private bool ValidarNome()
         {
-            if (!VerificarPreenchimentoDosCampos())
+            string mensagemDeErro = "";
+            if (VerificarPreenchimentoDosCampos())
             {
+                mensagemDeErro = "O motivo precisa de um nome";
+            }
+            else if (!DbWorker.ValidarNomeDoMotivo(context, txtNomeDoMotivo.Text))
+            {
+                mensagemDeErro = "Um motivo com o mesmo nome já existe";
+            }
+            if (!string.IsNullOrEmpty(mensagemDeErro))
+            {
+                SimpleMessage.Error(mensagemDeErro);
                 return false;
             }
-
-            if (!DbWorker.ValidarNomeDoMotivo(context, txtNomeDoMotivo.Text))
-            {
-                SimpleMessage.Inform("Um motivo com o mesmo nome já existe");
-                return false;
-            }
-
             return true;
         }
 
         private bool VerificarPreenchimentoDosCampos()
         {
-            return !string.IsNullOrEmpty(txtNomeDoMotivo.Text);
+            return string.IsNullOrEmpty(txtNomeDoMotivo.Text);
         }
 
         private void CriarNovoMotivo()
