@@ -1,4 +1,5 @@
 ﻿using ClinicaDaMulher.Data;
+using ClinicaDaMulher.Forms;
 using ClinicaDaMulher.Models;
 using Maroquio;
 using MessageUtils;
@@ -61,7 +62,15 @@ namespace ClinicaDaMulher.Controls
             SimpleMessage.Error("Selecione um motivo do painel");
             return false;
         }
-
+        public void EditarMotivo()
+        {
+            var motivoSelecionado = ObterMotivoSelecionado();
+            if (motivoSelecionado != null)
+            {
+                NovoMotivoForm editarMotivo = new NovoMotivoForm(mainForm, true, motivoSelecionado);
+                editarMotivo.ShowDialog();
+            }
+        }
         private void dgvMotivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

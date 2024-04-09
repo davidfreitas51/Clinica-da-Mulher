@@ -108,6 +108,7 @@
             btnEditarMotivo.Size = new Size(70, 70);
             btnEditarMotivo.TabIndex = 49;
             btnEditarMotivo.UseVisualStyleBackColor = false;
+            btnEditarMotivo.Click += btnEditarMotivo_Click;
             // 
             // btnNovoMotivo
             // 

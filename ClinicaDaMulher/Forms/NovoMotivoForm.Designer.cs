@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            lblTitulo = new Label();
             label2 = new Label();
             txtNomeDoMotivo = new TextBox();
             btnRegistrar = new Button();
             btnCancelar = new Button();
             SuspendLayout();
             // 
-            // label1
+            // lblTitulo
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(202, 41);
-            label1.TabIndex = 36;
-            label1.Text = "Novo motivo";
+            lblTitulo.AutoSize = true;
+            lblTitulo.BackColor = Color.Transparent;
+            lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = SystemColors.ControlLightLight;
+            lblTitulo.Location = new Point(12, 9);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(202, 41);
+            lblTitulo.TabIndex = 36;
+            lblTitulo.Text = "Novo motivo";
             // 
             // label2
             // 
@@ -98,17 +98,18 @@
             Controls.Add(btnRegistrar);
             Controls.Add(label2);
             Controls.Add(txtNomeDoMotivo);
-            Controls.Add(label1);
+            Controls.Add(lblTitulo);
             Name = "NovoMotivoForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Novo motivo";
+            Load += NovoMotivoForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Label lblTitulo;
         private Label label2;
         private TextBox txtNomeDoMotivo;
         private Button btnRegistrar;

@@ -42,5 +42,10 @@ namespace ClinicaDaMulher.Controls
         {
             mainForm.ExcluirDados(typeof(Models.Motivo));
         }
+
+        private void btnEditarMotivo_Click(object sender, EventArgs e)
+        {
+            mainForm.EditarDados(typeof(Models.Motivo));
+        }
     }
 }

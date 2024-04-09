@@ -55,7 +55,11 @@ namespace ClinicaDaMulher
         }
         public void ExcluirDados(Type type)
         {
-            HandleTypeData(type);
+            HandleExcludeData(type);
+        }
+        public void EditarDados(Type type)
+        {
+            HandleEditData(type);
         }
         public UserControl HandleTypeControls<T>(Type type, SortableBindingList<T> dados)
         {
@@ -77,7 +81,7 @@ namespace ClinicaDaMulher
             }
             return panel;
         }
-        public void HandleTypeData(Type type)
+        public void HandleExcludeData(Type type)
         {
             switch (type.Name)
             {
@@ -89,6 +93,21 @@ namespace ClinicaDaMulher
                     break;
                 case nameof(Motivo):
                     paineldeMotivos.DeletarMotivo();
+                    break;
+            }
+        }
+        public void HandleEditData(Type type)
+        {
+            switch (type.Name)
+            {
+                case nameof(Consulta):
+                    //painelDeConsultas.EditarConsulta();
+                    break;
+                case nameof(Cliente):
+                    //painelDeClientes.EditarClientes();
+                    break;
+                case nameof(Motivo):
+                    paineldeMotivos.EditarMotivo();
                     break;
             }
         }

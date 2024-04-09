@@ -9,19 +9,45 @@ namespace ClinicaDaMulher.Forms
     {
         private readonly MainForm mainForm;
         private readonly IClinicaDaMulherContext context;
-
-        public NovoMotivoForm(MainForm frm)
+        private readonly bool ModoEdicao;
+        private readonly Motivo motivoAEditar;
+        public NovoMotivoForm(MainForm frm, bool modoEdicao = false, Motivo motivoAnterior = null)
         {
             InitializeComponent();
             mainForm = frm;
             context = frm.context;
+            ModoEdicao = false;
+            ModoEdicao = modoEdicao;
+            if (ModoEdicao )
+            {
+                lblTitulo.Text = "Editar motivo";
+                motivoAEditar = motivoAnterior;
+                btnRegistrar.Text = "Editar";
+            }
+        }
+        private void NovoMotivoForm_Load(object sender, EventArgs e)
+        {
+            if (ModoEdicao)
+            {
+                txtNomeDoMotivo.Text = motivoAEditar.Nome;
+            }
         }
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            if (ValidarNome())
+            if (ModoEdicao)
+            {
+                if (ValidarNome())
+                {
+                    EditarMotivo();
+                    SimpleMessage.Inform("Motivo editado com sucesso");
+                    AtualizarGridMotivos();
+                    this.Close();
+                }
+            }
+            else if (ValidarNome())
             {
                 CriarNovoMotivo();
-                SimpleMessage.Inform("Motivo criado com sucesso!");
+                SimpleMessage.Inform("Motivo criado com sucesso");
                 AtualizarGridMotivos();
                 this.Close();
             }
@@ -74,6 +100,14 @@ namespace ClinicaDaMulher.Forms
                 Nome = txtNomeDoMotivo.Text
             };
             DbWorker.CriarEntidade(context, novoMotivo);
+        }
+        private void EditarMotivo()
+        {
+            Motivo motivoEditado = new Motivo
+            {
+                Nome = txtNomeDoMotivo.Text
+            };
+            DbWorker.EditarMotivo(context, motivoAEditar,  motivoEditado);
         }
 
         private void AtualizarGridMotivos()

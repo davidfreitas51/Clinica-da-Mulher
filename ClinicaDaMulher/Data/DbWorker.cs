@@ -70,6 +70,17 @@ namespace ClinicaDaMulher.Data
             return motivos;
         }
 
+        public static void EditarMotivo(IClinicaDaMulherContext context, Motivo motivoAnterior, Motivo novoMotivo)
+        {
+            var motivoAEditar = (from motivos in context.Motivos
+                                where motivos.Id == motivoAnterior.Id
+                                select motivos).FirstOrDefault();
+            if (motivoAEditar is Motivo)
+            {
+                motivoAEditar.Nome = novoMotivo.Nome;
+            }
+            context.SaveChanges();
+        }
 
         public static void DeletarConsulta(IClinicaDaMulherContext context, int id)
         {
