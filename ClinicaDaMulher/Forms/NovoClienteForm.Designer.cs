@@ -165,6 +165,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(55, 40, 83);
             ClientSize = new Size(489, 450);
+            ControlBox = false;
             Controls.Add(label5);
             Controls.Add(cbxEstado);
             Controls.Add(label4);
@@ -179,7 +180,6 @@
             Name = "NovoClienteForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "NovoCliente";
-            Load += NovoClienteForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -188,7 +188,6 @@
 
         private Button btnCadastrar;
         private Button btnCancelar;
-        private TextBox txtCpf;
         private Label label1;
         private MaskedTextBox mtxCpf;
         private TextBox txtNome;

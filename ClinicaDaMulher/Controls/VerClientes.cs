@@ -6,22 +6,24 @@ namespace ClinicaDaMulher.Controls
     public partial class VerClientes : UserControl
     {
         private readonly MainForm mainForm;
+        private readonly IClinicaDaMulherContext context;
         public VerClientes(MainForm frm)
         {
             InitializeComponent();
             mainForm = frm;
+            context = frm.context;
         }
 
         public void btnBuscar_Click_1(object sender, EventArgs e)
         {
-            mainForm.RefreshGridCliente(DbWorker.ListarTabelaClientes(txtNome.Text.Trim(), txtCpf.Text.Trim()));
+            mainForm.RefreshGrid(DbWorker.ListarTabelaClientes(context, txtNome.Text.Trim(), txtCpf.Text.Trim()));
         }
 
         private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                mainForm.RefreshGridCliente(DbWorker.ListarTabelaClientes(txtNome.Text.Trim(), txtCpf.Text.Trim()));
+                mainForm.RefreshGrid(DbWorker.ListarTabelaClientes(context, txtNome.Text.Trim(), txtCpf.Text.Trim()));
             }
         }
 
@@ -29,7 +31,7 @@ namespace ClinicaDaMulher.Controls
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                mainForm.RefreshGridCliente(DbWorker.ListarTabelaClientes(txtNome.Text.Trim(), txtCpf.Text.Trim()));
+                mainForm.RefreshGrid(DbWorker.ListarTabelaClientes(context, txtNome.Text.Trim(), txtCpf.Text.Trim()));
             }
         }
 

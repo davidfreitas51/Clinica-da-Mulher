@@ -1,23 +1,43 @@
-﻿using ClinicaDaMulher.Controls;
-using ClinicaDaMulher.Data;
+﻿using ClinicaDaMulher.Data;
 using ClinicaDaMulher.Models;
 using MessageUtils;
+
 namespace ClinicaDaMulher.Forms
 {
     public partial class NovoClienteForm : Form
     {
         private readonly MainForm mainForm;
+        private readonly IClinicaDaMulherContext context;
+
         public NovoClienteForm(MainForm frm)
         {
             InitializeComponent();
-
             mainForm = frm;
+            context = frm.context;
+        }
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            if (VerificarValidadeDosCampos())
+            {
+                CriarNovoCliente();
+                SimpleMessage.Inform("Cliente cadastrado com sucesso!");
+                AtualizarGridClientes();
+                this.Close();
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (VerificarAlteracoesNaoSalvas())
+            {
+                this.Close();
+            }
         }
         private bool VerificarValidadeDosCampos()
         {
             string cpfNumerico = new string(mtxCpf.Text.Where(char.IsDigit).ToArray());
             string mensagemDeErro = "";
-            if (!DbWorker.VerificarCpfValido(mtxCpf.Text))
+            if (!DbWorker.VerificarCpfValido(context, mtxCpf.Text))
             {
                 mensagemDeErro = "Já existe um cliente com esse CPF";
             }
@@ -39,56 +59,43 @@ namespace ClinicaDaMulher.Forms
         private bool VerificarPreenchimentoDosCampos()
         {
 
-            if (txtCpf != null && !string.IsNullOrEmpty(txtCpf.Text))
+            if (mtxCpf == null || string.IsNullOrEmpty(mtxCpf.Text))
             {
-                return true;
+                return false;
             }
-
-            if (txtNome != null && !string.IsNullOrEmpty(txtNome.Text))
+            if (txtNome == null || string.IsNullOrEmpty(txtNome.Text))
             {
-                return true;
+                return false;
             }
-            return false;
-        }
-        private void btnCadastrar_Click(object sender, EventArgs e)
-        {
-            if (VerificarValidadeDosCampos())
+            if (mtxTelefone == null || string.IsNullOrEmpty(mtxTelefone.Text))
             {
-                List<string> novoCliente = new List<string>();
-                novoCliente.Add(txtNome.Text);
-                novoCliente.Add(mtxCpf.Text);
-                novoCliente.Add(mtxTelefone.Text);
-                DbWorker.CriarCliente(novoCliente);
-
-                SimpleMessage.Inform("Cliente cadastrado com sucesso!");
-                mainForm.RefreshGridCliente(DbWorker.ListarTabelaClientes());
-                this.Close();
+                return false;
             }
+            return true;
         }
 
-        private void NovoClienteForm_Load(object sender, EventArgs e)
+        private bool VerificarAlteracoesNaoSalvas()
         {
-            List<string> unidadesFederativas = new List<string> {
-                "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG",
-                "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"
+            if (VerificarPreenchimentoDosCampos() &&
+                !SimpleMessage.Confirm("Há alterações não salvas. Deseja mesmo cancelar?"))
+            {
+                return false;
+            }
+            return true;
+        }
+        private void CriarNovoCliente()
+        {
+            Cliente novoCliente = new Cliente
+            {
+                Nome = txtNome.Text,
+                CPF = mtxCpf.Text,
+                Telefone = mtxTelefone.Text,
             };
-            cbxEstado.DataSource = unidadesFederativas;
-            cbxEstado.Text = "";
+            DbWorker.CriarCliente(context, novoCliente);
         }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void AtualizarGridClientes()
         {
-            if (VerificarPreenchimentoDosCampos())
-            {
-                if (SimpleMessage.Confirm("Há alterações não salvas. Deseja mesmo cancelar?"))
-                {
-                    this.Close();
-                }
-            }
-            else
-            {
-                this.Close();
-            }
+            mainForm.RefreshGrid(DbWorker.ListarTabelaClientes(context));
         }
     }
 }

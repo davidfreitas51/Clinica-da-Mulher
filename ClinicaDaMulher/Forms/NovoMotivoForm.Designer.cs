@@ -31,8 +31,8 @@
             label1 = new Label();
             label2 = new Label();
             txtNomeDoMotivo = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
+            btnRegistrar = new Button();
+            btnCancelar = new Button();
             SuspendLayout();
             // 
             // label1
@@ -67,25 +67,25 @@
             txtNomeDoMotivo.Size = new Size(251, 34);
             txtNomeDoMotivo.TabIndex = 39;
             // 
-            // button1
+            // btnRegistrar
             // 
-            button1.Location = new Point(192, 151);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 41;
-            button1.Text = "Registrar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnRegistrar.Location = new Point(192, 151);
+            btnRegistrar.Name = "btnRegistrar";
+            btnRegistrar.Size = new Size(94, 29);
+            btnRegistrar.TabIndex = 41;
+            btnRegistrar.Text = "Registrar";
+            btnRegistrar.UseVisualStyleBackColor = true;
+            btnRegistrar.Click += btnRegistrar_Click;
             // 
-            // button2
+            // btnCancelar
             // 
-            button2.Location = new Point(70, 151);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 42;
-            button2.Text = "Cancelar";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnCancelar.Location = new Point(70, 151);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(94, 29);
+            btnCancelar.TabIndex = 42;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // NovoMotivoForm
             // 
@@ -93,15 +93,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(50, 52, 77);
             ClientSize = new Size(300, 192);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            ControlBox = false;
+            Controls.Add(btnCancelar);
+            Controls.Add(btnRegistrar);
             Controls.Add(label2);
             Controls.Add(txtNomeDoMotivo);
             Controls.Add(label1);
             Name = "NovoMotivoForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Novo motivo";
-            Load += NovoMotivoForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -111,7 +111,7 @@
         private Label label1;
         private Label label2;
         private TextBox txtNomeDoMotivo;
-        private Button button1;
-        private Button button2;
+        private Button btnRegistrar;
+        private Button btnCancelar;
     }
 }

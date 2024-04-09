@@ -3,7 +3,7 @@ using ClinicaDaMulher.Models;
 
 namespace ClinicaDaMulher.Data
 {
-    public class ClinicaDaMulherContext : DbContext
+    public class ClinicaDaMulherContext : DbContext, IClinicaDaMulherContext
     {
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Motivo> Motivos { get; set; }

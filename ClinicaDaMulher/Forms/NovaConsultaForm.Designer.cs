@@ -168,6 +168,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(55, 40, 83);
             ClientSize = new Size(428, 322);
+            ControlBox = false;
             Controls.Add(mtxData);
             Controls.Add(mtxHorario);
             Controls.Add(btnCancelar);

@@ -68,6 +68,7 @@
             cbxMotivo.Name = "cbxMotivo";
             cbxMotivo.Size = new Size(151, 30);
             cbxMotivo.TabIndex = 43;
+            cbxMotivo.SelectedIndexChanged += cbxMotivo_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -103,6 +104,7 @@
             pnlControlesConsultas.Controls.Add(label2);
             pnlControlesConsultas.Controls.Add(label4);
             pnlControlesConsultas.Controls.Add(cbxMotivo);
+            pnlControlesConsultas.Dock = DockStyle.Fill;
             pnlControlesConsultas.Location = new Point(0, 0);
             pnlControlesConsultas.Name = "pnlControlesConsultas";
             pnlControlesConsultas.Size = new Size(1111, 84);
@@ -214,6 +216,7 @@
             Controls.Add(pnlControlesConsultas);
             Name = "VerConsultas";
             Size = new Size(1111, 84);
+            Load += VerConsultas_Load;
             pnlControlesConsultas.ResumeLayout(false);
             pnlControlesConsultas.PerformLayout();
             painelLegal.ResumeLayout(false);
@@ -223,7 +226,6 @@
         #endregion
 
         private Label label4;
-        private ComboBox cbxMotivo;
         private Label label2;
         private Label label3;
         private Panel pnlControlesConsultas;
@@ -236,5 +238,6 @@
         private Label label1;
         private MaskedTextBox mtxDia;
         private TextBox txtCpf;
+        public ComboBox cbxMotivo;
     }
 }

@@ -6,23 +6,25 @@ namespace ClinicaDaMulher.Forms
 {
     public partial class NovaConsultaForm : Form
     {
-        public readonly MainForm mainForm;
+        private readonly MainForm mainForm;
+        private readonly IClinicaDaMulherContext context;
         public NovaConsultaForm(MainForm frm)
         {
-            mainForm = frm;
             InitializeComponent();
+            mainForm = frm;
+            context = frm.context;
         }
 
         private void NovaConsultaForm_Load(object sender, EventArgs e)
         {
-            cbxMotivo.DataSource = DbWorker.ListarMotivos();
+            cbxMotivo.DataSource = DbWorker.ListarMotivos(context);
             cbxMotivo.Text = "";
         }
         private bool ValidarCampos()
         {
             string cpfNumerico = new string(mtxCpf.Text.Where(char.IsDigit).ToArray());
             string mensagemDeErro = "";
-            if (DbWorker.VerificarCpfValido(mtxCpf.Text))
+            if (DbWorker.VerificarCpfValido(context, mtxCpf.Text))
             {
                 mensagemDeErro = "CPF não cadastrado";
             }
@@ -30,7 +32,7 @@ namespace ClinicaDaMulher.Forms
             {
                 mensagemDeErro = "Digite um CPF válido";
             }
-            if (!DbWorker.VerificarExistenciaDeMotivo(cbxMotivo.Text))
+            if (!DbWorker.VerificarExistenciaDeMotivo(context, cbxMotivo.Text))
             {
                 mensagemDeErro = "Escolha um motivo da lista";
             }
@@ -66,7 +68,7 @@ namespace ClinicaDaMulher.Forms
         {
             if (ValidarCampos())
             {
-                string nomeDaCliente = DbWorker.NomePeloCPF(mtxCpf.Text);
+                string nomeDaCliente = DbWorker.NomePeloCPF(context, mtxCpf.Text);
                 string mensagemDeConfirmação = $"Confirme os dados:\n\nCliente: {nomeDaCliente}\nCPF: {mtxCpf.Text}\n" +
                 $"Dia: {mtxData.Text}\nHorário: {mtxHorario.Text}\nMotivo: {cbxMotivo.Text}\n\nEstá tudo correto?";
                 if (SimpleMessage.Confirm(mensagemDeConfirmação))
@@ -80,10 +82,10 @@ namespace ClinicaDaMulher.Forms
                         Motivo = cbxMotivo.Text.Trim(),
                     };
                     SimpleMessage.Inform($"Data = {mtxData.Text.Length}\nHora = {mtxHorario.Text.Length}");
-                    DbWorker.CriarConsulta(novaConsulta);
+                    DbWorker.CriarConsulta(context, novaConsulta);
                     SimpleMessage.Inform("Consulta criada com sucesso");
-                    var consultas = DbWorker.ListarTabelaConsultas();
-                    mainForm.RefreshGridConsultas(DbWorker.ListarTabelaConsultas());
+                    var consultas = DbWorker.ListarTabelaConsultas(context);
+                    mainForm.RefreshGrid(DbWorker.ListarTabelaConsultas(context));
                     this.Close();
                 }
             }

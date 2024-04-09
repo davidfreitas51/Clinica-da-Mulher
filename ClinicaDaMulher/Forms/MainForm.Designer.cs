@@ -35,7 +35,7 @@
             pnlUpperControls = new Panel();
             pnlLogo = new Panel();
             panel2 = new Panel();
-            btnMotivos = new Button();
+            btnVerMotivos = new Button();
             btnVerConsultas = new Button();
             btnClientes = new Button();
             painelDgv = new Panel();
@@ -100,7 +100,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(55, 40, 83);
-            panel2.Controls.Add(btnMotivos);
+            panel2.Controls.Add(btnVerMotivos);
             panel2.Controls.Add(btnVerConsultas);
             panel2.Controls.Add(btnClientes);
             panel2.Dock = DockStyle.Left;
@@ -109,22 +109,22 @@
             panel2.Size = new Size(239, 866);
             panel2.TabIndex = 47;
             // 
-            // btnMotivos
+            // btnVerMotivos
             // 
-            btnMotivos.BackColor = Color.Transparent;
-            btnMotivos.FlatAppearance.BorderSize = 0;
-            btnMotivos.FlatStyle = FlatStyle.Flat;
-            btnMotivos.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMotivos.ForeColor = SystemColors.ControlLightLight;
-            btnMotivos.Image = (Image)resources.GetObject("btnMotivos.Image");
-            btnMotivos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMotivos.Location = new Point(0, 133);
-            btnMotivos.Name = "btnMotivos";
-            btnMotivos.Size = new Size(240, 70);
-            btnMotivos.TabIndex = 50;
-            btnMotivos.Text = "            Motivos";
-            btnMotivos.UseVisualStyleBackColor = false;
-            btnMotivos.Click += btnMotivos_Click;
+            btnVerMotivos.BackColor = Color.Transparent;
+            btnVerMotivos.FlatAppearance.BorderSize = 0;
+            btnVerMotivos.FlatStyle = FlatStyle.Flat;
+            btnVerMotivos.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVerMotivos.ForeColor = SystemColors.ControlLightLight;
+            btnVerMotivos.Image = (Image)resources.GetObject("btnVerMotivos.Image");
+            btnVerMotivos.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVerMotivos.Location = new Point(0, 133);
+            btnVerMotivos.Name = "btnVerMotivos";
+            btnVerMotivos.Size = new Size(240, 70);
+            btnVerMotivos.TabIndex = 50;
+            btnVerMotivos.Text = "            Motivos";
+            btnVerMotivos.UseVisualStyleBackColor = false;
+            btnVerMotivos.Click += btnVerMotivos_Click;
             // 
             // btnVerConsultas
             // 
@@ -196,7 +196,7 @@
         private Panel pnlUpperControls;
         private Panel pnlLogo;
         private Panel panel2;
-        private Button btnMotivos;
+        private Button btnVerMotivos;
         private Button btnClientes;
         private Panel painelDgv;
         private Button btnVerConsultas;
