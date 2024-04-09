@@ -68,7 +68,6 @@
             cbxMotivo.Name = "cbxMotivo";
             cbxMotivo.Size = new Size(151, 30);
             cbxMotivo.TabIndex = 43;
-            cbxMotivo.SelectedIndexChanged += cbxMotivo_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -109,7 +108,6 @@
             pnlControlesConsultas.Name = "pnlControlesConsultas";
             pnlControlesConsultas.Size = new Size(1111, 84);
             pnlControlesConsultas.TabIndex = 48;
-            pnlControlesConsultas.Paint += pnlControlesConsultas_Paint;
             // 
             // txtCpf
             // 
@@ -182,6 +180,7 @@
             btnExcluirConsulta.TabIndex = 22;
             btnExcluirConsulta.TextImageRelation = TextImageRelation.ImageAboveText;
             btnExcluirConsulta.UseVisualStyleBackColor = true;
+            btnExcluirConsulta.Click += btnExcluirConsulta_Click;
             // 
             // btnNovaConsulta
             // 

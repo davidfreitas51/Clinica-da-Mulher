@@ -42,7 +42,7 @@ namespace ClinicaDaMulher.Forms
         private bool ValidarCampos()
         {
             string mensagemDeErro = "";
-            if (DbWorker.VerificarCpfValido(context, mtxCpf.Text))
+            if (DbWorker.VerificarValidadeDeCPF(context, mtxCpf.Text))
             {
                 mensagemDeErro = "CPF não cadastrado";
             }
@@ -91,7 +91,7 @@ namespace ClinicaDaMulher.Forms
         }
         private bool ConfirmarDados()
         {
-            string nomeDaCliente = DbWorker.NomePeloCPF(context, mtxCpf.Text);
+            string nomeDaCliente = DbWorker.BuscarNomePeloCPF(context, mtxCpf.Text);
             string mensagemDeConfirmação = $"Confirme os dados:\n\nCliente: {nomeDaCliente}\nCPF: {mtxCpf.Text}\n" +
             $"Dia: {mtxData.Text}\nHorário: {mtxHorario.Text}\nMotivo: {cbxMotivo.Text}\n\nEstá tudo correto?";
             return SimpleMessage.Confirm(mensagemDeConfirmação);
@@ -100,13 +100,13 @@ namespace ClinicaDaMulher.Forms
         {
             Consulta novaConsulta = new Consulta
             {
-                Cliente = DbWorker.NomePeloCPF(context, mtxCpf.Text),
+                Cliente = DbWorker.BuscarNomePeloCPF(context, mtxCpf.Text),
                 CPF = mtxCpf.Text,
                 Data = mtxData.Text,
                 Hora = mtxHorario.Text,
                 Motivo = cbxMotivo.Text.Trim(),
             };
-            DbWorker.CriarConsulta(context, novaConsulta);
+            DbWorker.CriarEntidade(context, novaConsulta);
         }
 
         private bool VerificarAlteracoesNaoSalvas()

@@ -37,13 +37,11 @@
             label3 = new Label();
             mtxTelefone = new MaskedTextBox();
             label4 = new Label();
-            cbxEstado = new ComboBox();
-            label5 = new Label();
             SuspendLayout();
             // 
             // btnCadastrar
             // 
-            btnCadastrar.Location = new Point(258, 409);
+            btnCadastrar.Location = new Point(243, 250);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(94, 29);
             btnCadastrar.TabIndex = 0;
@@ -53,7 +51,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(148, 409);
+            btnCancelar.Location = new Point(133, 250);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(94, 29);
             btnCancelar.TabIndex = 1;
@@ -87,7 +85,7 @@
             txtNome.Font = new Font("Segoe UI", 12F);
             txtNome.Location = new Point(12, 100);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(288, 34);
+            txtNome.Size = new Size(325, 34);
             txtNome.TabIndex = 37;
             // 
             // label2
@@ -117,7 +115,7 @@
             // mtxTelefone
             // 
             mtxTelefone.Font = new Font("Segoe UI", 12F);
-            mtxTelefone.Location = new Point(12, 265);
+            mtxTelefone.Location = new Point(188, 179);
             mtxTelefone.Mask = "(99) 00000-0000";
             mtxTelefone.Name = "mtxTelefone";
             mtxTelefone.Size = new Size(149, 34);
@@ -129,45 +127,19 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ControlLightLight;
-            label4.Location = new Point(12, 231);
+            label4.Location = new Point(188, 145);
             label4.Name = "label4";
             label4.Size = new Size(105, 31);
             label4.TabIndex = 41;
             label4.Text = "Telefone";
-            // 
-            // cbxEstado
-            // 
-            cbxEstado.AutoCompleteMode = AutoCompleteMode.Suggest;
-            cbxEstado.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cbxEstado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbxEstado.FormattingEnabled = true;
-            cbxEstado.Location = new Point(381, 100);
-            cbxEstado.MaxLength = 2;
-            cbxEstado.Name = "cbxEstado";
-            cbxEstado.Size = new Size(76, 36);
-            cbxEstado.TabIndex = 42;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = SystemColors.ControlLightLight;
-            label5.Location = new Point(379, 66);
-            label5.Name = "label5";
-            label5.Size = new Size(85, 31);
-            label5.TabIndex = 43;
-            label5.Text = "Estado";
             // 
             // NovoClienteForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(55, 40, 83);
-            ClientSize = new Size(489, 450);
+            ClientSize = new Size(351, 293);
             ControlBox = false;
-            Controls.Add(label5);
-            Controls.Add(cbxEstado);
             Controls.Add(label4);
             Controls.Add(mtxTelefone);
             Controls.Add(label3);
@@ -195,7 +167,5 @@
         private Label label3;
         private MaskedTextBox mtxTelefone;
         private Label label4;
-        private ComboBox cbxEstado;
-        private Label label5;
     }
 }

@@ -50,7 +50,7 @@ namespace ClinicaDaMulher.Forms
             {
                 mensagemDeErro = "O motivo precisa de um nome";
             }
-            else if (!DbWorker.ValidarNomeDoMotivo(context, txtNomeDoMotivo.Text))
+            else if (!DbWorker.VerificarNomeDoMotivo(context, txtNomeDoMotivo.Text))
             {
                 mensagemDeErro = "Um motivo com o mesmo nome já existe";
             }
@@ -73,7 +73,7 @@ namespace ClinicaDaMulher.Forms
             {
                 Nome = txtNomeDoMotivo.Text
             };
-            DbWorker.CriarMotivo(context, novoMotivo);
+            DbWorker.CriarEntidade(context, novoMotivo);
         }
 
         private void AtualizarGridMotivos()

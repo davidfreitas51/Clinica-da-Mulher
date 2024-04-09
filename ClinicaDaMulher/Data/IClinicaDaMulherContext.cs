@@ -9,5 +9,6 @@ namespace ClinicaDaMulher.Data
         public DbSet<Motivo> Motivos { get; set; }
         public DbSet<Consulta> Consultas { get; set; }
         int SaveChanges();
+        void CriarEntidade<T>(T entidade) where T : class;
     }
 }

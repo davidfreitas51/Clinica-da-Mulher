@@ -17,16 +17,6 @@ namespace ClinicaDaMulher.Controls
             dgvMotivos.AutoGenerateColumns = false;
             dgvMotivos.DataSource = razoes;
         }
-
-        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dgvMotivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
         public void DeletarMotivo()
         {
             var motivoSelecionado = ObterMotivoSelecionado();
@@ -35,7 +25,7 @@ namespace ClinicaDaMulher.Controls
 
                 if (SimpleMessage.Confirm($"Deseja mesmo excluir o motivo {motivoSelecionado.Nome}?"))
                 {
-                    if (DbWorker.ProcurarMotivosDeConsultas(context, motivoSelecionado.Nome))
+                    if (DbWorker.BuscarMotivosDeConsultas(context, motivoSelecionado.Nome))
                     {
                         SimpleMessage.Error("Ainda há consultas com esse motivo. Desmarque-as primeiro");
                     }
@@ -68,9 +58,13 @@ namespace ClinicaDaMulher.Controls
             {
                 return true;
             }
-            SimpleMessage.Error("Selecione um cliente do painel");
+            SimpleMessage.Error("Selecione um motivo do painel");
             return false;
         }
 
+        private void dgvMotivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

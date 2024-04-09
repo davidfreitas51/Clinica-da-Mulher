@@ -38,7 +38,7 @@ namespace ClinicaDaMulher.Controls
 
                 if (SimpleMessage.Confirm($"Deseja mesmo excluir o cliente {clienteSelecionado.Nome}?"))
                 {
-                    if (DbWorker.ProcurarConsultasPendentes(context, clienteSelecionado.CPF))
+                    if (DbWorker.BuscarConsultasPendentes(context, clienteSelecionado.CPF))
                     {
                         SimpleMessage.Error("Esse cliente ainda tem consultas. Desmarque-as primeiro");
                     }

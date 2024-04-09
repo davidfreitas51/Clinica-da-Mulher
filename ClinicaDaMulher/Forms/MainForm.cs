@@ -2,6 +2,7 @@ using ClinicaDaMulher.Controls;
 using ClinicaDaMulher.Data;
 using ClinicaDaMulher.Models;
 using Maroquio;
+using MessageUtils;
 
 namespace ClinicaDaMulher
 {
@@ -11,6 +12,7 @@ namespace ClinicaDaMulher
         public static PainelConsultas painelDeConsultas;
         public static PainelClientes painelDeClientes;
         public static PainelMotivos paineldeMotivos;
+        public Button botaoColorido;
         public MainForm()
         {
             InitializeComponent();
@@ -20,21 +22,21 @@ namespace ClinicaDaMulher
         {
             VerConsultas verConsultas = new VerConsultas(this);
             MudarPainelSuperior(verConsultas);
-
+            MudarCorDoBotaoSelecionado(btnVerConsultas);
             RefreshGrid(DbWorker.ListarTabelaConsultas(context));
         }
-
         private void btnVerClientes_Click(object sender, EventArgs e)
         {
             VerClientes verClientes = new VerClientes(this);
             MudarPainelSuperior(verClientes);
-
+            MudarCorDoBotaoSelecionado(btnVerClientes);
             RefreshGrid(DbWorker.ListarTabelaClientes(context));
         }
         private void btnVerMotivos_Click(object sender, EventArgs e)
         {
             VerMotivos verMotivos = new VerMotivos(this);
             MudarPainelSuperior(verMotivos);
+            MudarCorDoBotaoSelecionado(btnVerMotivos);
             RefreshGrid(DbWorker.ListarTabelaMotivos(context));
         }
         public void MudarPainelSuperior(Control controle)
@@ -89,6 +91,58 @@ namespace ClinicaDaMulher
                     paineldeMotivos.DeletarMotivo();
                     break;
             }
+        }
+        public void MudarCorDoBotaoSelecionado(Button botao)
+        {
+            if (botaoColorido != null)
+            {
+                botaoColorido.BackColor = Color.FromArgb(55, 40, 83);
+            }
+            botaoColorido = botao;
+            botaoColorido.BackColor = Color.FromArgb(75, 54, 113);
+        }
+        private void MudarCorDoBotaoMousePorCima(Button botao)
+        {
+            if (botaoColorido != null && botaoColorido != botao)
+            {
+                if (botao.BackColor == Color.FromArgb(55, 40, 83))
+                {
+                    botao.BackColor = Color.FromArgb(56, 41, 84);
+                }
+                else
+                {
+                    botao.BackColor = Color.FromArgb(55, 40, 83);
+                }
+            }
+        }
+        private void btnVerConsultas_MouseEnter(object sender, EventArgs e)
+        {
+            MudarCorDoBotaoMousePorCima(btnVerConsultas);
+        }
+
+        private void btnVerConsultas_MouseLeave(object sender, EventArgs e)
+        {
+            MudarCorDoBotaoMousePorCima(btnVerConsultas);
+        }
+
+        private void btnVerClientes_MouseEnter(object sender, EventArgs e)
+        {
+            MudarCorDoBotaoMousePorCima(btnVerClientes);
+        }
+
+        private void btnVerClientes_MouseLeave(object sender, EventArgs e)
+        {
+            MudarCorDoBotaoMousePorCima(btnVerClientes);
+        }
+
+        private void btnVerMotivos_MouseEnter(object sender, EventArgs e)
+        {
+            MudarCorDoBotaoMousePorCima(btnVerMotivos);
+        }
+
+        private void btnVerMotivos_MouseLeave(object sender, EventArgs e)
+        {
+            MudarCorDoBotaoMousePorCima(btnVerMotivos);
         }
     }
 }

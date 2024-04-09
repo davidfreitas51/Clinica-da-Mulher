@@ -37,7 +37,7 @@
             panel2 = new Panel();
             btnVerMotivos = new Button();
             btnVerConsultas = new Button();
-            btnClientes = new Button();
+            btnVerClientes = new Button();
             painelDgv = new Panel();
             upperPanel.SuspendLayout();
             pnlLogo.SuspendLayout();
@@ -102,7 +102,7 @@
             panel2.BackColor = Color.FromArgb(55, 40, 83);
             panel2.Controls.Add(btnVerMotivos);
             panel2.Controls.Add(btnVerConsultas);
-            panel2.Controls.Add(btnClientes);
+            panel2.Controls.Add(btnVerClientes);
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 77);
             panel2.Name = "panel2";
@@ -111,7 +111,7 @@
             // 
             // btnVerMotivos
             // 
-            btnVerMotivos.BackColor = Color.Transparent;
+            btnVerMotivos.BackColor = Color.FromArgb(55, 40, 83);
             btnVerMotivos.FlatAppearance.BorderSize = 0;
             btnVerMotivos.FlatStyle = FlatStyle.Flat;
             btnVerMotivos.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -125,10 +125,12 @@
             btnVerMotivos.Text = "            Motivos";
             btnVerMotivos.UseVisualStyleBackColor = false;
             btnVerMotivos.Click += btnVerMotivos_Click;
+            btnVerMotivos.MouseEnter += btnVerMotivos_MouseEnter;
+            btnVerMotivos.MouseLeave += btnVerMotivos_MouseLeave;
             // 
             // btnVerConsultas
             // 
-            btnVerConsultas.BackColor = Color.Transparent;
+            btnVerConsultas.BackColor = Color.FromArgb(55, 40, 83);
             btnVerConsultas.FlatAppearance.BorderSize = 0;
             btnVerConsultas.FlatStyle = FlatStyle.Flat;
             btnVerConsultas.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -142,23 +144,27 @@
             btnVerConsultas.Text = "            Consultas";
             btnVerConsultas.UseVisualStyleBackColor = false;
             btnVerConsultas.Click += btnVerConsultas_Click_1;
+            btnVerConsultas.MouseEnter += btnVerConsultas_MouseEnter;
+            btnVerConsultas.MouseLeave += btnVerConsultas_MouseLeave;
             // 
-            // btnClientes
+            // btnVerClientes
             // 
-            btnClientes.BackColor = Color.Transparent;
-            btnClientes.FlatAppearance.BorderSize = 0;
-            btnClientes.FlatStyle = FlatStyle.Flat;
-            btnClientes.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnClientes.ForeColor = SystemColors.ControlLightLight;
-            btnClientes.Image = (Image)resources.GetObject("btnClientes.Image");
-            btnClientes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnClientes.Location = new Point(0, 69);
-            btnClientes.Name = "btnClientes";
-            btnClientes.Size = new Size(240, 70);
-            btnClientes.TabIndex = 49;
-            btnClientes.Text = "            Clientes";
-            btnClientes.UseVisualStyleBackColor = false;
-            btnClientes.Click += btnVerClientes_Click;
+            btnVerClientes.BackColor = Color.FromArgb(55, 40, 83);
+            btnVerClientes.FlatAppearance.BorderSize = 0;
+            btnVerClientes.FlatStyle = FlatStyle.Flat;
+            btnVerClientes.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVerClientes.ForeColor = SystemColors.ControlLightLight;
+            btnVerClientes.Image = (Image)resources.GetObject("btnVerClientes.Image");
+            btnVerClientes.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVerClientes.Location = new Point(0, 69);
+            btnVerClientes.Name = "btnVerClientes";
+            btnVerClientes.Size = new Size(240, 70);
+            btnVerClientes.TabIndex = 49;
+            btnVerClientes.Text = "            Clientes";
+            btnVerClientes.UseVisualStyleBackColor = false;
+            btnVerClientes.Click += btnVerClientes_Click;
+            btnVerClientes.MouseEnter += btnVerClientes_MouseEnter;
+            btnVerClientes.MouseLeave += btnVerClientes_MouseLeave;
             // 
             // painelDgv
             // 
@@ -197,7 +203,7 @@
         private Panel pnlLogo;
         private Panel panel2;
         private Button btnVerMotivos;
-        private Button btnClientes;
+        private Button btnVerClientes;
         private Panel painelDgv;
         private Button btnVerConsultas;
     }

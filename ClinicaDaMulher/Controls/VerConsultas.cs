@@ -1,5 +1,6 @@
 ﻿using ClinicaDaMulher.Data;
 using ClinicaDaMulher.Forms;
+using ClinicaDaMulher.Models;
 
 namespace ClinicaDaMulher.Controls
 {
@@ -22,24 +23,19 @@ namespace ClinicaDaMulher.Controls
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            mainForm.RefreshGrid(DbWorker.ListarTabelaConsultas(context, 
+            mainForm.RefreshGrid(DbWorker.ListarTabelaConsultas(context,
                 txtNome.Text, txtCpf.Text, mtxDia.Text, cbxMotivo.Text));
-        }
-
-        private void pnlControlesConsultas_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void cbxMotivo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void VerConsultas_Load(object sender, EventArgs e)
         {
             cbxMotivo.DataSource = DbWorker.ListarMotivos(context);
             cbxMotivo.Text = "";
+        }
+
+        private void btnExcluirConsulta_Click(object sender, EventArgs e)
+        {
+            mainForm.ExcluirDados(typeof(Consulta));
         }
     }
 }

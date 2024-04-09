@@ -7,19 +7,9 @@ namespace ClinicaDaMulher.Data
 {
     public static class DbWorker
     {
-        public static void CriarConsulta(IClinicaDaMulherContext contexto, Consulta consulta)
+        public static void CriarEntidade<T>(IClinicaDaMulherContext contexto, T entidade) where T : class
         {
-            contexto.Consultas.Add(consulta);
-            contexto.SaveChanges();
-        }
-        public static void CriarCliente(IClinicaDaMulherContext contexto, Cliente cliente)
-        {
-            contexto.Clientes.Add(cliente);
-            contexto.SaveChanges();
-        }
-        public static void CriarMotivo(IClinicaDaMulherContext contexto, Motivo novoMotivo)
-        {
-            contexto.Motivos.Add(novoMotivo);
+            contexto.CriarEntidade(entidade);
             contexto.SaveChanges();
         }
 
@@ -81,9 +71,14 @@ namespace ClinicaDaMulher.Data
         }
 
 
-        public static void DeletarConsulta(IClinicaDaMulherContext context, string id)
+        public static void DeletarConsulta(IClinicaDaMulherContext context, int id)
         {
-
+            var consultaADeletar = context.Consultas.FirstOrDefault(consulta => consulta.Id == id);
+            if (consultaADeletar != null)
+            {
+                context.Consultas.Remove(consultaADeletar);
+                context.SaveChanges();
+            }
         }
         public static void DeletarCliente(IClinicaDaMulherContext context, int id)
         {
@@ -105,14 +100,14 @@ namespace ClinicaDaMulher.Data
         }
         
 
-        public static bool VerificarCpfValido(IClinicaDaMulherContext contexto, string cpf)
+        public static bool VerificarValidadeDeCPF(IClinicaDaMulherContext contexto, string cpf)
         {
             var clientesComCPFIgual = from Clientes in contexto.Clientes
                                       where Clientes.CPF == cpf
                                       select Clientes;
             return !clientesComCPFIgual.Any();
         }
-        public static bool ValidarNomeDoMotivo(IClinicaDaMulherContext contexto, string motivo)
+        public static bool VerificarNomeDoMotivo(IClinicaDaMulherContext contexto, string motivo)
         {
             var motivosIguais = from Motivos in contexto.Motivos
                                       where Motivos.Nome.ToLower() == motivo.ToLower()
@@ -126,7 +121,7 @@ namespace ClinicaDaMulher.Data
                                     select Motivos;
             return motivosExistentes.Any();
         }
-        public static string NomePeloCPF(IClinicaDaMulherContext contexto, string cpf)
+        public static string BuscarNomePeloCPF(IClinicaDaMulherContext contexto, string cpf)
         {
             var clienteEspecificada = from Clientes in contexto.Clientes
                                       where Clientes.CPF == cpf
@@ -134,14 +129,14 @@ namespace ClinicaDaMulher.Data
             List<Cliente> clientes = clienteEspecificada.ToList();
             return clientes[0].Nome;
         }
-        public static bool ProcurarMotivosDeConsultas(IClinicaDaMulherContext context, string motivo)
+        public static bool BuscarMotivosDeConsultas(IClinicaDaMulherContext context, string motivo)
         {
             var motivosComConsultas = from consultas in context.Consultas
                                      where consultas.Motivo == motivo
                                      select consultas;
             return motivosComConsultas.Any();
         }
-        public static bool ProcurarConsultasPendentes(IClinicaDaMulherContext context, string cpf)
+        public static bool BuscarConsultasPendentes(IClinicaDaMulherContext context, string cpf)
         {
             var clientesComConsulta = from consultas in context.Consultas
                                       where consultas.CPF == cpf

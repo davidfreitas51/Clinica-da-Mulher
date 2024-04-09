@@ -13,5 +13,10 @@ namespace ClinicaDaMulher.Data
         {
             optionsBuilder.UseSqlite("Data Source=clinicaDaMulher.db");
         }
+        public void CriarEntidade<T>(T entidade) where T : class
+        {
+            Set<T>().Add(entidade);
+            SaveChanges();
+        }
     }
 }

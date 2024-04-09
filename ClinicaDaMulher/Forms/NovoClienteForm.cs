@@ -36,19 +36,22 @@ namespace ClinicaDaMulher.Forms
         }
         private bool VerificarValidadeDosCampos()
         {
-            string cpfNumerico = new string(mtxCpf.Text.Where(char.IsDigit).ToArray());
             string mensagemDeErro = "";
-            if (!DbWorker.VerificarCpfValido(context, mtxCpf.Text))
+            if (!DbWorker.VerificarValidadeDeCPF(context, mtxCpf.Text))
             {
                 mensagemDeErro = "Já existe um cliente com esse CPF";
             }
-            if (cpfNumerico.Length != 11)
+            if (RemoverLiterais(mtxCpf.Text).Length != 11)
             {
                 mensagemDeErro = "Insira um CPF válido";
             }
-            if (txtNome.Text.Length <= 2)
+            if (txtNome.Text.Length < 3)
             {
                 mensagemDeErro = "Insira um nome válido";
+            }
+            if (RemoverLiterais(mtxTelefone.Text).Length < 10)
+            {
+                mensagemDeErro = "Insira um telefone válido";
             }
             if (!string.IsNullOrEmpty(mensagemDeErro))
             {
@@ -91,7 +94,7 @@ namespace ClinicaDaMulher.Forms
                 CPF = mtxCpf.Text,
                 Telefone = mtxTelefone.Text,
             };
-            DbWorker.CriarCliente(context, novoCliente);
+            DbWorker.CriarEntidade(context, novoCliente);
         }
         private void AtualizarGridClientes()
         {
