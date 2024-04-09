@@ -1,5 +1,6 @@
 ﻿using ClinicaDaMulher.Models;
 using Maroquio;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace ClinicaDaMulher.Data
 {
@@ -20,9 +21,9 @@ namespace ClinicaDaMulher.Data
             contexto.Motivos.Add(novoMotivo);
             contexto.SaveChanges();
         }
+
         public static bool VerificarCpfValido(IClinicaDaMulherContext contexto, string cpf)
         {
-            ClinicaDaMulherContext Contexto = new ClinicaDaMulherContext();
             var clientesComCPFIgual = from Clientes in contexto.Clientes
                                       where Clientes.CPF == cpf
                                       select Clientes;
@@ -51,13 +52,16 @@ namespace ClinicaDaMulher.Data
         public static SortableBindingList<Cliente> ListarTabelaClientes(IClinicaDaMulherContext contexto, string Nome = "", string Cpf = "")
         {
             string cpfSemPontosETraços = Cpf.Replace(".", "").Replace("-", "");
-            var clientesRequisitados = from cliente in contexto.Clientes
-                                       where cliente.Nome.ToUpper().Contains(Nome.ToUpper()) &&
-                                             cliente.CPF.Replace(".", "").Replace("-", "").Contains(cpfSemPontosETraços)
-                                       select cliente;
 
+            // Filtra os clientes com base no nome e CPF
+            var clientesRequisitados = contexto.Clientes
+                .Where(cliente => cliente.Nome.ToUpper().Contains(Nome.ToUpper()) &&
+                                   cliente.CPF.Replace(".", "").Replace("-", "").Contains(cpfSemPontosETraços));
+
+            // Converte o resultado em uma lista
             List<Cliente> clientes = clientesRequisitados.ToList();
 
+            // Cria uma lista classificável de clientes
             SortableBindingList<Cliente> listaClientes = new SortableBindingList<Cliente>(clientes);
             return listaClientes;
         }

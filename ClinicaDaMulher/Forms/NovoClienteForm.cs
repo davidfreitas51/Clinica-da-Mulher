@@ -1,6 +1,7 @@
 ﻿using ClinicaDaMulher.Data;
 using ClinicaDaMulher.Models;
 using MessageUtils;
+using System.Text.RegularExpressions;
 
 namespace ClinicaDaMulher.Forms
 {
@@ -58,16 +59,15 @@ namespace ClinicaDaMulher.Forms
         }
         private bool VerificarPreenchimentoDosCampos()
         {
-
-            if (mtxCpf == null || string.IsNullOrEmpty(mtxCpf.Text))
+            if (txtNome.Text.Length > 0)
             {
                 return false;
             }
-            if (txtNome == null || string.IsNullOrEmpty(txtNome.Text))
+            if (RemoverLiterais(mtxCpf.Text).Length > 0)
             {
                 return false;
             }
-            if (mtxTelefone == null || string.IsNullOrEmpty(mtxTelefone.Text))
+            if (RemoverLiterais(mtxTelefone.Text).Length > 0)
             {
                 return false;
             }
@@ -76,7 +76,7 @@ namespace ClinicaDaMulher.Forms
 
         private bool VerificarAlteracoesNaoSalvas()
         {
-            if (VerificarPreenchimentoDosCampos() &&
+            if (!VerificarPreenchimentoDosCampos() &&
                 !SimpleMessage.Confirm("Há alterações não salvas. Deseja mesmo cancelar?"))
             {
                 return false;
@@ -96,6 +96,10 @@ namespace ClinicaDaMulher.Forms
         private void AtualizarGridClientes()
         {
             mainForm.RefreshGrid(DbWorker.ListarTabelaClientes(context));
+        }
+        public static string RemoverLiterais(string input)
+        {
+            return Regex.Replace(input, @"[^\d]", "");
         }
     }
 }

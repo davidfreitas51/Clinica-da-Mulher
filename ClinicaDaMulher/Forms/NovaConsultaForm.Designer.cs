@@ -130,7 +130,7 @@
             btnMarcar.TabIndex = 57;
             btnMarcar.Text = "Marcar";
             btnMarcar.UseVisualStyleBackColor = true;
-            btnMarcar.Click += button1_Click;
+            btnMarcar.Click += btnMarcar_Click;
             // 
             // btnCancelar
             // 
@@ -140,7 +140,7 @@
             btnCancelar.TabIndex = 58;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
+            btnCancelar.Click += btnCancelar_Click_1;
             // 
             // mtxHorario
             // 

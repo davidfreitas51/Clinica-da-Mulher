@@ -1,6 +1,7 @@
 ﻿using ClinicaDaMulher.Data;
 using ClinicaDaMulher.Models;
 using MessageUtils;
+using System.Text.RegularExpressions;
 
 namespace ClinicaDaMulher.Forms
 {
@@ -14,21 +15,38 @@ namespace ClinicaDaMulher.Forms
             mainForm = frm;
             context = frm.context;
         }
-
         private void NovaConsultaForm_Load(object sender, EventArgs e)
         {
             cbxMotivo.DataSource = DbWorker.ListarMotivos(context);
             cbxMotivo.Text = "";
         }
+        private void btnMarcar_Click(object sender, EventArgs e)
+        {
+            if (ValidarCampos() && ConfirmarDados())
+            {
+                CriarNovaConsulta();
+                SimpleMessage.Inform("Consulta criada com sucesso");
+                var consultas = DbWorker.ListarTabelaConsultas(context);
+                mainForm.RefreshGrid(DbWorker.ListarTabelaConsultas(context));
+                this.Close();
+            }
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            if (VerificarAlteracoesNaoSalvas())
+            {
+                this.Close();
+            }
+        }
         private bool ValidarCampos()
         {
-            string cpfNumerico = new string(mtxCpf.Text.Where(char.IsDigit).ToArray());
             string mensagemDeErro = "";
             if (DbWorker.VerificarCpfValido(context, mtxCpf.Text))
             {
                 mensagemDeErro = "CPF não cadastrado";
             }
-            if (cpfNumerico.Length != 11)
+            if (RemoverLiterais(mtxCpf.Text).Length != 11)
             {
                 mensagemDeErro = "Digite um CPF válido";
             }
@@ -36,11 +54,11 @@ namespace ClinicaDaMulher.Forms
             {
                 mensagemDeErro = "Escolha um motivo da lista";
             }
-            if (mtxData.Text.Length != 10)
+            if (RemoverLiterais(mtxData.Text).Length != 8)
             {
                 mensagemDeErro = "Digite uma data válida";
             }
-            if (mtxHorario.Text.Length != 5)
+            if (RemoverLiterais(mtxHorario.Text).Length != 4)
             {
                 mensagemDeErro = "Digite um horário válido";
             }
@@ -53,59 +71,56 @@ namespace ClinicaDaMulher.Forms
         }
         private bool VerificarPreenchimentoDosCampos()
         {
-            if (mtxCpf.Text != null && mtxCpf.Text.Trim().Replace(".", "").Replace("-", "").Length > 6)
+            if (RemoverLiterais(mtxCpf.Text).Length > 0)
             {
-                return true;
+                return false;
             }
-            if (cbxMotivo != null & cbxMotivo.Text.Length > 0)
+            if (RemoverLiterais(cbxMotivo.Text).Length > 0)
             {
-                return true;
+                return false;
             }
-            return false;
+            if (RemoverLiterais(mtxData.Text).Length > 0)
+            {
+                return false;
+            }
+            if (RemoverLiterais(mtxHorario.Text).Length > 0)
+            {
+                return false;
+            }
+            return true;
+        }
+        private bool ConfirmarDados()
+        {
+            string nomeDaCliente = DbWorker.NomePeloCPF(context, mtxCpf.Text);
+            string mensagemDeConfirmação = $"Confirme os dados:\n\nCliente: {nomeDaCliente}\nCPF: {mtxCpf.Text}\n" +
+            $"Dia: {mtxData.Text}\nHorário: {mtxHorario.Text}\nMotivo: {cbxMotivo.Text}\n\nEstá tudo correto?";
+            return SimpleMessage.Confirm(mensagemDeConfirmação);
+        }
+        private void CriarNovaConsulta()
+        {
+            Consulta novaConsulta = new Consulta
+            {
+                Cliente = DbWorker.NomePeloCPF(context, mtxCpf.Text),
+                CPF = mtxCpf.Text,
+                Data = mtxData.Text,
+                Hora = mtxHorario.Text,
+                Motivo = cbxMotivo.Text.Trim(),
+            };
+            DbWorker.CriarConsulta(context, novaConsulta);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private bool VerificarAlteracoesNaoSalvas()
         {
-            if (ValidarCampos())
+            if (!VerificarPreenchimentoDosCampos() &&
+                !SimpleMessage.Confirm("Há alterações não salvas. Deseja mesmo cancelar?"))
             {
-                string nomeDaCliente = DbWorker.NomePeloCPF(context, mtxCpf.Text);
-                string mensagemDeConfirmação = $"Confirme os dados:\n\nCliente: {nomeDaCliente}\nCPF: {mtxCpf.Text}\n" +
-                $"Dia: {mtxData.Text}\nHorário: {mtxHorario.Text}\nMotivo: {cbxMotivo.Text}\n\nEstá tudo correto?";
-                if (SimpleMessage.Confirm(mensagemDeConfirmação))
-                {
-                    Consulta novaConsulta = new Consulta
-                    {
-                        Cliente = nomeDaCliente,
-                        CPF = mtxCpf.Text,
-                        Data = mtxData.Text,
-                        Hora = mtxHorario.Text,
-                        Motivo = cbxMotivo.Text.Trim(),
-                    };
-                    SimpleMessage.Inform($"Data = {mtxData.Text.Length}\nHora = {mtxHorario.Text.Length}");
-                    DbWorker.CriarConsulta(context, novaConsulta);
-                    SimpleMessage.Inform("Consulta criada com sucesso");
-                    var consultas = DbWorker.ListarTabelaConsultas(context);
-                    mainForm.RefreshGrid(DbWorker.ListarTabelaConsultas(context));
-                    this.Close();
-                }
+                return false;
             }
-
-            
+            return true;
         }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
+        public static string RemoverLiterais(string input)
         {
-            if (VerificarPreenchimentoDosCampos())
-            {
-                if(SimpleMessage.Confirm("Você tem mudanças não salvas, deseja mesmo sair?"))
-                {
-                    this.Close();
-                }
-            }
-            else
-            {
-                this.Close();
-            }
+            return Regex.Replace(input, @"[^\d]", "");
         }
     }
 }
