@@ -40,5 +40,10 @@ namespace ClinicaDaMulher.Controls
             NovoClienteForm novoClienteForm = new NovoClienteForm(mainForm);
             novoClienteForm.ShowDialog();
         }
+
+        private void btnDeletarCliente_Click(object sender, EventArgs e)
+        {
+            mainForm.ExcluirDados(typeof (Models.Cliente)) ;
+        }
     }
 }

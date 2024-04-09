@@ -37,5 +37,10 @@ namespace ClinicaDaMulher.Controls
         {
             mainForm.RefreshGrid(DbWorker.ListarTabelaMotivos(context, txtMotivo.Text.Trim()));
         }
+
+        private void btnExcluirMotivo_Click(object sender, EventArgs e)
+        {
+            mainForm.ExcluirDados(typeof(Models.Motivo));
+        }
     }
 }

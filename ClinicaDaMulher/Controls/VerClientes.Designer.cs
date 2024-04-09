@@ -97,6 +97,7 @@
             btnDeletarCliente.Size = new Size(70, 69);
             btnDeletarCliente.TabIndex = 52;
             btnDeletarCliente.UseVisualStyleBackColor = false;
+            btnDeletarCliente.Click += btnDeletarCliente_Click;
             // 
             // btnEditarCliente
             // 

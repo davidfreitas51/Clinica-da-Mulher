@@ -23,5 +23,9 @@ namespace ClinicaDaMulher.Controls
         {
 
         }
+        public void DeletarConsulta()
+        {
+
+        }
     }
 }
