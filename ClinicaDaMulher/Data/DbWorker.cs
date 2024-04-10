@@ -188,6 +188,7 @@ namespace ClinicaDaMulher.Data
             return clientesComConsulta.Any();
         }
 
+
         static string RemoveDiacritics(string text)
         {
             var normalizedString = text.Normalize(NormalizationForm.FormD);

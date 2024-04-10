@@ -39,9 +39,6 @@ namespace ClinicaDaMulher.Forms
             else if (ValidarNome())
             {
                 CriarNovoMotivo();
-                SimpleMessage.Inform("Motivo criado com sucesso");
-                AtualizarGridMotivos();
-                this.Close();
             }
         }
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -92,6 +89,9 @@ namespace ClinicaDaMulher.Forms
                 Nome = txtNomeDoMotivo.Text
             };
             DbWorker.CriarEntidade(context, novoMotivo);
+            SimpleMessage.Inform("Motivo criado com sucesso");
+            AtualizarGridMotivos();
+            this.Close();
         }
         private void EditarMotivo()
         {
@@ -102,6 +102,9 @@ namespace ClinicaDaMulher.Forms
                     Nome = txtNomeDoMotivo.Text
                 };
                 DbWorker.EditarMotivo(context, motivoAEditar, motivoEditado);
+                SimpleMessage.Inform("Motivo editado com sucesso");
+                mainForm.RefreshGrid(DbWorker.ListarTabelaMotivos(context));
+                this.Close();
             }
         }
 

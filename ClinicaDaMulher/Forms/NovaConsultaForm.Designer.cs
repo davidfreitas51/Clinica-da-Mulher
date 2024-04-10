@@ -80,7 +80,9 @@
             // 
             // mtxCpf
             // 
+            mtxCpf.BackColor = Color.White;
             mtxCpf.Font = new Font("Segoe UI", 12F);
+            mtxCpf.ForeColor = Color.Black;
             mtxCpf.Location = new Point(15, 111);
             mtxCpf.Mask = "000\\.000\\.000-00";
             mtxCpf.Name = "mtxCpf";
@@ -91,7 +93,9 @@
             // 
             cbxMotivo.AutoCompleteMode = AutoCompleteMode.Suggest;
             cbxMotivo.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbxMotivo.BackColor = Color.White;
             cbxMotivo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbxMotivo.ForeColor = Color.Black;
             cbxMotivo.FormattingEnabled = true;
             cbxMotivo.Location = new Point(17, 196);
             cbxMotivo.MaxLength = 100;
@@ -145,7 +149,9 @@
             // 
             // mtxHorario
             // 
+            mtxHorario.BackColor = Color.White;
             mtxHorario.Font = new Font("Segoe UI", 12F);
+            mtxHorario.ForeColor = Color.Black;
             mtxHorario.Location = new Point(266, 198);
             mtxHorario.Mask = "00:00";
             mtxHorario.Name = "mtxHorario";
@@ -155,7 +161,9 @@
             // 
             // mtxData
             // 
+            mtxData.BackColor = Color.White;
             mtxData.Font = new Font("Segoe UI", 12F);
+            mtxData.ForeColor = Color.Black;
             mtxData.Location = new Point(265, 120);
             mtxData.Mask = "00/00/0000";
             mtxData.Name = "mtxData";

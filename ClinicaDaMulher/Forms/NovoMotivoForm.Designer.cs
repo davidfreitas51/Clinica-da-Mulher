@@ -92,7 +92,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(50, 52, 77);
+            BackColor = Color.FromArgb(55, 40, 83);
             ClientSize = new Size(300, 192);
             ControlBox = false;
             Controls.Add(btnCancelar);

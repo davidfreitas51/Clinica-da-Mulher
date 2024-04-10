@@ -41,9 +41,6 @@ namespace ClinicaDaMulher.Forms
             if (ModoEdicao)
             {
                 EditarConsulta();
-                SimpleMessage.Inform("Consulta editada com sucesso");
-                AtualizarGridConsultas();
-                this.Close();
             }
             else if (ValidarCampos() && ConfirmarDados())
             {
@@ -146,14 +143,20 @@ namespace ClinicaDaMulher.Forms
         }
         private void EditarConsulta()
         {
-            Consulta consultaEditada = new Consulta
+            if (ValidarCampos())
             {
-                Cliente = DbWorker.BuscarNomePeloCPF(context, mtxCpf.Text),
-                CPF = mtxCpf.Text,
-                Data = mtxData.Text,
-                Hora = mtxHorario.Text,
-            };
-            DbWorker.EditarConsulta(context, consultaAEditar, consultaEditada);
+                Consulta consultaEditada = new Consulta
+                {
+                    Cliente = DbWorker.BuscarNomePeloCPF(context, mtxCpf.Text),
+                    CPF = mtxCpf.Text,
+                    Data = mtxData.Text,
+                    Hora = mtxHorario.Text,
+                };
+                DbWorker.EditarConsulta(context, consultaAEditar, consultaEditada);
+                SimpleMessage.Inform("Consulta editada com sucesso");
+                AtualizarGridConsultas();
+                this.Close();
+            }
         }
         public static string RemoverLiterais(string input)
         {

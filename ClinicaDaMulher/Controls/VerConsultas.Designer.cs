@@ -169,7 +169,7 @@
             // txtNome
             // 
             txtNome.Font = new Font("Microsoft Sans Serif", 10.2F);
-            txtNome.Location = new Point(139, 44);
+            txtNome.Location = new Point(136, 39);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(184, 27);
             txtNome.TabIndex = 54;
@@ -229,7 +229,7 @@
             btnEditarConsulta.BackgroundImageLayout = ImageLayout.Stretch;
             btnEditarConsulta.FlatStyle = FlatStyle.Flat;
             btnEditarConsulta.ForeColor = Color.FromArgb(167, 38, 135);
-            btnEditarConsulta.Location = new Point(100, 7);
+            btnEditarConsulta.Location = new Point(100, 8);
             btnEditarConsulta.Name = "btnEditarConsulta";
             btnEditarConsulta.Size = new Size(70, 70);
             btnEditarConsulta.TabIndex = 23;
