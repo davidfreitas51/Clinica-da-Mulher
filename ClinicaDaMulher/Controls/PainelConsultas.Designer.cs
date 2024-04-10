@@ -41,7 +41,7 @@
             clnId = new DataGridViewTextBoxColumn();
             clnNomeDoCliente = new DataGridViewTextBoxColumn();
             clnCPFdoCliente = new DataGridViewTextBoxColumn();
-            clmData = new DataGridViewTextBoxColumn();
+            clnData = new DataGridViewTextBoxColumn();
             clnHorario = new DataGridViewTextBoxColumn();
             clnMotivo = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvConsultas).BeginInit();
@@ -69,7 +69,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvConsultas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvConsultas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvConsultas.Columns.AddRange(new DataGridViewColumn[] { clnId, clnNomeDoCliente, clnCPFdoCliente, clmData, clnHorario, clnMotivo });
+            dgvConsultas.Columns.AddRange(new DataGridViewColumn[] { clnId, clnNomeDoCliente, clnCPFdoCliente, clnData, clnHorario, clnMotivo });
             dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = SystemColors.Window;
             dataGridViewCellStyle9.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
@@ -128,17 +128,17 @@
             clnCPFdoCliente.Name = "clnCPFdoCliente";
             clnCPFdoCliente.ReadOnly = true;
             // 
-            // clmData
+            // clnData
             // 
-            clmData.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            clmData.DataPropertyName = "Data";
+            clnData.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            clnData.DataPropertyName = "Data";
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            clmData.DefaultCellStyle = dataGridViewCellStyle6;
-            clmData.HeaderText = "Data";
-            clmData.MinimumWidth = 6;
-            clmData.Name = "clmData";
-            clmData.ReadOnly = true;
+            clnData.DefaultCellStyle = dataGridViewCellStyle6;
+            clnData.HeaderText = "Data";
+            clnData.MinimumWidth = 6;
+            clnData.Name = "clnData";
+            clnData.ReadOnly = true;
             // 
             // clnHorario
             // 
@@ -181,7 +181,7 @@
         private DataGridViewTextBoxColumn clnId;
         private DataGridViewTextBoxColumn clnNomeDoCliente;
         private DataGridViewTextBoxColumn clnCPFdoCliente;
-        private DataGridViewTextBoxColumn clmData;
+        private DataGridViewTextBoxColumn clnData;
         private DataGridViewTextBoxColumn clnHorario;
         private DataGridViewTextBoxColumn clnMotivo;
     }

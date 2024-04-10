@@ -39,14 +39,14 @@ namespace ClinicaDaMulher.Forms
             if (ModoEdicao)
             {
                 EditarCliente();
-                SimpleMessage.Inform("Cliente editado com sucesso!");
+                SimpleMessage.Inform("Cliente editado com sucesso");
                 AtualizarGridClientes();
                 this.Close();
             }
             else if (VerificarValidadeDosCampos())
             {
                 CriarNovoCliente();
-                SimpleMessage.Inform("Cliente cadastrado com sucesso!");
+                SimpleMessage.Inform("Cliente cadastrado com sucesso");
                 AtualizarGridClientes();
                 this.Close();
             }

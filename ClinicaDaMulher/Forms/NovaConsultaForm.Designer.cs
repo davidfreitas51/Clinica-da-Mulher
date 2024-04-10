@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            lblTitulo = new Label();
             label4 = new Label();
             label3 = new Label();
             mtxCpf = new MaskedTextBox();
@@ -41,17 +41,17 @@
             mtxData = new MaskedTextBox();
             SuspendLayout();
             // 
-            // label1
+            // lblTitulo
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(218, 41);
-            label1.TabIndex = 36;
-            label1.Text = "Nova consulta";
+            lblTitulo.AutoSize = true;
+            lblTitulo.BackColor = Color.Transparent;
+            lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = SystemColors.ControlLightLight;
+            lblTitulo.Location = new Point(12, 9);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(218, 41);
+            lblTitulo.TabIndex = 36;
+            lblTitulo.Text = "Nova consulta";
             // 
             // label4
             // 
@@ -179,7 +179,7 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(mtxCpf);
-            Controls.Add(label1);
+            Controls.Add(lblTitulo);
             Name = "NovaConsultaForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Nova consulta";
@@ -189,7 +189,7 @@
         }
 
         #endregion
-        private Label label1;
+        private Label lblTitulo;
         private Label label4;
         private Label label3;
         private MaskedTextBox mtxCpf;

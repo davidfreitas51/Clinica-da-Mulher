@@ -101,7 +101,7 @@ namespace ClinicaDaMulher
             switch (type.Name)
             {
                 case nameof(Consulta):
-                    //painelDeConsultas.EditarConsulta();
+                    painelDeConsultas.EditarConsulta();
                     break;
                 case nameof(Cliente):
                     painelDeClientes.EditarCliente();

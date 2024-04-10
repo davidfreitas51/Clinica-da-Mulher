@@ -9,20 +9,43 @@ namespace ClinicaDaMulher.Forms
     {
         private readonly MainForm mainForm;
         private readonly IClinicaDaMulherContext context;
-        public NovaConsultaForm(MainForm frm)
+        private readonly Consulta consultaAEditar;
+        private bool ModoEdicao;
+        public NovaConsultaForm(MainForm frm, bool modoEdicao = false, Consulta consultaAnterior = null)
         {
             InitializeComponent();
             mainForm = frm;
             context = frm.context;
+            ModoEdicao = modoEdicao;
+            if (ModoEdicao)
+            {
+                lblTitulo.Text = "Editar consulta";
+                consultaAEditar = consultaAnterior;
+                btnMarcar.Text = "Editar";
+            }
         }
         private void NovaConsultaForm_Load(object sender, EventArgs e)
         {
             cbxMotivo.DataSource = DbWorker.ListarMotivos(context);
             cbxMotivo.Text = "";
+            if (ModoEdicao)
+            {
+                mtxCpf.Text = consultaAEditar.CPF;
+                cbxMotivo.Text = consultaAEditar.Motivo;
+                mtxData.Text = consultaAEditar.Data;
+                mtxHorario.Text = consultaAEditar.Hora;
+            }
         }
         private void btnMarcar_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos() && ConfirmarDados())
+            if (ModoEdicao)
+            {
+                EditarConsulta();
+                SimpleMessage.Inform("Consulta editada com sucesso");
+                AtualizarGridConsultas();
+                this.Close();
+            }
+            else if (ValidarCampos() && ConfirmarDados())
             {
                 CriarNovaConsulta();
                 SimpleMessage.Inform("Consulta criada com sucesso");
@@ -108,7 +131,10 @@ namespace ClinicaDaMulher.Forms
             };
             DbWorker.CriarEntidade(context, novaConsulta);
         }
-
+        private void AtualizarGridConsultas()
+        {
+            mainForm.RefreshGrid(DbWorker.ListarTabelaConsultas(context));
+        }
         private bool VerificarAlteracoesNaoSalvas()
         {
             if (!VerificarPreenchimentoDosCampos() &&
@@ -117,6 +143,17 @@ namespace ClinicaDaMulher.Forms
                 return false;
             }
             return true;
+        }
+        private void EditarConsulta()
+        {
+            Consulta consultaEditada = new Consulta
+            {
+                Cliente = DbWorker.BuscarNomePeloCPF(context, mtxCpf.Text),
+                CPF = mtxCpf.Text,
+                Data = mtxData.Text,
+                Hora = mtxHorario.Text,
+            };
+            DbWorker.EditarConsulta(context, consultaAEditar, consultaEditada);
         }
         public static string RemoverLiterais(string input)
         {

@@ -71,7 +71,8 @@ namespace ClinicaDaMulher.Controls
                 {
                     Id = int.Parse(idCliente),
                     Nome = dgvClientes.Rows[indiceLinha].Cells["clnNome"].Value.ToString(),
-                    CPF = dgvClientes.Rows[indiceLinha].Cells["clnCPF"].Value.ToString()
+                    CPF = dgvClientes.Rows[indiceLinha].Cells["clnCPF"].Value.ToString(),
+                    Telefone = dgvClientes.Rows[indiceLinha].Cells["clnTelefone"].Value.ToString()
                 };
             }
             return null;

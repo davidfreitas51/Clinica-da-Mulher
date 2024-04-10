@@ -206,6 +206,7 @@
             btnEditarConsulta.Size = new Size(46, 46);
             btnEditarConsulta.TabIndex = 23;
             btnEditarConsulta.UseVisualStyleBackColor = true;
+            btnEditarConsulta.Click += btnEditarConsulta_Click;
             // 
             // VerConsultas
             // 

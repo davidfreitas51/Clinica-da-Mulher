@@ -1,6 +1,7 @@
 ﻿using ClinicaDaMulher.Models;
 using Maroquio;
 using System.Globalization;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace ClinicaDaMulher.Data
@@ -69,6 +70,22 @@ namespace ClinicaDaMulher.Data
             List<string> motivos = motivosRequisitados.ToList();
             return motivos;
         }
+
+
+        public static void EditarConsulta(IClinicaDaMulherContext context, Consulta consultaAnterior, Consulta novaConsulta)
+        {
+            var consultaAEditar = (from consultas in context.Consultas
+                                   where consultas.Id == consultaAnterior.Id
+                                   select consultas).FirstOrDefault();
+            if (consultaAEditar is Consulta)
+            {
+                consultaAEditar.Cliente = BuscarNomePeloCPF(context, novaConsulta.CPF);
+                consultaAEditar.CPF = novaConsulta.CPF;
+                consultaAEditar.Data = novaConsulta.Data;
+                consultaAEditar.Hora = novaConsulta.Hora;
+            }
+            context.SaveChanges();
+        }
         public static void EditarCliente(IClinicaDaMulherContext context, Cliente clienteAnterior, Cliente novoCliente)
         {
             var clienteAEditar = (from clientes in context.Clientes
@@ -92,6 +109,8 @@ namespace ClinicaDaMulher.Data
             }
             context.SaveChanges();
         }
+
+
 
         public static void DeletarConsulta(IClinicaDaMulherContext context, int id)
         {
@@ -145,11 +164,14 @@ namespace ClinicaDaMulher.Data
         }
         public static string BuscarNomePeloCPF(IClinicaDaMulherContext contexto, string cpf)
         {
-            var clienteEspecificada = from Clientes in contexto.Clientes
+            var clienteEspecificada = (from Clientes in contexto.Clientes
                                       where Clientes.CPF == cpf
-                                      select Clientes;
-            List<Cliente> clientes = clienteEspecificada.ToList();
-            return clientes[0].Nome;
+                                      select Clientes).FirstOrDefault();
+            if (clienteEspecificada is Cliente)
+            {
+                return clienteEspecificada.Nome;
+            }
+            return "";
         }
         public static bool BuscarMotivosDeConsultas(IClinicaDaMulherContext context, string motivo)
         {

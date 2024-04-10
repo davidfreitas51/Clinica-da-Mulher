@@ -1,4 +1,5 @@
 ﻿using ClinicaDaMulher.Data;
+using ClinicaDaMulher.Forms;
 using ClinicaDaMulher.Models;
 using Maroquio;
 using MessageUtils;
@@ -41,16 +42,29 @@ namespace ClinicaDaMulher.Controls
                 }
             }
         }
-        private Motivo ObterConsultaSelecionada()
+        public void EditarConsulta()
+        {
+            var consultaSelecionada = ObterConsultaSelecionada();
+            if (consultaSelecionada != null)
+            {
+                NovaConsultaForm editarConsulta = new NovaConsultaForm(mainForm, true, consultaSelecionada);
+                editarConsulta.ShowDialog();
+            }
+        }
+        private Consulta ObterConsultaSelecionada()
         {
             if (ChecarSelecaoDeLinha())
             {
                 int indiceLinha = dgvConsultas.SelectedRows[0].Index;
-                string idMotivo = dgvConsultas.Rows[indiceLinha].Cells["clnId"].Value.ToString();
-                return new Motivo
+                string idConsulta = dgvConsultas.Rows[indiceLinha].Cells["clnId"].Value.ToString();
+                return new Consulta
                 {
-                    Id = int.Parse(idMotivo),
-                    Nome = dgvConsultas.Rows[indiceLinha].Cells["clnMotivo"].Value.ToString(),
+                    Id = int.Parse(idConsulta),
+                    Cliente = dgvConsultas.Rows[indiceLinha].Cells["clnNomeDoCliente"].Value.ToString(),
+                    CPF = dgvConsultas.Rows[indiceLinha].Cells["clnCPFdoCliente"].Value.ToString(),
+                    Data = dgvConsultas.Rows[indiceLinha].Cells["clnData"].Value.ToString(),
+                    Hora = dgvConsultas.Rows[indiceLinha].Cells["clnHorario"].Value.ToString(),
+                    Motivo = dgvConsultas.Rows[indiceLinha].Cells["clnMotivo"].Value.ToString(),
                 };
             }
             return null;

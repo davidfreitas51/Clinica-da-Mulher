@@ -30,15 +30,15 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             dgvClientes = new DataGridView();
-            clmTelefone = new DataGridViewTextBoxColumn();
-            clnCPF = new DataGridViewTextBoxColumn();
-            clnNome = new DataGridViewTextBoxColumn();
             clnId = new DataGridViewTextBoxColumn();
+            clnNome = new DataGridViewTextBoxColumn();
+            clnCPF = new DataGridViewTextBoxColumn();
+            clnTelefone = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
@@ -64,7 +64,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvClientes.Columns.AddRange(new DataGridViewColumn[] { clnId, clnNome, clnCPF, clmTelefone });
+            dgvClientes.Columns.AddRange(new DataGridViewColumn[] { clnId, clnNome, clnCPF, clnTelefone });
             dgvClientes.Dock = DockStyle.Fill;
             dgvClientes.EnableHeadersVisualStyles = false;
             dgvClientes.GridColor = Color.FromArgb(109, 25, 88);
@@ -79,17 +79,29 @@
             dgvClientes.TabIndex = 3;
             dgvClientes.CellContentClick += dgvClientes_CellContentClick_2;
             // 
-            // clmTelefone
+            // clnId
             // 
-            clmTelefone.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            clmTelefone.DataPropertyName = "Telefone";
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            clmTelefone.DefaultCellStyle = dataGridViewCellStyle6;
-            clmTelefone.HeaderText = "Telefone";
-            clmTelefone.MinimumWidth = 6;
-            clmTelefone.Name = "clmTelefone";
-            clmTelefone.ReadOnly = true;
+            clnId.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            clnId.DataPropertyName = "Id";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            clnId.DefaultCellStyle = dataGridViewCellStyle3;
+            clnId.HeaderText = "ID";
+            clnId.MinimumWidth = 6;
+            clnId.Name = "clnId";
+            clnId.ReadOnly = true;
+            clnId.Width = 125;
+            // 
+            // clnNome
+            // 
+            clnNome.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            clnNome.DataPropertyName = "Nome";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            clnNome.DefaultCellStyle = dataGridViewCellStyle4;
+            clnNome.HeaderText = "Nome";
+            clnNome.MinimumWidth = 6;
+            clnNome.Name = "clnNome";
+            clnNome.ReadOnly = true;
             // 
             // clnCPF
             // 
@@ -105,29 +117,17 @@
             clnCPF.Name = "clnCPF";
             clnCPF.ReadOnly = true;
             // 
-            // clnNome
+            // clnTelefone
             // 
-            clnNome.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            clnNome.DataPropertyName = "Nome";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            clnNome.DefaultCellStyle = dataGridViewCellStyle4;
-            clnNome.HeaderText = "Nome";
-            clnNome.MinimumWidth = 6;
-            clnNome.Name = "clnNome";
-            clnNome.ReadOnly = true;
-            // 
-            // clnId
-            // 
-            clnId.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            clnId.DataPropertyName = "Id";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            clnId.DefaultCellStyle = dataGridViewCellStyle3;
-            clnId.HeaderText = "ID";
-            clnId.MinimumWidth = 6;
-            clnId.Name = "clnId";
-            clnId.ReadOnly = true;
-            clnId.Width = 125;
+            clnTelefone.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            clnTelefone.DataPropertyName = "Telefone";
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            clnTelefone.DefaultCellStyle = dataGridViewCellStyle6;
+            clnTelefone.HeaderText = "Telefone";
+            clnTelefone.MinimumWidth = 6;
+            clnTelefone.Name = "clnTelefone";
+            clnTelefone.ReadOnly = true;
             // 
             // PainelClientes
             // 
@@ -146,6 +146,6 @@
         private DataGridViewTextBoxColumn clnId;
         private DataGridViewTextBoxColumn clnNome;
         private DataGridViewTextBoxColumn clnCPF;
-        private DataGridViewTextBoxColumn clmTelefone;
+        private DataGridViewTextBoxColumn clnTelefone;
     }
 }

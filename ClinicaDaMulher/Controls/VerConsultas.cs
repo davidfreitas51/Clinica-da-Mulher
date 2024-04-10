@@ -37,5 +37,10 @@ namespace ClinicaDaMulher.Controls
         {
             mainForm.ExcluirDados(typeof(Consulta));
         }
+
+        private void btnEditarConsulta_Click(object sender, EventArgs e)
+        {
+            mainForm.EditarDados(typeof(Consulta));
+        }
     }
 }
