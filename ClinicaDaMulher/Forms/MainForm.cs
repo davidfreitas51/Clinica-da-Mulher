@@ -104,7 +104,7 @@ namespace ClinicaDaMulher
                     //painelDeConsultas.EditarConsulta();
                     break;
                 case nameof(Cliente):
-                    //painelDeClientes.EditarClientes();
+                    painelDeClientes.EditarCliente();
                     break;
                 case nameof(Motivo):
                     paineldeMotivos.EditarMotivo();

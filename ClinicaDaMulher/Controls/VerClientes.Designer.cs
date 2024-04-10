@@ -112,6 +112,7 @@
             btnEditarCliente.Size = new Size(70, 69);
             btnEditarCliente.TabIndex = 51;
             btnEditarCliente.UseVisualStyleBackColor = false;
+            btnEditarCliente.Click += btnEditarCliente_Click;
             // 
             // btnBuscar
             // 

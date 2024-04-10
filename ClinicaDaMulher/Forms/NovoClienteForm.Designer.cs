@@ -30,7 +30,7 @@
         {
             btnCadastrar = new Button();
             btnCancelar = new Button();
-            label1 = new Label();
+            lblTitulo = new Label();
             mtxCpf = new MaskedTextBox();
             txtNome = new TextBox();
             label2 = new Label();
@@ -59,17 +59,17 @@
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // label1
+            // lblTitulo
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(196, 41);
-            label1.TabIndex = 35;
-            label1.Text = "Novo cliente";
+            lblTitulo.AutoSize = true;
+            lblTitulo.BackColor = Color.Transparent;
+            lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = SystemColors.ControlLightLight;
+            lblTitulo.Location = new Point(12, 9);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(196, 41);
+            lblTitulo.TabIndex = 35;
+            lblTitulo.Text = "Novo cliente";
             // 
             // mtxCpf
             // 
@@ -146,12 +146,13 @@
             Controls.Add(label2);
             Controls.Add(txtNome);
             Controls.Add(mtxCpf);
-            Controls.Add(label1);
+            Controls.Add(lblTitulo);
             Controls.Add(btnCancelar);
             Controls.Add(btnCadastrar);
             Name = "NovoClienteForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "NovoCliente";
+            Load += NovoClienteForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -160,7 +161,7 @@
 
         private Button btnCadastrar;
         private Button btnCancelar;
-        private Label label1;
+        private Label lblTitulo;
         private MaskedTextBox mtxCpf;
         private TextBox txtNome;
         private Label label2;

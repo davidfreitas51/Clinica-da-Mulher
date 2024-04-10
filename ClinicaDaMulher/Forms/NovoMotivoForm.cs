@@ -1,7 +1,6 @@
 ﻿using ClinicaDaMulher.Data;
 using ClinicaDaMulher.Models;
 using MessageUtils;
-using System.Text.RegularExpressions;
 
 namespace ClinicaDaMulher.Forms
 {
@@ -9,16 +8,15 @@ namespace ClinicaDaMulher.Forms
     {
         private readonly MainForm mainForm;
         private readonly IClinicaDaMulherContext context;
-        private readonly bool ModoEdicao;
         private readonly Motivo motivoAEditar;
+        private bool ModoEdicao;
         public NovoMotivoForm(MainForm frm, bool modoEdicao = false, Motivo motivoAnterior = null)
         {
             InitializeComponent();
             mainForm = frm;
             context = frm.context;
-            ModoEdicao = false;
             ModoEdicao = modoEdicao;
-            if (ModoEdicao )
+            if (ModoEdicao)
             {
                 lblTitulo.Text = "Editar motivo";
                 motivoAEditar = motivoAnterior;

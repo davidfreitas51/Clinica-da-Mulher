@@ -9,16 +9,41 @@ namespace ClinicaDaMulher.Forms
     {
         private readonly MainForm mainForm;
         private readonly IClinicaDaMulherContext context;
-
-        public NovoClienteForm(MainForm frm)
+        private readonly Cliente clienteAEditar;
+        private bool ModoEdicao;
+        public NovoClienteForm(MainForm frm, bool modoEdicao = false, Cliente clienteAnterior = null)
         {
             InitializeComponent();
             mainForm = frm;
             context = frm.context;
+            ModoEdicao = modoEdicao;
+            if (ModoEdicao)
+            {
+                lblTitulo.Text = "Editar cliente";
+                clienteAEditar = clienteAnterior;
+                btnCadastrar.Text = "Editar";
+            }
+        }
+        private void NovoClienteForm_Load(object sender, EventArgs e)
+        {
+            if (ModoEdicao)
+            {
+                txtNome.Text = clienteAEditar.Nome;
+                mtxCpf.Text = clienteAEditar.CPF;
+                mtxCpf.Enabled = false;
+                mtxTelefone.Text = clienteAEditar.Telefone;
+            }
         }
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            if (VerificarValidadeDosCampos())
+            if (ModoEdicao)
+            {
+                EditarCliente();
+                SimpleMessage.Inform("Cliente editado com sucesso!");
+                AtualizarGridClientes();
+                this.Close();
+            }
+            else if (VerificarValidadeDosCampos())
             {
                 CriarNovoCliente();
                 SimpleMessage.Inform("Cliente cadastrado com sucesso!");
@@ -95,6 +120,16 @@ namespace ClinicaDaMulher.Forms
                 Telefone = mtxTelefone.Text,
             };
             DbWorker.CriarEntidade(context, novoCliente);
+        }
+        private void EditarCliente()
+        {
+            Cliente clienteEditado = new Cliente
+            {
+                Nome = txtNome.Text,
+                CPF = mtxCpf.Text,
+                Telefone = mtxTelefone.Text,
+            };
+            DbWorker.EditarCliente(context, clienteAEditar, clienteEditado);
         }
         private void AtualizarGridClientes()
         {

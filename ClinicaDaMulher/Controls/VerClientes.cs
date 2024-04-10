@@ -43,7 +43,12 @@ namespace ClinicaDaMulher.Controls
 
         private void btnDeletarCliente_Click(object sender, EventArgs e)
         {
-            mainForm.ExcluirDados(typeof (Models.Cliente)) ;
+            mainForm.ExcluirDados(typeof(Models.Cliente));
+        }
+
+        private void btnEditarCliente_Click(object sender, EventArgs e)
+        {
+            mainForm.EditarDados(typeof(Models.Cliente));
         }
     }
 }

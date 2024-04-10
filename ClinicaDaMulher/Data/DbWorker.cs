@@ -69,7 +69,18 @@ namespace ClinicaDaMulher.Data
             List<string> motivos = motivosRequisitados.ToList();
             return motivos;
         }
-
+        public static void EditarCliente(IClinicaDaMulherContext context, Cliente clienteAnterior, Cliente novoCliente)
+        {
+            var clienteAEditar = (from clientes in context.Clientes
+                                  where clientes.Id ==  clienteAnterior.Id
+                                  select clientes).FirstOrDefault();
+            if (clienteAEditar is Cliente)
+            {
+                clienteAEditar.Nome = novoCliente.Nome;
+                clienteAEditar.Telefone = novoCliente.Telefone;
+            }
+            context.SaveChanges();
+        }
         public static void EditarMotivo(IClinicaDaMulherContext context, Motivo motivoAnterior, Motivo novoMotivo)
         {
             var motivoAEditar = (from motivos in context.Motivos

@@ -1,4 +1,5 @@
 ﻿using ClinicaDaMulher.Data;
+using ClinicaDaMulher.Forms;
 using ClinicaDaMulher.Models;
 using Maroquio;
 using MessageUtils;
@@ -49,6 +50,15 @@ namespace ClinicaDaMulher.Controls
                         mainForm.RefreshGrid(DbWorker.ListarTabelaClientes(context));
                     }
                 }
+            }
+        }
+        public void EditarCliente()
+        {
+            var clienteSelecionado = ObterClienteSelecionado();
+            if (clienteSelecionado != null)
+            {
+                NovoClienteForm editarCliente = new NovoClienteForm(mainForm, true, clienteSelecionado);
+                editarCliente.ShowDialog();
             }
         }
         private Cliente ObterClienteSelecionado()
