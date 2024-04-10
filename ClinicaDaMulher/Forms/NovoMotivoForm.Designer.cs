@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NovoMotivoForm));
             lblTitulo = new Label();
             label2 = new Label();
             txtNomeDoMotivo = new TextBox();
@@ -79,7 +80,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(70, 151);
+            btnCancelar.Location = new Point(76, 151);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(94, 29);
             btnCancelar.TabIndex = 42;
@@ -99,6 +100,7 @@
             Controls.Add(label2);
             Controls.Add(txtNomeDoMotivo);
             Controls.Add(lblTitulo);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "NovoMotivoForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Novo motivo";

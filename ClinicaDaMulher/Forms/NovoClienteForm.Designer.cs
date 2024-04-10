@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NovoClienteForm));
             btnCadastrar = new Button();
             btnCancelar = new Button();
-            lblTitulo = new Label();
             mtxCpf = new MaskedTextBox();
             txtNome = new TextBox();
             label2 = new Label();
             label3 = new Label();
             mtxTelefone = new MaskedTextBox();
             label4 = new Label();
+            lblTitulo = new Label();
             SuspendLayout();
             // 
             // btnCadastrar
@@ -58,18 +59,6 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
-            // 
-            // lblTitulo
-            // 
-            lblTitulo.AutoSize = true;
-            lblTitulo.BackColor = Color.Transparent;
-            lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.ForeColor = SystemColors.ControlLightLight;
-            lblTitulo.Location = new Point(12, 9);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(196, 41);
-            lblTitulo.TabIndex = 35;
-            lblTitulo.Text = "Novo cliente";
             // 
             // mtxCpf
             // 
@@ -133,6 +122,18 @@
             label4.TabIndex = 41;
             label4.Text = "Telefone";
             // 
+            // lblTitulo
+            // 
+            lblTitulo.AutoSize = true;
+            lblTitulo.BackColor = Color.Transparent;
+            lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = SystemColors.ControlLightLight;
+            lblTitulo.Location = new Point(12, 9);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(196, 41);
+            lblTitulo.TabIndex = 35;
+            lblTitulo.Text = "Novo cliente";
+            // 
             // NovoClienteForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -140,15 +141,16 @@
             BackColor = Color.FromArgb(55, 40, 83);
             ClientSize = new Size(351, 293);
             ControlBox = false;
+            Controls.Add(lblTitulo);
             Controls.Add(label4);
             Controls.Add(mtxTelefone);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(txtNome);
             Controls.Add(mtxCpf);
-            Controls.Add(lblTitulo);
             Controls.Add(btnCancelar);
             Controls.Add(btnCadastrar);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "NovoClienteForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "NovoCliente";
@@ -161,12 +163,12 @@
 
         private Button btnCadastrar;
         private Button btnCancelar;
-        private Label lblTitulo;
         private MaskedTextBox mtxCpf;
         private TextBox txtNome;
         private Label label2;
         private Label label3;
         private MaskedTextBox mtxTelefone;
         private Label label4;
+        private Label lblTitulo;
     }
 }

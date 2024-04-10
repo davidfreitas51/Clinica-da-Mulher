@@ -47,5 +47,11 @@ namespace ClinicaDaMulher.Controls
         {
             mainForm.EditarDados(typeof(Models.Motivo));
         }
+
+        private void btnLimpar_Click_1(object sender, EventArgs e)
+        {
+            txtMotivo.Text = "";
+            AtualizarGridMotivos();
+        }
     }
 }

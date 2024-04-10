@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NovaConsultaForm));
             lblTitulo = new Label();
             label4 = new Label();
             label3 = new Label();
@@ -148,7 +149,7 @@
             mtxHorario.Location = new Point(266, 198);
             mtxHorario.Mask = "00:00";
             mtxHorario.Name = "mtxHorario";
-            mtxHorario.Size = new Size(54, 34);
+            mtxHorario.Size = new Size(64, 34);
             mtxHorario.TabIndex = 59;
             mtxHorario.ValidatingType = typeof(DateTime);
             // 
@@ -180,6 +181,7 @@
             Controls.Add(label3);
             Controls.Add(mtxCpf);
             Controls.Add(lblTitulo);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "NovaConsultaForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Nova consulta";

@@ -75,7 +75,7 @@
             upperPanel.Dock = DockStyle.Top;
             upperPanel.Location = new Point(0, 0);
             upperPanel.Name = "upperPanel";
-            upperPanel.Size = new Size(1428, 77);
+            upperPanel.Size = new Size(1452, 77);
             upperPanel.TabIndex = 44;
             // 
             // pnlUpperControls
@@ -83,7 +83,7 @@
             pnlUpperControls.Dock = DockStyle.Top;
             pnlUpperControls.Location = new Point(240, 0);
             pnlUpperControls.Name = "pnlUpperControls";
-            pnlUpperControls.Size = new Size(1188, 77);
+            pnlUpperControls.Size = new Size(1212, 77);
             pnlUpperControls.TabIndex = 46;
             // 
             // pnlLogo
@@ -172,7 +172,7 @@
             painelDgv.Dock = DockStyle.Fill;
             painelDgv.Location = new Point(239, 77);
             painelDgv.Name = "painelDgv";
-            painelDgv.Size = new Size(1189, 866);
+            painelDgv.Size = new Size(1213, 866);
             painelDgv.TabIndex = 48;
             // 
             // MainForm
@@ -180,7 +180,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(167, 38, 135);
-            ClientSize = new Size(1428, 943);
+            ClientSize = new Size(1452, 943);
             Controls.Add(painelDgv);
             Controls.Add(panel2);
             Controls.Add(upperPanel);

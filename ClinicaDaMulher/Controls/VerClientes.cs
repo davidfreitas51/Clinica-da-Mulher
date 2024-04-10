@@ -50,5 +50,12 @@ namespace ClinicaDaMulher.Controls
         {
             mainForm.EditarDados(typeof(Models.Cliente));
         }
+
+        private void btnLimpar_Click_1(object sender, EventArgs e)
+        {
+            txtNome.Text = "";
+            txtCpf.Text = "";
+            mainForm.RefreshGrid(DbWorker.ListarTabelaClientes(context));
+        }
     }
 }

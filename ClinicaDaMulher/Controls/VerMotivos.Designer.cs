@@ -30,29 +30,55 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerMotivos));
             painelLegal = new Panel();
+            btnLimpar = new Button();
+            panel2 = new Panel();
             btnBuscar = new Button();
             panel1 = new Panel();
             btnExcluirMotivo = new Button();
             btnEditarMotivo = new Button();
             btnNovoMotivo = new Button();
-            txtMotivo = new TextBox();
+            panel3 = new Panel();
             label3 = new Label();
+            txtMotivo = new TextBox();
             painelLegal.SuspendLayout();
+            panel2.SuspendLayout();
             panel1.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // painelLegal
             // 
             painelLegal.BackColor = Color.FromArgb(167, 38, 135);
-            painelLegal.Controls.Add(btnBuscar);
+            painelLegal.Controls.Add(btnLimpar);
+            painelLegal.Controls.Add(panel2);
             painelLegal.Controls.Add(panel1);
-            painelLegal.Controls.Add(txtMotivo);
-            painelLegal.Controls.Add(label3);
+            painelLegal.Controls.Add(panel3);
             painelLegal.Dock = DockStyle.Fill;
             painelLegal.Location = new Point(0, 0);
             painelLegal.Name = "painelLegal";
             painelLegal.Size = new Size(847, 84);
             painelLegal.TabIndex = 1;
+            // 
+            // btnLimpar
+            // 
+            btnLimpar.FlatAppearance.BorderSize = 0;
+            btnLimpar.FlatStyle = FlatStyle.Flat;
+            btnLimpar.Image = (Image)resources.GetObject("btnLimpar.Image");
+            btnLimpar.Location = new Point(29, 6);
+            btnLimpar.Name = "btnLimpar";
+            btnLimpar.Size = new Size(70, 70);
+            btnLimpar.TabIndex = 60;
+            btnLimpar.UseVisualStyleBackColor = true;
+            btnLimpar.Click += btnLimpar_Click_1;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(btnBuscar);
+            panel2.Dock = DockStyle.Right;
+            panel2.Location = new Point(401, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(164, 84);
+            panel2.TabIndex = 55;
             // 
             // btnBuscar
             // 
@@ -60,9 +86,9 @@
             btnBuscar.BackgroundImageLayout = ImageLayout.Stretch;
             btnBuscar.FlatStyle = FlatStyle.Flat;
             btnBuscar.ForeColor = Color.FromArgb(167, 38, 135);
-            btnBuscar.Location = new Point(203, 24);
+            btnBuscar.Location = new Point(38, 12);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(46, 46);
+            btnBuscar.Size = new Size(64, 64);
             btnBuscar.TabIndex = 51;
             btnBuscar.UseVisualStyleBackColor = true;
             btnBuscar.Click += btnBuscar_Click;
@@ -126,24 +152,33 @@
             btnNovoMotivo.UseVisualStyleBackColor = false;
             btnNovoMotivo.Click += btnNovaRazao_Click;
             // 
-            // txtMotivo
+            // panel3
             // 
-            txtMotivo.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtMotivo.Location = new Point(17, 39);
-            txtMotivo.Name = "txtMotivo";
-            txtMotivo.Size = new Size(153, 31);
-            txtMotivo.TabIndex = 53;
+            panel3.Controls.Add(label3);
+            panel3.Controls.Add(txtMotivo);
+            panel3.Location = new Point(118, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(284, 84);
+            panel3.TabIndex = 61;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(17, 8);
+            label3.Location = new Point(34, 10);
             label3.Name = "label3";
             label3.Size = new Size(80, 28);
             label3.TabIndex = 52;
             label3.Text = "Motivo";
+            // 
+            // txtMotivo
+            // 
+            txtMotivo.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtMotivo.Location = new Point(34, 41);
+            txtMotivo.Name = "txtMotivo";
+            txtMotivo.Size = new Size(243, 31);
+            txtMotivo.TabIndex = 53;
             // 
             // VerMotivos
             // 
@@ -153,8 +188,10 @@
             Name = "VerMotivos";
             Size = new Size(847, 84);
             painelLegal.ResumeLayout(false);
-            painelLegal.PerformLayout();
+            panel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -168,5 +205,8 @@
         private Button btnEditarMotivo;
         private Button btnNovoMotivo;
         private Button btnBuscar;
+        private Panel panel2;
+        private Button btnLimpar;
+        private Panel panel3;
     }
 }
