@@ -162,7 +162,7 @@
             mtxDia.Location = new Point(513, 44);
             mtxDia.Mask = "00/00/0000";
             mtxDia.Name = "mtxDia";
-            mtxDia.Size = new Size(125, 27);
+            mtxDia.Size = new Size(95, 27);
             mtxDia.TabIndex = 55;
             mtxDia.ValidatingType = typeof(DateTime);
             // 

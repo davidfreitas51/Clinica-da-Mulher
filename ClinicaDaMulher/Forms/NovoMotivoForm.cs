@@ -34,13 +34,7 @@ namespace ClinicaDaMulher.Forms
         {
             if (ModoEdicao)
             {
-                if (ValidarNome())
-                {
-                    EditarMotivo();
-                    SimpleMessage.Inform("Motivo editado com sucesso");
-                    AtualizarGridMotivos();
-                    this.Close();
-                }
+                EditarMotivo();
             }
             else if (ValidarNome())
             {
@@ -101,11 +95,14 @@ namespace ClinicaDaMulher.Forms
         }
         private void EditarMotivo()
         {
-            Motivo motivoEditado = new Motivo
+            if (ValidarNome())
             {
-                Nome = txtNomeDoMotivo.Text
-            };
-            DbWorker.EditarMotivo(context, motivoAEditar,  motivoEditado);
+                Motivo motivoEditado = new Motivo
+                {
+                    Nome = txtNomeDoMotivo.Text
+                };
+                DbWorker.EditarMotivo(context, motivoAEditar, motivoEditado);
+            }
         }
 
         private void AtualizarGridMotivos()

@@ -84,6 +84,7 @@
             clnId.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             clnId.DataPropertyName = "Id";
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             clnId.DefaultCellStyle = dataGridViewCellStyle3;
             clnId.HeaderText = "ID";
             clnId.MinimumWidth = 6;
