@@ -19,9 +19,8 @@ namespace ClinicaDaMulher.Forms
             ModoEdicao = modoEdicao;
             if (ModoEdicao)
             {
-                lblTitulo.Text = "Editar consulta";
+                AdequarForm();
                 consultaAEditar = consultaAnterior;
-                btnMarcar.Text = "Editar";
             }
         }
         private void NovaConsultaForm_Load(object sender, EventArgs e)
@@ -45,10 +44,6 @@ namespace ClinicaDaMulher.Forms
             else if (ValidarCampos() && ConfirmarDados())
             {
                 CriarNovaConsulta();
-                SimpleMessage.Inform("Consulta criada com sucesso");
-                var consultas = DbWorker.ListarTabelaConsultas(context);
-                mainForm.RefreshGrid(DbWorker.ListarTabelaConsultas(context));
-                this.Close();
             }
         }
 
@@ -114,6 +109,7 @@ namespace ClinicaDaMulher.Forms
             string nomeDaCliente = DbWorker.BuscarNomePeloCPF(context, mtxCpf.Text);
             string mensagemDeConfirmação = $"Confirme os dados:\n\nCliente: {nomeDaCliente}\nCPF: {mtxCpf.Text}\n" +
             $"Dia: {mtxData.Text}\nHorário: {mtxHorario.Text}\nMotivo: {cbxMotivo.Text}\n\nEstá tudo correto?";
+
             return SimpleMessage.Confirm(mensagemDeConfirmação);
         }
         private void CriarNovaConsulta()
@@ -127,6 +123,9 @@ namespace ClinicaDaMulher.Forms
                 Motivo = cbxMotivo.Text.Trim(),
             };
             DbWorker.CriarEntidade(context, novaConsulta);
+            SimpleMessage.Inform("Consulta marcada com sucesso");
+            AtualizarGridConsultas();
+            this.Close();
         }
         private void AtualizarGridConsultas()
         {
@@ -145,18 +144,29 @@ namespace ClinicaDaMulher.Forms
         {
             if (ValidarCampos())
             {
-                Consulta consultaEditada = new Consulta
-                {
-                    Cliente = DbWorker.BuscarNomePeloCPF(context, mtxCpf.Text),
-                    CPF = mtxCpf.Text,
-                    Data = mtxData.Text,
-                    Hora = mtxHorario.Text,
-                };
+                Consulta consultaEditada = CriarConsultaEditada();
                 DbWorker.EditarConsulta(context, consultaAEditar, consultaEditada);
                 SimpleMessage.Inform("Consulta editada com sucesso");
                 AtualizarGridConsultas();
                 this.Close();
             }
+        }
+        private Consulta CriarConsultaEditada()
+        {
+            Consulta consultaEditada = new Consulta
+            {
+                Cliente = DbWorker.BuscarNomePeloCPF(context, mtxCpf.Text),
+                CPF = mtxCpf.Text,
+                Motivo = cbxMotivo.Text,
+                Data = mtxData.Text,
+                Hora = mtxHorario.Text,
+            };
+            return consultaEditada;
+        }
+        public void AdequarForm()
+        {
+            lblTitulo.Text = "Editar consulta";
+            btnMarcar.Text = "Editar";
         }
         public static string RemoverLiterais(string input)
         {

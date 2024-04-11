@@ -81,6 +81,7 @@ namespace ClinicaDaMulher.Data
             {
                 consultaAEditar.Cliente = BuscarNomePeloCPF(context, novaConsulta.CPF);
                 consultaAEditar.CPF = novaConsulta.CPF;
+                consultaAEditar.Motivo = novaConsulta.Motivo;
                 consultaAEditar.Data = novaConsulta.Data;
                 consultaAEditar.Hora = novaConsulta.Hora;
             }

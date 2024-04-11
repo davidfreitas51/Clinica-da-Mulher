@@ -18,9 +18,8 @@ namespace ClinicaDaMulher.Forms
             ModoEdicao = modoEdicao;
             if (ModoEdicao)
             {
-                lblTitulo.Text = "Editar motivo";
+                AdequarForm();
                 motivoAEditar = motivoAnterior;
-                btnRegistrar.Text = "Editar";
             }
         }
         private void NovoMotivoForm_Load(object sender, EventArgs e)
@@ -34,7 +33,7 @@ namespace ClinicaDaMulher.Forms
         {
             if (ModoEdicao)
             {
-                EditarMotivo();
+                EditarMotivo();;
             }
             else if (ValidarNome())
             {
@@ -97,20 +96,29 @@ namespace ClinicaDaMulher.Forms
         {
             if (ValidarNome())
             {
-                Motivo motivoEditado = new Motivo
-                {
-                    Nome = txtNomeDoMotivo.Text
-                };
+                Motivo motivoEditado = CriarMotivoEditado();
                 DbWorker.EditarMotivo(context, motivoAEditar, motivoEditado);
                 SimpleMessage.Inform("Motivo editado com sucesso");
-                mainForm.RefreshGrid(DbWorker.ListarTabelaMotivos(context));
+                AtualizarGridMotivos();
                 this.Close();
             }
         }
-
+        private Motivo CriarMotivoEditado()
+        {
+            Motivo motivoEditado = new Motivo
+            {
+                Nome = txtNomeDoMotivo.Text
+            };
+            return motivoEditado;
+        }
         private void AtualizarGridMotivos()
         {
             mainForm.RefreshGrid(DbWorker.ListarTabelaMotivos(context));
+        }
+        private void AdequarForm()
+        {
+            lblTitulo.Text = "Editar motivo";
+            btnRegistrar.Text = "Editar";
         }
     }
 }

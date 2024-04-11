@@ -39,16 +39,10 @@ namespace ClinicaDaMulher.Forms
             if (ModoEdicao)
             {
                 EditarCliente();
-                SimpleMessage.Inform("Cliente editado com sucesso");
-                AtualizarGridClientes();
-                this.Close();
             }
             else if (VerificarValidadeDosCampos())
             {
                 CriarNovoCliente();
-                SimpleMessage.Inform("Cliente cadastrado com sucesso");
-                AtualizarGridClientes();
-                this.Close();
             }
         }
 
@@ -61,7 +55,7 @@ namespace ClinicaDaMulher.Forms
         }
         private bool VerificarValidadeDosCampos()
         {
-            string mensagemDeErro = "";
+            string mensagemDeErro = VerificarNomeETelefone();
             if (!DbWorker.VerificarValidadeDeCPF(context, mtxCpf.Text))
             {
                 mensagemDeErro = "Já existe um cliente com esse CPF";
@@ -69,14 +63,6 @@ namespace ClinicaDaMulher.Forms
             if (RemoverLiterais(mtxCpf.Text).Length != 11)
             {
                 mensagemDeErro = "Insira um CPF válido";
-            }
-            if (txtNome.Text.Length < 3)
-            {
-                mensagemDeErro = "Insira um nome válido";
-            }
-            if (RemoverLiterais(mtxTelefone.Text).Length < 10)
-            {
-                mensagemDeErro = "Insira um telefone válido";
             }
             if (!string.IsNullOrEmpty(mensagemDeErro))
             {
@@ -120,8 +106,40 @@ namespace ClinicaDaMulher.Forms
                 Telefone = mtxTelefone.Text,
             };
             DbWorker.CriarEntidade(context, novoCliente);
+            SimpleMessage.Inform("Cliente cadastrado com sucesso");
+            AtualizarGridClientes();
+            this.Close();
         }
         private void EditarCliente()
+        {
+            string mensagemDeErro = VerificarNomeETelefone();
+            if (!string.IsNullOrEmpty(mensagemDeErro))
+            {
+                SimpleMessage.Inform(mensagemDeErro);
+            }
+            else
+            {
+                Cliente clienteEditado = CriarClienteEditado();
+                DbWorker.EditarCliente(context, clienteAEditar, clienteEditado);
+                SimpleMessage.Inform("Cliente editado com sucesso");
+                AtualizarGridClientes();
+                this.Close();
+            }
+        }
+        private string VerificarNomeETelefone()
+        {
+            string mensagemDeErro = "";
+            if (txtNome.Text.Length < 3)
+            {
+                mensagemDeErro = "Insira um nome válido";
+            }
+            if (RemoverLiterais(mtxTelefone.Text).Length < 10)
+            {
+                mensagemDeErro = "Insira um telefone válido";
+            }
+            return mensagemDeErro;
+        }
+        private Cliente CriarClienteEditado()
         {
             Cliente clienteEditado = new Cliente
             {
@@ -129,7 +147,7 @@ namespace ClinicaDaMulher.Forms
                 CPF = mtxCpf.Text,
                 Telefone = mtxTelefone.Text,
             };
-            DbWorker.EditarCliente(context, clienteAEditar, clienteEditado);
+            return clienteEditado;
         }
         private void AtualizarGridClientes()
         {
