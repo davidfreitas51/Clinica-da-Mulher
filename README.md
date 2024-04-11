@@ -1,6 +1,6 @@
 # Clínica da Mulher
 
-Projeto feito para uma clínica local, que permite o trabalho com cadastro de clientes, motivos e marcar novas consultas. Entre as tecnologias utilizadas estão:
+Projeto feito para uma clínica local, que permite o CRUD de clientes, motivos e consultas, além de uma interface intuitiva e moderna. Entre as tecnologias utilizadas estão:
 - C#
 - EntityFramework Core
 - SQLite
