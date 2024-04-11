@@ -192,7 +192,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "NovaConsultaForm";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Nova consulta";
+            Text = "Consulta";
             Load += NovaConsultaForm_Load;
             ResumeLayout(false);
             PerformLayout();

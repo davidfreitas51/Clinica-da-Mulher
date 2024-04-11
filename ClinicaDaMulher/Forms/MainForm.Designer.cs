@@ -188,6 +188,7 @@
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Clínica da Mulher";
+            Load += MainForm_Load;
             upperPanel.ResumeLayout(false);
             pnlLogo.ResumeLayout(false);
             pnlLogo.PerformLayout();

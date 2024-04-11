@@ -55,7 +55,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ControlLightLight;
-            label4.Location = new Point(656, 12);
+            label4.Location = new Point(655, 6);
             label4.Name = "label4";
             label4.Size = new Size(80, 28);
             label4.TabIndex = 44;
@@ -67,7 +67,7 @@
             cbxMotivo.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbxMotivo.Font = new Font("Microsoft Sans Serif", 10.2F);
             cbxMotivo.FormattingEnabled = true;
-            cbxMotivo.Location = new Point(656, 43);
+            cbxMotivo.Location = new Point(655, 38);
             cbxMotivo.Name = "cbxMotivo";
             cbxMotivo.Size = new Size(151, 28);
             cbxMotivo.TabIndex = 43;
@@ -77,7 +77,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ControlLightLight;
-            label2.Location = new Point(513, 9);
+            label2.Location = new Point(513, 6);
             label2.Name = "label2";
             label2.Size = new Size(44, 28);
             label2.TabIndex = 42;
@@ -88,7 +88,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(344, 10);
+            label3.Location = new Point(351, 6);
             label3.Name = "label3";
             label3.Size = new Size(132, 28);
             label3.TabIndex = 46;
@@ -151,7 +151,7 @@
             // txtCpf
             // 
             txtCpf.Font = new Font("Microsoft Sans Serif", 10.2F);
-            txtCpf.Location = new Point(351, 44);
+            txtCpf.Location = new Point(351, 39);
             txtCpf.Name = "txtCpf";
             txtCpf.Size = new Size(125, 27);
             txtCpf.TabIndex = 56;
@@ -159,7 +159,7 @@
             // mtxDia
             // 
             mtxDia.Font = new Font("Microsoft Sans Serif", 10.2F);
-            mtxDia.Location = new Point(513, 44);
+            mtxDia.Location = new Point(513, 39);
             mtxDia.Mask = "00/00/0000";
             mtxDia.Name = "mtxDia";
             mtxDia.Size = new Size(95, 27);
@@ -179,7 +179,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(139, 13);
+            label1.Location = new Point(136, 6);
             label1.Name = "label1";
             label1.Size = new Size(69, 28);
             label1.TabIndex = 53;

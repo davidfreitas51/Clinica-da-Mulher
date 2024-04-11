@@ -103,7 +103,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "NovoMotivoForm";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Novo motivo";
+            Text = "Motivo";
             Load += NovoMotivoForm_Load;
             ResumeLayout(false);
             PerformLayout();

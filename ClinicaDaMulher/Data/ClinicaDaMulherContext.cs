@@ -12,6 +12,7 @@ namespace ClinicaDaMulher.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Data Source=clinicaDaMulher.db");
+            
         }
         public void CriarEntidade<T>(T entidade) where T : class
         {

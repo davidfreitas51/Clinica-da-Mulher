@@ -2,7 +2,6 @@ using ClinicaDaMulher.Controls;
 using ClinicaDaMulher.Data;
 using ClinicaDaMulher.Models;
 using Maroquio;
-using MessageUtils;
 
 namespace ClinicaDaMulher
 {
@@ -162,6 +161,11 @@ namespace ClinicaDaMulher
         private void btnVerMotivos_MouseLeave(object sender, EventArgs e)
         {
             MudarCorDoBotaoMousePorCima(btnVerMotivos);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

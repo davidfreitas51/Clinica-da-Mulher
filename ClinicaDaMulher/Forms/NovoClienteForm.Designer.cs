@@ -153,7 +153,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "NovoClienteForm";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "NovoCliente";
+            Text = "Cliente";
             Load += NovoClienteForm_Load;
             ResumeLayout(false);
             PerformLayout();
