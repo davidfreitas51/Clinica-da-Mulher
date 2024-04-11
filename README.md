@@ -1,7 +1,7 @@
 # Clínica da Mulher
 
 Projeto feito para uma clínica local, que permite o CRUD, pesquisa e ordenação de clientes, motivos e consultas, além de uma interface intuitiva e moderna. Entre as tecnologias utilizadas estão:
-- C#
+- C# / .NET
 - EntityFramework Core
 - SQLite
 - Windows Forms
