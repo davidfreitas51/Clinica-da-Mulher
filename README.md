@@ -8,11 +8,6 @@ Projeto feito para uma clínica local, que permite o CRUD, pesquisa e ordenaçã
   
 O projeto foi feito seguindo os princípios SOLID e o Clean Code, então possui fácil manutenção e expensão se necessário
 
-## Tabela de Conteúdos
-
-- [Instalação](#instalação)
-- [Uso](#uso)
-
 ## Instalação
 
 No seu Visual Studio ou IDE de sua preferência, dê pull no repositório. Depois disso, execute o projeto "ClinicaDaMulher"
