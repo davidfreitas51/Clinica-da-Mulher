@@ -6,7 +6,7 @@ Projeto feito para uma clínica local, que permite o CRUD, pesquisa e ordenaçã
 - SQLite
 - Windows Forms
   
-O projeto foi feito seguindo os princípios SOLID e o Clean Code, então possui fácil manutenção e expensão se necessário
+O projeto foi feito seguindo os princípios SOLID e o Clean Code, então possui fácil manutenção e expansão se necessário
 
 ## Instalação
 
@@ -14,5 +14,4 @@ No seu Visual Studio ou IDE de sua preferência, dê pull no repositório. Depoi
 
 ## Uso
 
-O programa utiliza dados de clientes e motivos para criar consultas. Você pode criar, ler, pesquisar, editar e excluir os dados que precisar; No app, você pode cadastrar clientes, motivos de consulta e marcar novas consultas, além de pesquisar e ordenar da forma que desejar
-
+O programa facilita a gestão de clientes, motivos de consulta e consultas, possibilitando criação, leitura, edição, busca, ordenamento e exclusão de dados conforme necessário. Para agendar uma consulta, é necessário primeiro cadastrar motivos e clientes.
