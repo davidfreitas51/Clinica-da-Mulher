@@ -15,3 +15,8 @@ No seu Visual Studio ou IDE de sua preferência, dê pull no repositório. Depoi
 ## Uso
 
 O programa facilita a gestão de clientes, motivos de consulta e consultas, possibilitando criação, leitura, edição, busca, ordenamento e exclusão de dados conforme necessário. Para agendar uma consulta, é necessário primeiro cadastrar motivos e clientes.
+
+## Demonstração
+
+Aqui está um vídeo de demonstração do uso do aplicativo:
+https://youtu.be/6vFmhOXRRKM
