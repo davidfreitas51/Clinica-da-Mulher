@@ -1,22 +1,22 @@
-# Clínica da Mulher
+# Women's Clinic
 
-Projeto feito para uma clínica local, que permite o CRUD, pesquisa e ordenação de clientes, motivos e consultas, além de uma interface intuitiva e moderna. Entre as tecnologias utilizadas estão:
+Project developed for a local clinic, allowing CRUD operations, searching, and sorting of clients, reasons, and appointments, along with an intuitive and modern interface. Among the technologies used are:
 - C# / .NET
 - EntityFramework Core
 - SQLite
 - Windows Forms
-  
-O projeto foi feito seguindo os princípios SOLID e o Clean Code, então possui fácil manutenção e expansão se necessário
 
-## Instalação
+The project follows SOLID principles and Clean Code, ensuring easy maintenance and scalability if needed.
 
-No seu Visual Studio ou IDE de sua preferência, dê pull no repositório. Depois disso, execute o projeto "ClinicaDaMulher"
+## Installation
 
-## Uso
+In your Visual Studio or preferred IDE, pull the repository. After that, run the "ClinicaDaMulher" project.
 
-O programa facilita a gestão de clientes, motivos de consulta e consultas, possibilitando criação, leitura, edição, busca, ordenamento e exclusão de dados conforme necessário. Para agendar uma consulta, é necessário primeiro cadastrar motivos e clientes.
+## Usage
 
-## Demonstração
+The program facilitates the management of clients, consultation reasons, and appointments, enabling creation, reading, editing, searching, sorting, and deletion of data as necessary. To schedule an appointment, it is necessary to first register reasons and clients.
 
-Aqui está um vídeo de demonstração do uso do aplicativo:
-https://youtu.be/6vFmhOXRRKM
+## Demonstration
+
+Here is a video demonstration of the application's use:
+[Watch the video](https://youtu.be/6vFmhOXRRKM)
