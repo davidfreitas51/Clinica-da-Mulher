@@ -1,8 +1,8 @@
 # Women's Clinic
 
-Project developed for a local clinic, allowing CRUD operations, searching, and sorting of clients, reasons, and appointments, along with an intuitive and modern interface. Among the technologies used are:
+Project developed for a local clinic, allowing CRUD operations, searching, and sorting of appointments, clients and appointment reasons, along with an intuitive and modern interface. Among the technologies used are:
 - C# / .NET
-- EntityFramework Core
+- EntityFramework Core (ORM)
 - SQLite
 - Windows Forms
 
@@ -14,7 +14,7 @@ In your Visual Studio or preferred IDE, pull the repository. After that, run the
 
 ## Usage
 
-The program facilitates the management of clients, consultation reasons, and appointments, enabling creation, reading, editing, searching, sorting, and deletion of data as necessary. To schedule an appointment, it is necessary to first register reasons and clients.
+The program facilitates the management of appointments, clients and appointment reasons, enabling creation, reading, editing, searching, sorting, and deletion of data as necessary. To schedule an appointment, it is necessary to first register reasons and clients.
 
 ## Demonstration
 
